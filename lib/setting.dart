@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:koala_tarot_app/privacy.dart';
 import 'package:koala_tarot_app/terms.dart';
-import 'profile.dart'; // Import main.dart
-import 'home.dart'; // Import home.dart
+import 'package:koala_tarot_app/profile.dart'; // Import main.dart
+import 'package:koala_tarot_app/home.dart'; // Import home.dart
 
 class SettingScreen extends StatefulWidget {
   @override
