@@ -7,7 +7,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
+import 'package:koala_tarot_app/setting.dart';
+import 'package:koala_tarot_app/setting.dart';
+import 'package:koala_tarot_app/welcome.dart';
 import 'package:koala_tarot_app/main.dart';
 
 void main() {
