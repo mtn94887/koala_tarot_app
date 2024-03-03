@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:koala_tarot_app/home.dart';
 import 'dart:math';
-
-void main() {
-  runApp(TarotApp());
-}
 
 class TarotApp extends StatelessWidget {
   @override

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:koala_tarot_app/setting.dart';
 import 'package:koala_tarot_app/tarot_card_page.dart';
-
-void main() {
-  runApp(TarotApp());
-}
 
 class TarotApp extends StatelessWidget {
   @override
@@ -14,7 +11,34 @@ class TarotApp extends StatelessWidget {
   }
 }
 
-class TarotHomePage extends StatelessWidget {
+class TarotHomePage extends StatefulWidget {
+  @override
+  _TarotHomePageState createState() => _TarotHomePageState();
+}
+
+class _TarotHomePageState extends State<TarotHomePage> {
+  int _selectedIndex = 0;
+
+ void _onItemTapped(int index) {
+  setState(() {
+    _selectedIndex = index;
+  });
+
+  if (index == 3) {
+    // Navigate to SettingScreen if Settings icon is tapped
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SettingScreen()),
+    );
+  } else if (index == 0) {
+    // Navigate to TarotHomePage if Spreads icon is tapped
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => TarotHomePage()),
+    );
+  }
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,23 +64,30 @@ class TarotHomePage extends StatelessWidget {
           crossAxisSpacing: 10,
           children: [
             CategoryCard(categoryName: "Education", iconData: Icons.school),
-            CategoryCard(categoryName: "Yes/No Question", iconData: Icons.sentiment_satisfied),
+            CategoryCard(
+                categoryName: "Yes/No Question", iconData: Icons.sentiment_satisfied),
             CategoryCard(categoryName: "Daily Reading", iconData: Icons.today),
             CategoryCard(categoryName: "Weekly Reading", iconData: Icons.view_week),
             CategoryCard(categoryName: "Quick Reading", iconData: Icons.flash_on),
-            CategoryCard(categoryName: "Three-Card Reading", iconData: Icons.format_list_numbered),
+            CategoryCard(
+                categoryName: "Three-Card Reading", iconData: Icons.format_list_numbered),
             CategoryCard(categoryName: "Relationship Reading", iconData: Icons.favorite),
-            CategoryCard(categoryName: "New Love", iconData: Icons.energy_savings_leaf_sharp),
+            CategoryCard(
+                categoryName: "New Love", iconData: Icons.energy_savings_leaf_sharp),
             CategoryCard(categoryName: "Health", iconData: Icons.local_hospital),
             CategoryCard(categoryName: "Prosperly", iconData: Icons.diamond),
-            CategoryCard(categoryName: "Money Career", iconData: Icons.account_balance_wallet),
-            CategoryCard(categoryName: "Background Problem Solution", iconData: Icons.blur_on),
+            CategoryCard(
+                categoryName: "Money Career", iconData: Icons.account_balance_wallet),
+            CategoryCard(
+                categoryName: "Background Problem Solution", iconData: Icons.blur_on),
           ],
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.black,
         unselectedItemColor: Colors.black,
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.article_outlined),

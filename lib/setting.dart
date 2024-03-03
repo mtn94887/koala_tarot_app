@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:koala_tarot_app/privacy.dart';
 import 'package:koala_tarot_app/terms.dart';
-import 'package:koala_tarot_app/privacy.dart';
-import 'package:koala_tarot_app/terms.dart';
 import 'profile.dart'; // Import main.dart
+import 'home.dart'; // Import home.dart
 
 class SettingScreen extends StatefulWidget {
   @override
@@ -12,116 +11,155 @@ class SettingScreen extends StatefulWidget {
 
 class _SettingScreenState extends State<SettingScreen> {
   bool isDarkModeEnabled = false;
-
+  int _selectedIndex = 0; // Index for the selected item in BottomNavigationBar
   String appVersion = '1.0.0';
+
+  void _onItemTapped(int index) {
+  setState(() {
+    _selectedIndex = index;
+  });
+
+  if (index == 3) {
+    // Navigate to SettingScreen if Settings icon is tapped
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SettingScreen()),
+    );
+  } else if (index == 0) {
+    // Navigate to TarotHomePage if Spreads icon is tapped
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => TarotHomePage()),
+    );
+  }
+}
+
 
   @override
   Widget build(BuildContext context) {
     int currentYear = DateTime.now().year;
 
-    return MaterialApp(
-      title: 'Settings',
-      theme: isDarkModeEnabled ? darkTheme : lightTheme,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'Settings',
-            style: TextStyle(
-              fontWeight: FontWeight.bold, // Make title bold
-              fontSize: 24, // Increase font size
-            ),
-          ),
-          actions: [
-            GestureDetector( // Wrap with GestureDetector
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ProfileApp()), // Navigate to main.dart
-                );
-              },
-              child: CircleAvatar(
-                radius: 25,
-                backgroundImage: AssetImage('assets/pp.png'),
-              ),
-            ),
-            SizedBox(width: 25), // Adjust spacing as needed
-          ],
-        ),
-        body: Builder(
-          builder: (context) => Column(
-            children: [
-              Expanded(
-                child: ListView(
-                  padding: EdgeInsets.all(20.0),
-                  children: [
-                    // Switch for dark mode
-                    SwitchListTile(
-                      title: Text('Dark Mode'),
-                      value: isDarkModeEnabled,
-                      onChanged: (value) {
-                        setState(() {
-                          isDarkModeEnabled = value;
-                        });
-                      },
-                    ),
-                    ListTile(
-                      title: Text('Help Center'),
-                      onTap: () {
-                        _showHelpCenterDialog(context);
-                      },
-                    ),
-                    ListTile(
-                      title: Text('Terms of Service'),
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => TermsScreen()),
-                        );
-                      },
-                    ),
-                    ListTile(
-                      title: Text('Privacy Policy'),
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => PrivacyScreen()),
-                        );
-                      },
-                    ),
-                    ListTile(
-                      title: Text('Rate Us!'),
-                      onTap: () {
-                        _showRatingDialog(context);
-                      },
-                    ),
-                    ListTile(
-                      title: Text('Logout'),
-                      onTap: () {
-                        // Handle logout
-                      },
-                    ),
-                    ListTile(
-                      title: Text(
-                        'Delete Account',
-                        style: TextStyle(color: Colors.red),
-                      ),
-                      onTap: () {
-                        // Handle account deletion
-                      },
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 20.0),
-                child: Text(
-                  'Version: $appVersion',
-                  style: TextStyle(fontSize: 12),
-                ),
-              ),
-            ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Settings',
+          style: TextStyle(
+            fontWeight: FontWeight.bold, // Make title bold
+            fontSize: 24, // Increase font size
           ),
         ),
+        actions: [
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProfileApp()), // Navigate to main.dart
+              );
+            },
+            child: CircleAvatar(
+              radius: 25,
+              backgroundImage: AssetImage('assets/pp.png'),
+            ),
+          ),
+          SizedBox(width: 25), // Adjust spacing as needed
+        ],
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView(
+              padding: EdgeInsets.all(20.0),
+              children: [
+                // Switch for dark mode
+                SwitchListTile(
+                  title: Text('Dark Mode'),
+                  value: isDarkModeEnabled,
+                  onChanged: (value) {
+                    setState(() {
+                      isDarkModeEnabled = value;
+                    });
+                  },
+                ),
+                ListTile(
+                  title: Text('Help Center'),
+                  onTap: () {
+                    _showHelpCenterDialog(context);
+                  },
+                ),
+                ListTile(
+                  title: Text('Terms of Service'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => TermsScreen()),
+                    );
+                  },
+                ),
+                ListTile(
+                  title: Text('Privacy Policy'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => PrivacyScreen()),
+                    );
+                  },
+                ),
+                ListTile(
+                  title: Text('Rate Us!'),
+                  onTap: () {
+                    _showRatingDialog(context);
+                  },
+                ),
+                ListTile(
+                  title: Text('Logout'),
+                  onTap: () {
+                    // Handle logout
+                  },
+                ),
+                ListTile(
+                  title: Text(
+                    'Delete Account',
+                    style: TextStyle(color: Colors.red),
+                  ),
+                  onTap: () {
+                    // Handle account deletion
+                  },
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 20.0),
+            child: Text(
+              'Version: $appVersion',
+              style: TextStyle(fontSize: 12),
+            ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.black,
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.article_outlined),
+            label: 'Spreads',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.history),
+            label: 'History',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.self_improvement),
+            label: 'Meditation',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
+        ],
       ),
     );
   }
@@ -276,16 +314,15 @@ class _SettingScreenState extends State<SettingScreen> {
     );
   }
 
- void _showRatingThanks(BuildContext context) {
-  ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(
-      content: Text('Thanks for Rating Us!'),
-      duration: Duration(seconds: 3),
-      backgroundColor: Colors.black, // Set background color to black
-    ),
-  );
-}
-
+  void _showRatingThanks(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Thanks for Rating Us!'),
+        duration: Duration(seconds: 3),
+        backgroundColor: Colors.black, // Set background color to black
+      ),
+    );
+  }
 }
 
 final lightTheme = ThemeData(
