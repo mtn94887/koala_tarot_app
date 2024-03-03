@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'signup.dart';
-import 'login_page.dart';
+import 'package:koala_tarot_app/signup.dart';
+import 'package:koala_tarot_app/login_page.dart';
 
 class Home extends StatelessWidget {
   @override

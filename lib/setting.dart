@@ -70,16 +70,7 @@ class _SettingScreenState extends State<SettingScreen> {
             child: ListView(
               padding: EdgeInsets.all(20.0),
               children: [
-                // Switch for dark mode
-                SwitchListTile(
-                  title: Text('Dark Mode'),
-                  value: isDarkModeEnabled,
-                  onChanged: (value) {
-                    setState(() {
-                      isDarkModeEnabled = value;
-                    });
-                  },
-                ),
+                
                 ListTile(
                   title: Text('Help Center'),
                   onTap: () {
@@ -324,11 +315,3 @@ class _SettingScreenState extends State<SettingScreen> {
     );
   }
 }
-
-final lightTheme = ThemeData(
-  brightness: Brightness.light,
-);
-
-final darkTheme = ThemeData(
-  brightness: Brightness.dark,
-);
