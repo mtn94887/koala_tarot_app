@@ -10,30 +10,29 @@ class SettingScreen extends StatefulWidget {
 }
 
 class _SettingScreenState extends State<SettingScreen> {
-  bool isDarkModeEnabled = false;
+
   int _selectedIndex = 0; // Index for the selected item in BottomNavigationBar
   String appVersion = '1.0.0';
 
   void _onItemTapped(int index) {
-  setState(() {
-    _selectedIndex = index;
-  });
+    setState(() {
+      _selectedIndex = index;
+    });
 
-  if (index == 3) {
-    // Navigate to SettingScreen if Settings icon is tapped
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => SettingScreen()),
-    );
-  } else if (index == 0) {
-    // Navigate to TarotHomePage if Spreads icon is tapped
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => TarotHomePage()),
-    );
+    if (index == 3) {
+      // Navigate to SettingScreen if Settings icon is tapped
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => SettingScreen()),
+      );
+    } else if (index == 0) {
+      // Navigate to TarotHomePage if Spreads icon is tapped
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => TarotHomePage()),
+      );
+    }
   }
-}
-
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +40,7 @@ class _SettingScreenState extends State<SettingScreen> {
 
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false, // Remove back arrow icon
         title: Text(
           'Settings',
           style: TextStyle(
@@ -70,7 +70,6 @@ class _SettingScreenState extends State<SettingScreen> {
             child: ListView(
               padding: EdgeInsets.all(20.0),
               children: [
-                
                 ListTile(
                   title: Text('Help Center'),
                   onTap: () {
@@ -310,7 +309,6 @@ class _SettingScreenState extends State<SettingScreen> {
       SnackBar(
         content: Text('Thanks for Rating Us!'),
         duration: Duration(seconds: 3),
-        backgroundColor: Colors.black, // Set background color to black
       ),
     );
   }
