@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:koala_tarot_app/home.dart';
 
 class tarothistorypage extends StatelessWidget {
  final List<String> cardLabels = [
@@ -16,6 +17,7 @@ class tarothistorypage extends StatelessWidget {
  Widget build(BuildContext context) {
    return Scaffold(
      appBar: AppBar(
+      automaticallyImplyLeading: false, 
        title: Center(child: Text('Card Reading History')),
      ),
      body: Container(
@@ -64,39 +66,42 @@ class tarothistorypage extends StatelessWidget {
        ),
      ),
      bottomNavigationBar: BottomNavigationBar(
-       items: const <BottomNavigationBarItem>[
+       items: <BottomNavigationBarItem>[
          BottomNavigationBarItem(
-           icon: Icon(Icons.article_outlined),
+           icon: Icon(Icons.article_outlined, color: Colors.black),
            label: 'Spreads',
          ),
          BottomNavigationBarItem(
-           icon: Icon(Icons.history),
+           icon: Icon(Icons.history, color: Colors.black),
            label: 'History',
          ),
          BottomNavigationBarItem(
-           icon: Icon(Icons.self_improvement),
+           icon: Icon(Icons.self_improvement, color: Colors.black),
            label: 'Meditation',
          ),
          BottomNavigationBarItem(
-           icon: Icon(Icons.settings),
+           icon: Icon(Icons.settings, color: Colors.black),
            label: 'Settings',
          ),
        ],
-       selectedItemColor: const Color.fromARGB(255, 29, 24, 24),
+       selectedItemColor: Colors.black,
        currentIndex: 1,
        onTap: (index) {
          switch (index) {
            case 0:
              // Handle Spreads tab tap
+             
              break;
            case 1:
              // Handle History tab tap
+            
              break;
            case 2:
              Navigator.pushNamed(context, '/meditation');
              break;
            case 3:
              // Handle Settings tab tap
+             
              break;
          }
        },
