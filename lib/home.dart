@@ -66,6 +66,7 @@ class _TarotHomePageState extends State<TarotHomePage> {
         ),
         backgroundColor: Color(0xFF7D5AAD),
         centerTitle: true,
+        automaticallyImplyLeading: false, // Remove back arrow button
       ),
       body: Container(
         decoration: BoxDecoration(

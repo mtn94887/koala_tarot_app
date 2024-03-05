@@ -221,7 +221,7 @@ class FeaturesPage extends StatelessWidget {
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Color(0xFF15267D),
+                  
                   padding: EdgeInsets.symmetric(vertical: 13, horizontal: 20),
                 ),
                 child: Text(
@@ -260,7 +260,7 @@ class FeatureButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          primary: Color(0xFF7D5AAD),
+          
           padding: EdgeInsets.symmetric(vertical: 10),
           // Set fixed width for the button
           minimumSize: Size(260, 20),
