@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:koala_tarot_app/home.dart';
 
 class FormPage extends StatelessWidget {
   // Function to open date picker dialog
@@ -116,7 +117,15 @@ class FormPage extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 20),
-                  ElevatedButton(onPressed: () {}, child: Text('Continue')),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => TarotHomePage()),
+                      );
+                    }, 
+                    child: Text('Continue')
+                  ),
                 ],
               ),
             ),
