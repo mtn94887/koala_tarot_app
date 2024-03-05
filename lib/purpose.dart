@@ -106,7 +106,7 @@ class PurposePage extends StatelessWidget {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Color(0xFF15267D),
+                    backgroundColor: Color(0xFF15267D),
                     padding: EdgeInsets.symmetric(vertical: 10),
                   ),
                   child: Text(
