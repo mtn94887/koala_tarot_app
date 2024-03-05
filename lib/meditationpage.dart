@@ -49,7 +49,8 @@ class _MeditationPageState extends State<MeditationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false, // Remove back arrow
+        backgroundColor: Color(0xFF7D5AAD),
+        automaticallyImplyLeading: false,
         title: Center(child: Text('Meditation')),
       ),
       body: Container(

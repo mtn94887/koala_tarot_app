@@ -60,6 +60,7 @@ class _tarothistorypageState extends State<tarothistorypage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xFF7D5AAD),
         automaticallyImplyLeading: false,
         title: Center(child: Text('Card Reading History')),
       ),
