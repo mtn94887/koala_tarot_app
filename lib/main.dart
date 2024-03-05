@@ -6,7 +6,9 @@ import 'features.dart';
 import 'background.dart';
 
 void main() {
-  runApp(Home());
+  runApp(MaterialApp(
+    home: Home(), 
+  ));
 }
 // class TarotApp extends StatelessWidget {
 //   const TarotApp({Key? key}) : super(key: key);
