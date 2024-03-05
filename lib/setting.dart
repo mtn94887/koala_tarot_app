@@ -3,6 +3,7 @@ import 'package:koala_tarot_app/privacy.dart';
 import 'package:koala_tarot_app/terms.dart';
 import 'package:koala_tarot_app/profile.dart'; // Import main.dart
 import 'package:koala_tarot_app/home.dart'; // Import home.dart
+import 'purpose.dart';
 
 class SettingScreen extends StatefulWidget {
   @override
@@ -10,7 +11,6 @@ class SettingScreen extends StatefulWidget {
 }
 
 class _SettingScreenState extends State<SettingScreen> {
-
   int _selectedIndex = 0; // Index for the selected item in BottomNavigationBar
   String appVersion = '1.0.0';
 
@@ -53,7 +53,9 @@ class _SettingScreenState extends State<SettingScreen> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ProfileApp()), // Navigate to main.dart
+                MaterialPageRoute(
+                    builder: (context) =>
+                        ProfileApp()), // Navigate to main.dart
               );
             },
             child: CircleAvatar(
@@ -155,7 +157,13 @@ class _SettingScreenState extends State<SettingScreen> {
   }
 
   void _showRatingDialog(BuildContext context) {
-    List<bool> stars = [false, false, false, false, false]; // Maintain the state of each star
+    List<bool> stars = [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]; // Maintain the state of each star
 
     showDialog(
       context: context,
@@ -174,7 +182,10 @@ class _SettingScreenState extends State<SettingScreen> {
                     children: [
                       IconButton(
                         iconSize: 36,
-                        icon: Icon(Icons.star, color: stars[0] ? Colors.orange : null), // Change color if star is selected
+                        icon: Icon(Icons.star,
+                            color: stars[0]
+                                ? Colors.orange
+                                : null), // Change color if star is selected
                         onPressed: () {
                           setState(() {
                             for (int i = 0; i < 5; i++) {
@@ -189,7 +200,10 @@ class _SettingScreenState extends State<SettingScreen> {
                       ),
                       IconButton(
                         iconSize: 36,
-                        icon: Icon(Icons.star, color: stars[1] ? Colors.orange : null), // Change color if star is selected
+                        icon: Icon(Icons.star,
+                            color: stars[1]
+                                ? Colors.orange
+                                : null), // Change color if star is selected
                         onPressed: () {
                           setState(() {
                             for (int i = 0; i < 5; i++) {
@@ -204,7 +218,10 @@ class _SettingScreenState extends State<SettingScreen> {
                       ),
                       IconButton(
                         iconSize: 36,
-                        icon: Icon(Icons.star, color: stars[2] ? Colors.orange : null), // Change color if star is selected
+                        icon: Icon(Icons.star,
+                            color: stars[2]
+                                ? Colors.orange
+                                : null), // Change color if star is selected
                         onPressed: () {
                           setState(() {
                             for (int i = 0; i < 5; i++) {
@@ -219,7 +236,10 @@ class _SettingScreenState extends State<SettingScreen> {
                       ),
                       IconButton(
                         iconSize: 36,
-                        icon: Icon(Icons.star, color: stars[3] ? Colors.orange : null), // Change color if star is selected
+                        icon: Icon(Icons.star,
+                            color: stars[3]
+                                ? Colors.orange
+                                : null), // Change color if star is selected
                         onPressed: () {
                           setState(() {
                             for (int i = 0; i < 5; i++) {
@@ -234,7 +254,10 @@ class _SettingScreenState extends State<SettingScreen> {
                       ),
                       IconButton(
                         iconSize: 36,
-                        icon: Icon(Icons.star, color: stars[4] ? Colors.orange : null), // Change color if star is selected
+                        icon: Icon(Icons.star,
+                            color: stars[4]
+                                ? Colors.orange
+                                : null), // Change color if star is selected
                         onPressed: () {
                           setState(() {
                             for (int i = 0; i < 5; i++) {
@@ -276,6 +299,10 @@ class _SettingScreenState extends State<SettingScreen> {
               ElevatedButton(
                 onPressed: () {
                   // Handle 'About Tarot'
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PurposePage()),
+                  );
                 },
                 child: Text('About Tarot'),
               ),
