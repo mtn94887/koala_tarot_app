@@ -1,6 +1,50 @@
 import 'package:flutter/material.dart';
+import 'package:koala_tarot_app/home.dart';
+import 'package:koala_tarot_app/setting.dart';
+import 'package:koala_tarot_app/tarothistorypage.dart'; // Import the TarotHistoryPage
+import 'package:koala_tarot_app/music.dart'; // Import the music page
 
-class meditationpage extends StatelessWidget {
+class MeditationPage extends StatefulWidget {
+  @override
+  _MeditationPageState createState() => _MeditationPageState();
+}
+
+class _MeditationPageState extends State<MeditationPage> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    switch (index) {
+      case 0:
+        // Navigate to TarotHomePage if Spreads icon is tapped
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => TarotHomePage()),
+        );
+        break;
+      case 1:
+        // Navigate to TarotHistoryPage if History icon is tapped
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => tarothistorypage()),
+        );
+        break;
+      case 2:
+        // Do nothing if Meditation icon is tapped (current page)
+        break;
+      case 3:
+        // Navigate to SettingScreen if Settings icon is tapped
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => SettingScreen()),
+        );
+        break;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,7 +120,10 @@ class meditationpage extends StatelessWidget {
             SizedBox(height: 20),
             GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, '/music');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => music()), // Navigate to the music page
+                );
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -117,44 +164,28 @@ class meditationpage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-  items: <BottomNavigationBarItem>[
-    BottomNavigationBarItem(
-      icon: Icon(Icons.article_outlined, color: Colors.black),
-      label: 'Spreads',
-    ),
-    BottomNavigationBarItem(
-      icon: Icon(Icons.history, color: Colors.black),
-      label: 'History',
-    ),
-    BottomNavigationBarItem(
-      icon: Icon(Icons.self_improvement, color: Colors.black),
-      label: 'Meditation',
-    ),
-    BottomNavigationBarItem(
-      icon: Icon(Icons.settings, color: Colors.black),
-      label: 'Settings',
-    ),
-  ],
-  selectedItemColor: Colors.black,
-  currentIndex: 2,
-  onTap: (index) {
-    switch (index) {
-      case 0:
-        // Handle Spreads tab tap
-        break;
-      case 1:
-        Navigator.pop(context); // Navigate back to the home page
-        break;
-      case 2:
-        // Handle Meditation tab tap
-        break;
-      case 3:
-        // Handle Settings tab tap
-        break;
-    }
-  },
-),
-
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.article_outlined, color: Colors.black),
+            label: 'Spreads',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.history, color: Colors.black),
+            label: 'History',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.self_improvement, color: Colors.black),
+            label: 'Meditation',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings, color: Colors.black),
+            label: 'Settings',
+          ),
+        ],
+        selectedItemColor: Colors.black,
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+      ),
     );
   }
 }

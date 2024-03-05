@@ -3,6 +3,8 @@ import 'package:koala_tarot_app/privacy.dart';
 import 'package:koala_tarot_app/terms.dart';
 import 'package:koala_tarot_app/profile.dart'; // Import main.dart
 import 'package:koala_tarot_app/home.dart'; // Import home.dart
+import 'package:koala_tarot_app/meditationpage.dart'; // Import MeditationPage
+import 'package:koala_tarot_app/tarothistorypage.dart'; // Import tarothistorypage
 
 class SettingScreen extends StatefulWidget {
   @override
@@ -10,7 +12,6 @@ class SettingScreen extends StatefulWidget {
 }
 
 class _SettingScreenState extends State<SettingScreen> {
-
   int _selectedIndex = 0; // Index for the selected item in BottomNavigationBar
   String appVersion = '1.0.0';
 
@@ -19,18 +20,31 @@ class _SettingScreenState extends State<SettingScreen> {
       _selectedIndex = index;
     });
 
-    if (index == 3) {
-      // Navigate to SettingScreen if Settings icon is tapped
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => SettingScreen()),
-      );
-    } else if (index == 0) {
-      // Navigate to TarotHomePage if Spreads icon is tapped
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => TarotHomePage()),
-      );
+    switch (index) {
+      case 0:
+        // Navigate to TarotHomePage if Spreads icon is tapped
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => TarotHomePage()),
+        );
+        break;
+      case 1:
+        // Navigate to tarothistorypage if History icon is tapped
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => tarothistorypage()),
+        );
+        break;
+      case 2:
+        // Navigate to MeditationPage if Meditation icon is tapped
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => MeditationPage()),
+        );
+        break;
+      case 3:
+        // Navigate to SettingScreen if Settings icon is tapped (current page)
+        break;
     }
   }
 
