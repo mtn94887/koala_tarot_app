@@ -19,6 +19,7 @@ class PurposePage extends StatelessWidget {
               icon: Icon(Icons.arrow_back),
               onPressed: () {
                 // Implement navigation to previous screen
+                Navigator.pop(context);
               },
             ),
             title: Text(
