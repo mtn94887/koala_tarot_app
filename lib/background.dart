@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class BackgroundPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -37,7 +36,7 @@ class BackgroundPage extends StatelessWidget {
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
- end: Alignment.bottomCenter,
+              end: Alignment.bottomCenter,
               colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
             ),
           ),
@@ -74,7 +73,7 @@ class BackgroundPage extends StatelessWidget {
                           '  believed in Italy during the 15th century. In the'
                           ' early 15th century, the very first Tarot deck was invented'
                           'in Milan.',
-                            textAlign: TextAlign.center,
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 17,
@@ -108,9 +107,7 @@ class BackgroundPage extends StatelessWidget {
                     ),
                   ),
                 ]),
- ),
+          ),
         ));
   }
 }
-
-

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'features.dart';
 
-
 class PurposePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -31,7 +30,7 @@ class PurposePage extends StatelessWidget {
               ),
             ),
             centerTitle: true,
-  ),
+          ),
         ),
       ),
       body: Container(
@@ -70,7 +69,7 @@ class PurposePage extends StatelessWidget {
               Text(
                 'To help you able to discover the answers'
                 ' to your concerns through Tarot readings.'
- ' Easily draw cards for insights into your life’s questions. Engage with a user-friendly interface designed for readings anywhere.',
+                ' Easily draw cards for insights into your life’s questions. Engage with a user-friendly interface designed for readings anywhere.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   height: 1.5,
@@ -107,7 +106,7 @@ class PurposePage extends StatelessWidget {
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Color(0xFF15267D),
-  padding: EdgeInsets.symmetric(vertical: 10),
+                    padding: EdgeInsets.symmetric(vertical: 10),
                   ),
                   child: Text(
                     'Learn more about app',

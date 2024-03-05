@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'background.dart';
 
-
 class FeaturesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -31,7 +30,7 @@ class FeaturesPage extends StatelessWidget {
               ),
             ),
             centerTitle: true,
- ),
+          ),
         ),
       ),
       body: Container(
@@ -71,7 +70,7 @@ class FeaturesPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   FeatureButton(
-  text: 'History',
+                    text: 'History',
                     textStyle: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.normal,
@@ -106,7 +105,7 @@ class FeaturesPage extends StatelessWidget {
                               TextButton(
                                 onPressed: () {
                                   Navigator.of(context).pop();
- },
+                                },
                                 child: Text("Close"),
                               ),
                             ],
@@ -141,7 +140,7 @@ class FeaturesPage extends StatelessWidget {
                                   "• You can casually open the music and can adjust the volume as you like.",
                                   style: TextStyle(fontWeight: FontWeight.w500),
                                 ),
- SizedBox(height: 4),
+                                SizedBox(height: 4),
                                 Text(
                                   "• We provided a few lists of relaxing music so that you can choose the music as you preferred. ",
                                   style: TextStyle(fontWeight: FontWeight.w500),
@@ -178,7 +177,7 @@ class FeaturesPage extends StatelessWidget {
                             content: Column(
                               mainAxisSize: MainAxisSize.min,
                               crossAxisAlignment: CrossAxisAlignment.start,
-children: [
+                              children: [
                                 Text(
                                     "To help your curiosity for the tarot, we provided the 'Cards' Feature. "
                                     "This feature will help you to know more about the meaning of the cards."
@@ -211,9 +210,8 @@ children: [
                 ],
               ),
 
-
               SizedBox(
- height: 25), // Add space between buttons and the new button
+                  height: 25), // Add space between buttons and the new button
               ElevatedButton(
                 onPressed: () {
                   // Navigate to the new page
@@ -243,20 +241,17 @@ children: [
   }
 }
 
-
 class FeatureButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
   final TextStyle? textStyle;
 
-
   const FeatureButton({
     Key? key,
- required this.text,
+    required this.text,
     required this.onPressed,
     this.textStyle,
   }) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
