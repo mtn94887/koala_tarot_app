@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:koala_tarot_app/home.dart'; 
 
 class LoginPage extends StatelessWidget {
   @override
@@ -51,7 +52,15 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 30),
-                  ElevatedButton(onPressed: () {}, child: Text('Continue')),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => TarotHomePage()),
+                      );
+                    }, 
+                    child: Text('Continue'),
+                  ),
                 ],
               ),
             ),
