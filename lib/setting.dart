@@ -5,7 +5,8 @@ import 'package:koala_tarot_app/terms.dart';
 import 'package:koala_tarot_app/profile.dart'; // Import main.dart
 import 'package:koala_tarot_app/home.dart'; // Import home.dart
 import 'package:koala_tarot_app/meditationpage.dart'; // Import MeditationPage
-import 'package:koala_tarot_app/tarothistorypage.dart'; // Import tarothistorypage
+import 'package:koala_tarot_app/tarothistorypage.dart';
+import 'package:koala_tarot_app/welcome.dart'; // Import tarothistorypage
 
 class SettingScreen extends StatefulWidget {
   @override
@@ -117,8 +118,11 @@ class _SettingScreenState extends State<SettingScreen> {
                 ),
                 ListTile(
                   title: Text('Logout'),
-                  onTap: () {
-                    // Handle logout
+                 onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Home()),
+                    );
                   },
                 ),
                 ListTile(
@@ -126,8 +130,8 @@ class _SettingScreenState extends State<SettingScreen> {
                     'Delete Account',
                     style: TextStyle(color: Colors.red),
                   ),
-                  onTap: () {
-                    // Handle account deletion
+                 onTap: () {
+                    _deleteAccount();
                   },
                 ),
               ],
@@ -166,6 +170,36 @@ class _SettingScreenState extends State<SettingScreen> {
           ),
         ],
       ),
+    );
+  }
+
+  void _deleteAccount() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Confirmation"),
+          content: Text("Are you sure you want to delete your account?"),
+          actions: <Widget>[
+            TextButton(
+              child: Text("No"),
+              onPressed: () {
+                Navigator.of(context).pop(); // Close the dialog
+              },
+            ),
+            TextButton(
+              child: Text("Yes"),
+              onPressed: () {
+                // Navigate to the home screen
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Home()),
+                );
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 
