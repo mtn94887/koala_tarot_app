@@ -66,6 +66,15 @@ flutter:
     - assets/_ Photo.jpg
     - assets/NEW Print Sale 8x10the Fireflies - Etsy.jpg
     - assets/download (6).jpg
+    - images/the-fool.png
+    - images/the-empress.png
+    - images/ace-of-swords.png
+    - images/king-of-pentacles.png
+    - images/nine-of-wands.png
+    - images/six-of-pentacles.png
+    - images/the-magician.png
+    - images/the-moon.png
+    - images/wheel-of-fortune.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
