@@ -44,7 +44,7 @@ class _TarotHomePageState extends State<TarotHomePage> {
     // Navigate to SettingScreen if Settings icon is tapped
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => meditationpage()),
+      MaterialPageRoute(builder: (context) => MeditationPage()),
     );
   }
   else if (index == 0) {

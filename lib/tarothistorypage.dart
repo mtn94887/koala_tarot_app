@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:koala_tarot_app/home.dart';
 import 'package:koala_tarot_app/setting.dart';
+import 'package:koala_tarot_app/meditationpage.dart'; // Import the MeditationPage
 
 class tarothistorypage extends StatefulWidget {
   @override
@@ -15,18 +16,31 @@ class _tarothistorypageState extends State<tarothistorypage> {
       _selectedIndex = index;
     });
 
-    if (index == 3) {
-      // Navigate to SettingScreen if Settings icon is tapped
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => SettingScreen()),
-      );
-    } else if (index == 0) {
-      // Navigate to TarotHomePage if Spreads icon is tapped
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => TarotHomePage()),
-      );
+    switch (index) {
+      case 0:
+        // Navigate to TarotHomePage if Spreads icon is tapped
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => TarotHomePage()),
+        );
+        break;
+      case 1:
+        // Navigate to TarotHistoryPage if History icon is tapped (current page)
+        break;
+      case 2:
+        // Navigate to MeditationPage if Meditation icon is tapped
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => MeditationPage()),
+        );
+        break;
+      case 3:
+        // Navigate to SettingScreen if Settings icon is tapped
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => SettingScreen()),
+        );
+        break;
     }
   }
 
