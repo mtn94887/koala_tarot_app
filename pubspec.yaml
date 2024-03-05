@@ -63,6 +63,9 @@ flutter:
     - assets/pp.png
     - assets/c2.png
     - assets/card1.png
+    - assets/_ Photo.jpg
+    - assets/NEW Print Sale 8x10the Fireflies - Etsy.jpg
+    - assets/download (6).jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
