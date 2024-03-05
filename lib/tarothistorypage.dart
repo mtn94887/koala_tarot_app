@@ -1,7 +1,9 @@
+// tarothistorypage.dart
 import 'package:flutter/material.dart';
 import 'package:koala_tarot_app/home.dart';
 import 'package:koala_tarot_app/setting.dart';
-import 'package:koala_tarot_app/meditationpage.dart'; // Import the MeditationPage
+import 'package:koala_tarot_app/meditationpage.dart'; 
+import 'package:koala_tarot_app/readingdetailspage.dart';
 
 class tarothistorypage extends StatefulWidget {
   @override
@@ -44,14 +46,14 @@ class _tarothistorypageState extends State<tarothistorypage> {
     }
   }
 
-  final List<String> cardLabels = [
-    'Daily Reading',
-    'Yes or No',
-    'Daily Reading',
-    'Daily Reading',
-    'Romance',
-    'Daily Reading',
-    'Education',
+  final List<Map<String, dynamic>> cardLabels = [
+    {'label': 'Daily Reading', 'index': 0},
+    {'label': 'Yes or No', 'index': 1},
+    {'label': 'Daily Reading', 'index': 2},
+    {'label': 'Daily Reading', 'index': 3},
+    {'label': 'Romance', 'index': 4},
+    {'label': 'Daily Reading', 'index': 5},
+    {'label': 'Education', 'index': 6},
   ];
 
   @override
@@ -76,31 +78,45 @@ class _tarothistorypageState extends State<tarothistorypage> {
           ),
           itemCount: cardLabels.length,
           itemBuilder: (context, index) {
-            return Card(
-              child: Column(
-                children: [
-                  Expanded(
-                    child: Placeholder(
-                      child: Expanded(
-                        child: Image.asset(
-                          'assets/image_$index.png', // Path to your image asset
-                          fit: BoxFit.cover, // Adjust the fit based on your requirement
+            return GestureDetector(
+              onTap: () {
+                // Navigate to ReadingDetailsPage when a card is clicked
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ReadingDetailsPage(
+                      title: cardLabels[index]['label'],
+                      cardIndex: cardLabels[index]['index'],
+                    ),
+                  ),
+                );
+              },
+              child: Card(
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: Placeholder(
+                        child: Expanded(
+                          child: Image.asset(
+                            'assets/image_${cardLabels[index]['index']}.png', // Path to your image asset
+                            fit: BoxFit.cover, // Adjust the fit based on your requirement
+                          ),
                         ),
+                        color: Colors.grey,
                       ),
-                      color: Colors.grey,
                     ),
-                  ),
-                  Container(
-                    width: double.infinity,
-                    padding: EdgeInsets.all(8.0),
-                    color: Color(0xFFD8D2EF),
-                    child: Text(
-                      cardLabels[index],
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.black),
+                    Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.all(8.0),
+                      color: Color(0xFFD8D2EF),
+                      child: Text(
+                        cardLabels[index]['label'],
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.black),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             );
           },
