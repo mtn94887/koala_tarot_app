@@ -5,7 +5,9 @@ class music extends StatelessWidget {
 Widget build(BuildContext context) {
   return Scaffold(
     appBar: AppBar(
-      title: Text('Choose Music'),
+      backgroundColor: Color(0xFF7D5AAD),
+
+      title: Center( child:Text('Choose Music')),
     ),
     body: Container(
       decoration: BoxDecoration(

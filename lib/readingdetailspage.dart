@@ -22,7 +22,8 @@ class ReadingDetailsPage extends StatelessWidget {
 
    return Scaffold(
      appBar: AppBar(
-       title: Text(title),
+      backgroundColor: Color(0xFF7D5AAD),
+       title:  Text(title),
      ),
      body: Container(
        decoration: BoxDecoration(
