@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:koala_tarot_app/cards.dart';
 import 'package:koala_tarot_app/home.dart';
 import 'package:koala_tarot_app/setting.dart';
 import 'package:koala_tarot_app/tarothistorypage.dart'; // Import the TarotHistoryPage
@@ -39,7 +40,7 @@ class _MeditationPageState extends State<MeditationPage> {
         // Navigate to SettingScreen if Settings icon is tapped
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => SettingScreen()),
+          MaterialPageRoute(builder: (context) =>  Cards()),
         );
         break;
     }
@@ -49,9 +50,9 @@ class _MeditationPageState extends State<MeditationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF7D5AAD),
+        backgroundColor: const Color(0xFF7D5AAD),
         automaticallyImplyLeading: false,
-        title: Text(
+        title: const Text(
           "Meditation"
         ),
         centerTitle: true,
@@ -63,13 +64,13 @@ class _MeditationPageState extends State<MeditationPage> {
                   MaterialPageRoute(builder: (context) => SettingScreen()),
                 );
             }, 
-            icon: Icon(Icons.settings),
+            icon: const Icon(Icons.settings),
             color: Colors.black,
           )
         ]
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -79,7 +80,7 @@ class _MeditationPageState extends State<MeditationPage> {
         child: Column(
           children: [
             // "Relax" and "your mind and body" text
-            Center(
+            const Center(
               child: Column(
                 children: [
                   SizedBox(height: 20),
@@ -102,16 +103,16 @@ class _MeditationPageState extends State<MeditationPage> {
               ),
             ),
             // Rectangle with play button and "Press to start breathing exercise"
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Center(
               child: Container(
                 width: 230,
                 height: 250,
                 decoration: BoxDecoration(
-                  color: Color(0xFFD8D2EF),
+                  color: const Color(0xFFD8D2EF),
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: Column(
+                child: const Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(
@@ -133,7 +134,7 @@ class _MeditationPageState extends State<MeditationPage> {
               ),
             ),
             // Three-stripe menu with "Choose relaxation music" text
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             GestureDetector(
               onTap: () {
                 Navigator.push(
@@ -141,7 +142,7 @@ class _MeditationPageState extends State<MeditationPage> {
                   MaterialPageRoute(builder: (context) => music()), // Navigate to the music page
                 );
               },
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(Icons.menu, color: Colors.white), // Three-stripe menu icon
@@ -157,13 +158,13 @@ class _MeditationPageState extends State<MeditationPage> {
               ),
             ),
             // Volume adjustment line with mute icon on the left and full volume on the right
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Icon(Icons.volume_mute, color: Colors.white), // Mute icon
+                  const Icon(Icons.volume_mute, color: Colors.white), // Mute icon
                   Expanded(
                     child: Slider(
                       value: 0.5, // Current volume value
@@ -172,7 +173,7 @@ class _MeditationPageState extends State<MeditationPage> {
                       },
                     ),
                   ),
-                  Icon(Icons.volume_up, color: Colors.white), // Full volume icon
+                  const Icon(Icons.volume_up, color: Colors.white), // Full volume icon
                 ],
               ),
             ),
@@ -181,19 +182,19 @@ class _MeditationPageState extends State<MeditationPage> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.article_outlined, color: Colors.black),
             label: 'Spreads',
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.history, color: Colors.black),
             label: 'History',
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.self_improvement, color: Colors.black),
             label: 'Meditation',
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.copy_outlined, color: Colors.black),
             label: 'Cards',
           ),

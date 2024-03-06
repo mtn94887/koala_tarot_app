@@ -1,7 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:koala_tarot_app/home.dart';
+import 'package:koala_tarot_app/meditationpage.dart';
+import 'package:koala_tarot_app/tarothistorypage.dart';
+class Cards extends StatefulWidget {
+  @override
+  _cardsState createState() => _cardsState();
+}
 
-class Cards extends StatelessWidget {
-  const Cards({super.key});
+class _cardsState extends State<Cards> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    switch (index) {
+      case 0:
+        // Navigate to TarotHomePage if Spreads icon is tapped
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => TarotHomePage()),
+        );
+        break;
+      case 1:
+        // Navigate to TarotHistoryPage if History icon is tapped
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => tarothistorypage()),
+        );
+        break;
+     case 2:
+        // Navigate to MeditationPage if Meditation icon is tapped
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => MeditationPage()),
+        );
+        break;
+      case 3:
+        // Navigate to SettingScreen if Settings icon is tapped
+        
+        break;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +79,7 @@ class Cards extends StatelessWidget {
                 child: Container(
                   height: 180,
                   width: 100,
-                  child: Image.asset('images/the-fool.png'),
+                  child: Image.asset('assets/fool.png'),
                 ),
               ),
                GestureDetector(
@@ -52,7 +93,7 @@ class Cards extends StatelessWidget {
                 child: Container(
                   height: 180,
                   width: 100,
-                  child: Image.asset('images/the-magician.png'),
+                  child: Image.asset('assets/magician.png'),
                 ),
               ),
               GestureDetector(
@@ -66,7 +107,7 @@ class Cards extends StatelessWidget {
                 child: Container(
                   height: 180,
                   width: 100,
-                  child: Image.asset('images/six-of-pentacles.png'),
+                  child: Image.asset('assets/sixofpentacles.png'),
                 ),
               ),
             ],
@@ -85,7 +126,7 @@ class Cards extends StatelessWidget {
                 child: Container(
                   height: 180,
                   width: 100,
-                  child: Image.asset('images/the-moon.png'),
+                  child: Image.asset('assets/moon.png'),
                 ),
               ),
              
@@ -100,7 +141,7 @@ class Cards extends StatelessWidget {
                 child: Container(
                   height: 180,
                   width: 100,
-                  child: Image.asset('images/ace-of-swords.png'),
+                  child: Image.asset('assets/aceofswords.png'),
                 ),
               ),
 
@@ -115,7 +156,7 @@ class Cards extends StatelessWidget {
                 child: Container(
                   height: 180,
                   width: 100,
-                  child: Image.asset('images/king-of-pentacles.png'),
+                  child: Image.asset('assets/kingofpentacles.png'),
                 ),
               ),
             ],
@@ -134,7 +175,7 @@ class Cards extends StatelessWidget {
                 child: Container(
                   height: 180,
                   width: 100,
-                  child: Image.asset('images/nine-of-wands.png'),
+                  child: Image.asset('assets/nineofwands.png'),
                 ),
               ),
                 GestureDetector(
@@ -148,7 +189,7 @@ class Cards extends StatelessWidget {
                 child: Container(
                   height: 180,
                   width: 100,
-                  child: Image.asset('images/wheel-of-fortune.png'),
+                  child: Image.asset('assets/wheeloffortune.png'),
                 ),
               ),
               
@@ -163,7 +204,7 @@ class Cards extends StatelessWidget {
                 child: Container(
                   height: 180,
                   width: 100,
-                  child: Image.asset('images/the-empress.png'),
+                  child: Image.asset('assets/empress.png'),
                 ),
               ),
             ],
@@ -171,31 +212,32 @@ class Cards extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.black,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.article_outlined),
+        items: <BottomNavigationBarItem>[
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.article_outlined, color: Colors.black),
             label: 'Spreads',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.history),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.history, color: Colors.black),
             label: 'History',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.self_improvement),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.self_improvement, color: Colors.black),
             label: 'Meditation',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.copy_outlined, color: Colors.black),
+            label: 'Cards',
           ),
         ],
+        selectedItemColor: Colors.black,
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
       ),
     );
   }
-}
 
+}
 
 class TheFool extends StatelessWidget {
   @override
@@ -219,7 +261,7 @@ class TheFool extends StatelessWidget {
               children: [
                 // Add your image here
                 Image.asset(
-                  'images/the-fool.png',
+                  'assets/fool.png',
                   height: 500, // Change the height as needed
                   width: 300, // Change the width as needed
                 ), 
@@ -264,7 +306,7 @@ class TheMagician extends StatelessWidget {
               children: [
                 // Add your image here
                 Image.asset(
-                  'images/the-magician.png',
+                  'assets/magician.png',
                   height: 500, // Change the height as needed
                   width: 300, // Change the width as needed
                 ), // Change 'your_image.png' to the path of your image
@@ -311,7 +353,7 @@ class SixOfPentacles extends StatelessWidget {
               children: [
                 // Add your image here
                 Image.asset(
-                  'images/six-of-pentacles.png',
+                  'assets/sixofpentacles.png',
                   height: 500, // Change the height as needed
                   width: 300, // Change the width as needed
                 ), // Change 'your_image.png' to the path of your image
@@ -358,7 +400,7 @@ class TheMoon extends StatelessWidget {
               children: [
                 // Add your image here
                 Image.asset(
-                  'images/the-moon.png',
+                  'assets/moon.png',
                   height: 500, // Change the height as needed
                   width: 300, // Change the width as needed
                 ), // Change 'your_image.png' to the path of your image
@@ -404,7 +446,7 @@ class AceOfSwords extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [                
                 Image.asset(
-                  'images/ace-of-swords.png',
+                  'assets/aceofswords.png',
                   height: 500, // Change the height as needed
                   width: 300, // Change the width as needed
                 ), 
@@ -447,7 +489,7 @@ class KingOfPentacles extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [                
                 Image.asset(
-                  'images/king-of-pentacles.png',
+                  'assets/kingofpentacles.png',
                   height: 500, // Change the height as needed
                   width: 300, // Change the width as needed
                 ), 
@@ -491,7 +533,7 @@ class NineOfWands extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [                
                 Image.asset(
-                  'images/nine-of-wands.png',
+                  'assets/nineofwands.png',
                   height: 500, // Change the height as needed
                   width: 300, // Change the width as needed
                 ), 
@@ -534,7 +576,7 @@ class WheelOfFortune extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [                
                 Image.asset(
-                  'images/wheel-of-fortune.png',
+                  'assets/wheeloffortune.png',
                   height: 500, // Change the height as needed
                   width: 300, // Change the width as needed
                 ), 
@@ -578,7 +620,7 @@ class TheEmpress extends StatelessWidget {
               children: [
                 // Add your image here
                 Image.asset(
-                  'images/the-empress.png',
+                  'assets/empress.png',
                   height: 500, // Change the height as needed
                   width: 300, // Change the width as needed
                 ), // Change 'your_image.png' to the path of your image

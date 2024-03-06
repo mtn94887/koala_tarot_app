@@ -1,5 +1,6 @@
 // tarothistorypage.dart
 import 'package:flutter/material.dart';
+import 'package:koala_tarot_app/cards.dart';
 import 'package:koala_tarot_app/home.dart';
 import 'package:koala_tarot_app/setting.dart';
 import 'package:koala_tarot_app/meditationpage.dart'; 
@@ -40,7 +41,7 @@ class _tarothistorypageState extends State<tarothistorypage> {
         // Navigate to SettingScreen if Settings icon is tapped
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => SettingScreen()),
+          MaterialPageRoute(builder: (context) => Cards()),
         );
         break;
     }

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:koala_tarot_app/home.dart';
 import 'package:koala_tarot_app/welcome.dart';
-import 'purpose.dart';
-import 'features.dart';
-import 'background.dart';
+import 'package:koala_tarot_app/purpose.dart';
+import 'package:koala_tarot_app/features.dart';
+import 'package:koala_tarot_app/background.dart';
 
 void main() {
   runApp(MaterialApp(

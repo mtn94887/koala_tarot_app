@@ -14,41 +14,7 @@ class SettingScreen extends StatefulWidget {
 }
 
 class _SettingScreenState extends State<SettingScreen> {
-  int _selectedIndex = 0; // Index for the selected item in BottomNavigationBar
   String appVersion = '1.0.0';
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-
-    switch (index) {
-      case 0:
-        // Navigate to TarotHomePage if Spreads icon is tapped
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => TarotHomePage()),
-        );
-        break;
-      case 1:
-        // Navigate to tarothistorypage if History icon is tapped
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => tarothistorypage()),
-        );
-        break;
-      case 2:
-        // Navigate to MeditationPage if Meditation icon is tapped
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => MeditationPage()),
-        );
-        break;
-      case 3:
-        // Navigate to SettingScreen if Settings icon is tapped (current page)
-        break;
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -143,30 +109,6 @@ class _SettingScreenState extends State<SettingScreen> {
               'Version: $appVersion',
               style: TextStyle(fontSize: 12),
             ),
-          ),
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.black,
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.article_outlined),
-            label: 'Spreads',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.history),
-            label: 'History',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.self_improvement),
-            label: 'Meditation',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.copy_outlined),
-            label: 'Cards',
           ),
         ],
       ),

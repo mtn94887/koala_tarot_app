@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:koala_tarot_app/setting.dart';
 import 'package:koala_tarot_app/tarot_card_page.dart';
 import 'package:koala_tarot_app/tarothistorypage.dart';
-import 'package:koala_tarot_app/meditationpage.dart'; 
-import 'package:koala_tarot_app/cards.dart'; 
+import 'package:koala_tarot_app/meditationpage.dart';
+import 'package:koala_tarot_app/cards.dart';
 
 class TarotApp extends StatelessWidget {
   @override
@@ -22,40 +22,37 @@ class TarotHomePage extends StatefulWidget {
 class _TarotHomePageState extends State<TarotHomePage> {
   int _selectedIndex = 0;
 
- void _onItemTapped(int index) {
-  setState(() {
-    _selectedIndex = index;
-  });
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
 
-  if (index == 3) {
-    // Navigate to SettingScreen if Settings icon is tapped
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => SettingScreen()),
-    );
-  } 
-  else if (index == 1){
-    // Navigate to SettingScreen if Settings icon is tapped
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => tarothistorypage()),
-    );
+    if (index == 3) {
+      // Navigate to SettingScreen if Cards icon is tapped
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Cards()),
+      );
+    } else if (index == 1) {
+      // Navigate to tarothistorypage if History icon is tapped
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => tarothistorypage()),
+      );
+    } else if (index == 2) {
+      // Navigate to MeditationPage if Meditation icon is tapped
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => MeditationPage()),
+      );
+    } else if (index == 0) {
+      // Navigate to TarotHomePage if Spreads icon is tapped
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => TarotHomePage()),
+      );
+    } 
   }
-  else if (index == 2){
-    // Navigate to SettingScreen if Settings icon is tapped
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => MeditationPage()),
-    );
-  }
-  else if (index == 0) {
-    // Navigate to TarotHomePage if Spreads icon is tapped
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => TarotHomePage()),
-    );
-  }
-}
 
   @override
   Widget build(BuildContext context) {
@@ -68,18 +65,18 @@ class _TarotHomePageState extends State<TarotHomePage> {
         backgroundColor: Color(0xFF7D5AAD),
         centerTitle: true,
         automaticallyImplyLeading: false, // Remove back arrow button
-        actions: <Widget> [
+        actions: <Widget>[
           IconButton(
             onPressed: () {
               Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SettingScreen()),
-                );
-            }, 
+                context,
+                MaterialPageRoute(builder: (context) => SettingScreen()),
+              );
+            },
             icon: Icon(Icons.settings),
             color: Colors.black,
           )
-        ]
+        ],
       ),
       body: Container(
         decoration: BoxDecoration(
