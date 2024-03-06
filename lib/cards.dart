@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:koala_tarot_app/home.dart';
 import 'package:koala_tarot_app/meditationpage.dart';
 import 'package:koala_tarot_app/tarothistorypage.dart';
+import 'package:koala_tarot_app/setting.dart'; // Import your SettingScreen file
+
 class Cards extends StatefulWidget {
   @override
   _cardsState createState() => _cardsState();
@@ -30,7 +32,7 @@ class _cardsState extends State<Cards> {
           MaterialPageRoute(builder: (context) => tarothistorypage()),
         );
         break;
-     case 2:
+      case 2:
         // Navigate to MeditationPage if Meditation icon is tapped
         Navigator.push(
           context,
@@ -38,9 +40,7 @@ class _cardsState extends State<Cards> {
         );
         break;
       case 3:
-        // Navigate to SettingScreen if Settings icon is tapped
         
-        break;
     }
   }
 
@@ -48,169 +48,191 @@ class _cardsState extends State<Cards> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 43, 6, 64),
+        automaticallyImplyLeading: false,
+        backgroundColor: Color(0xFF7D5AAD),
         title: Center(
           child: Text(
             'TAROT',
             style: TextStyle(
-              fontSize: 30, // Change the font size to 24
+            fontSize: 30, // Change the font size to 24
               fontWeight: FontWeight.bold, // Make the text bold
               fontStyle: FontStyle.italic,
               color: Color.fromARGB(255, 238, 232, 243), // Change the text color to white
             ),
           ),
+          
         ),
-      ),
-      backgroundColor: Color.fromARGB(255, 245, 243, 247),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  // Navigate to the second page
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => TheFool()),
-                  );
-                },
-                child: Container(
-                  height: 180,
-                  width: 100,
-                  child: Image.asset('assets/fool.png'),
-                ),
-              ),
-               GestureDetector(
-                onTap: () {
-                  // Navigate to the second page
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => TheMagician()),
-                  );
-                },
-                child: Container(
-                  height: 180,
-                  width: 100,
-                  child: Image.asset('assets/magician.png'),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  // Navigate to the second page
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SixOfPentacles()),
-                  );
-                },
-                child: Container(
-                  height: 180,
-                  width: 100,
-                  child: Image.asset('assets/sixofpentacles.png'),
-                ),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-               GestureDetector(
-                onTap: () {
-                  // Navigate to the second page
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => TheMoon()),
-                  );
-                },
-                child: Container(
-                  height: 180,
-                  width: 100,
-                  child: Image.asset('assets/moon.png'),
-                ),
-              ),
-             
-              GestureDetector(
-                onTap: () {
-                  // Navigate to the second page
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => AceOfSwords()),
-                  );
-                },
-                child: Container(
-                  height: 180,
-                  width: 100,
-                  child: Image.asset('assets/aceofswords.png'),
-                ),
-              ),
-
-               GestureDetector(
-                onTap: () {
-                  // Navigate to the second page
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => KingOfPentacles()),
-                  );
-                },
-                child: Container(
-                  height: 180,
-                  width: 100,
-                  child: Image.asset('assets/kingofpentacles.png'),
-                ),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-                GestureDetector(
-                onTap: () {
-                  // Navigate to the second page
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => NineOfWands()),
-                  );
-                },
-                child: Container(
-                  height: 180,
-                  width: 100,
-                  child: Image.asset('assets/nineofwands.png'),
-                ),
-              ),
-                GestureDetector(
-                onTap: () {
-                  // Navigate to the second page
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => WheelOfFortune()),
-                  );
-                },
-                child: Container(
-                  height: 180,
-                  width: 100,
-                  child: Image.asset('assets/wheeloffortune.png'),
-                ),
-              ),
-              
-              GestureDetector(
-                onTap: () {
-                  // Navigate to the second page
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => TheEmpress()),
-                  );
-                },
-                child: Container(
-                  height: 180,
-                  width: 100,
-                  child: Image.asset('assets/empress.png'),
-                ),
-              ),
-            ],
+        centerTitle: true,
+        actions: <Widget> [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SettingScreen()),
+                );
+            }, 
+            icon: const Icon(Icons.settings),
+            color: Colors.black,
           )
+        ]
+      ),
+      
+     body: Container(
+  decoration: BoxDecoration(
+    gradient: LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
+    ),
+  ),
+  child: Column(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: [
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          GestureDetector(
+            onTap: () {
+              // Navigate to the second page
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TheFool()),
+              );
+            },
+            child: Container(
+              height: 180,
+              width: 100,
+              child: Image.asset('assets/fool.png'),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              // Navigate to the second page
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TheMagician()),
+              );
+            },
+            child: Container(
+              height: 180,
+              width: 100,
+              child: Image.asset('assets/magician.png'),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              // Navigate to the second page
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SixOfPentacles()),
+              );
+            },
+            child: Container(
+              height: 180,
+              width: 100,
+              child: Image.asset('assets/sixofpentacles.png'),
+            ),
+          ),
         ],
       ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          GestureDetector(
+            onTap: () {
+              // Navigate to the second page
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TheMoon()),
+              );
+            },
+            child: Container(
+              height: 180,
+              width: 100,
+              child: Image.asset('assets/moon.png'),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              // Navigate to the second page
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AceOfSwords()),
+              );
+            },
+            child: Container(
+              height: 180,
+              width: 100,
+              child: Image.asset('assets/aceofswords.png'),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              // Navigate to the second page
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => KingOfPentacles()),
+              );
+            },
+            child: Container(
+              height: 180,
+              width: 100,
+              child: Image.asset('assets/kingofpentacles.png'),
+            ),
+          ),
+        ],
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          GestureDetector(
+            onTap: () {
+              // Navigate to the second page
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => NineOfWands()),
+              );
+            },
+            child: Container(
+              height: 180,
+              width: 100,
+              child: Image.asset('assets/nineofwands.png'),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              // Navigate to the second page
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => WheelOfFortune()),
+              );
+            },
+            child: Container(
+              height: 180,
+              width: 100,
+              child: Image.asset('assets/wheeloffortune.png'),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              // Navigate to the second page
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TheEmpress()),
+              );
+            },
+            child: Container(
+              height: 180,
+              width: 100,
+              child: Image.asset('assets/empress.png'),
+            ),
+          ),
+        ],
+      )
+    ],
+  ),
+),
+
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           const BottomNavigationBarItem(
@@ -236,8 +258,8 @@ class _cardsState extends State<Cards> {
       ),
     );
   }
-
 }
+
 
 class TheFool extends StatelessWidget {
   @override
@@ -245,6 +267,7 @@ class TheFool extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('The Fool'),
+        backgroundColor: Color(0xFF7D5AAD),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -290,6 +313,7 @@ class TheMagician extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('The Magician'),
+        backgroundColor: Color(0xFF7D5AAD),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -337,6 +361,7 @@ class SixOfPentacles extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Six Of Pentacles'),
+        backgroundColor: Color(0xFF7D5AAD),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -384,6 +409,7 @@ class TheMoon extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('The Moon'),
+        backgroundColor: Color(0xFF7D5AAD),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -431,6 +457,7 @@ class AceOfSwords extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Ace Of Swords'),
+        backgroundColor: Color(0xFF7D5AAD),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -474,6 +501,7 @@ class KingOfPentacles extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('King Of Pentacles'),
+        backgroundColor: Color(0xFF7D5AAD),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -518,6 +546,7 @@ class NineOfWands extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Nine Of Wands'),
+        backgroundColor: Color(0xFF7D5AAD),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -561,6 +590,7 @@ class WheelOfFortune extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Wheel Of Fortune'),
+        backgroundColor: Color(0xFF7D5AAD),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -604,6 +634,7 @@ class TheEmpress extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('The Empress'),
+        backgroundColor: Color(0xFF7D5AAD),
       ),
       body: Container(
         decoration: BoxDecoration(

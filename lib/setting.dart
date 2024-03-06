@@ -21,31 +21,41 @@ class _SettingScreenState extends State<SettingScreen> {
     int currentYear = DateTime.now().year;
 
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: true, // Remove back arrow icon
-        title: Text(
-          'Settings',
-          style: TextStyle(
-            fontWeight: FontWeight.bold, // Make title bold
-            fontSize: 24, // Increase font size
-          ),
-        ),
-        actions: [
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ProfileApp()), // Navigate to main.dart
-              );
-            },
-            child: CircleAvatar(
-              radius: 25,
-              backgroundImage: AssetImage('assets/pp.png'),
-            ),
-          ),
-          SizedBox(width: 25), // Adjust spacing as needed
-        ],
+     appBar: AppBar(
+  automaticallyImplyLeading: false, // Remove automatic back arrow icon
+  title: Text(
+    'Settings',
+    style: TextStyle(
+      fontWeight: FontWeight.bold, // Make title bold
+      fontSize: 24, // Increase font size
+    ),
+  ),
+  leading: IconButton(
+    icon: Icon(Icons.arrow_back), // Back arrow icon
+    onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => TarotHomePage()), // Navigate to main.dart
+        );
+      },
+  ),
+  actions: [
+    GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ProfileApp()), // Navigate to main.dart
+        );
+      },
+      child: CircleAvatar(
+        radius: 25,
+        backgroundImage: AssetImage('assets/pp.png'),
       ),
+    ),
+    SizedBox(width: 25), // Adjust spacing as needed
+  ],
+),
+
       body: Column(
         children: [
           Expanded(
