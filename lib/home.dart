@@ -3,6 +3,7 @@ import 'package:koala_tarot_app/setting.dart';
 import 'package:koala_tarot_app/tarot_card_page.dart';
 import 'package:koala_tarot_app/tarothistorypage.dart';
 import 'package:koala_tarot_app/meditationpage.dart'; 
+import 'package:koala_tarot_app/cards.dart'; 
 
 class TarotApp extends StatelessWidget {
   @override
@@ -67,6 +68,18 @@ class _TarotHomePageState extends State<TarotHomePage> {
         backgroundColor: Color(0xFF7D5AAD),
         centerTitle: true,
         automaticallyImplyLeading: false, // Remove back arrow button
+        actions: <Widget> [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SettingScreen()),
+                );
+            }, 
+            icon: Icon(Icons.settings),
+            color: Colors.black,
+          )
+        ]
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -120,8 +133,8 @@ class _TarotHomePageState extends State<TarotHomePage> {
             label: 'Meditation',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+            icon: Icon(Icons.copy_outlined),
+            label: 'Cards',
           ),
         ],
       ),

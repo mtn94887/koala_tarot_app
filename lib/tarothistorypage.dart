@@ -62,7 +62,22 @@ class _tarothistorypageState extends State<tarothistorypage> {
       appBar: AppBar(
         backgroundColor: Color(0xFF7D5AAD),
         automaticallyImplyLeading: false,
-        title: Center(child: Text('Card Reading History')),
+        title: Text(
+          "Card Reading History"
+        ),
+        centerTitle: true,
+        actions: <Widget> [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SettingScreen()),
+                );
+            }, 
+            icon: Icon(Icons.settings),
+            color: Colors.black,
+          )
+        ]
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -142,8 +157,8 @@ class _tarothistorypageState extends State<tarothistorypage> {
             label: 'Meditation',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+            icon: Icon(Icons.copy_outlined),
+            label: 'Cards',
           ),
         ],
       ),

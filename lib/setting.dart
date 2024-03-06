@@ -56,7 +56,7 @@ class _SettingScreenState extends State<SettingScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false, // Remove back arrow icon
+        automaticallyImplyLeading: true, // Remove back arrow icon
         title: Text(
           'Settings',
           style: TextStyle(
@@ -165,8 +165,8 @@ class _SettingScreenState extends State<SettingScreen> {
             label: 'Meditation',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+            icon: Icon(Icons.copy_outlined),
+            label: 'Cards',
           ),
         ],
       ),

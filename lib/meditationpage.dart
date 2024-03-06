@@ -51,7 +51,22 @@ class _MeditationPageState extends State<MeditationPage> {
       appBar: AppBar(
         backgroundColor: Color(0xFF7D5AAD),
         automaticallyImplyLeading: false,
-        title: Center(child: Text('Meditation')),
+        title: Text(
+          "Meditation"
+        ),
+        centerTitle: true,
+        actions: <Widget> [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SettingScreen()),
+                );
+            }, 
+            icon: Icon(Icons.settings),
+            color: Colors.black,
+          )
+        ]
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -179,8 +194,8 @@ class _MeditationPageState extends State<MeditationPage> {
             label: 'Meditation',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings, color: Colors.black),
-            label: 'Settings',
+            icon: Icon(Icons.copy_outlined, color: Colors.black),
+            label: 'Cards',
           ),
         ],
         selectedItemColor: Colors.black,
