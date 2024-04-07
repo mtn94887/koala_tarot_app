@@ -112,14 +112,9 @@ class _tarothistorypageState extends State<tarothistorypage> {
                 child: Column(
                   children: [
                     Expanded(
-                      child: Placeholder(
-                        child: Expanded(
-                          child: Image.asset(
-                            'assets/image_${cardLabels[index]['index']}.png', // Path to your image asset
-                            fit: BoxFit.cover, // Adjust the fit based on your requirement
-                          ),
-                        ),
-                        color: Colors.grey,
+                      child: Image.asset(
+                        'assets/image_${cardLabels[index]['index']}.png', // Path to your image asset
+                        fit: BoxFit.cover, // Adjust the fit based on your requirement
                       ),
                     ),
                     Container(
@@ -134,7 +129,7 @@ class _tarothistorypageState extends State<tarothistorypage> {
                     ),
                   ],
                 ),
-              ),
+            ),
             );
           },
         ),

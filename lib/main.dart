@@ -7,9 +7,9 @@ import 'package:koala_tarot_app/background.dart';
 import 'bottom_navigation_bar.dart'; 
 
 void main(){
-  runApp(MaterialApp(
-    home: BottomNavigationBarExampleApp(), 
-  ));
+  runApp(
+    BottomNavigationBarExampleApp(), 
+  );
 }
 
 // class TarotApp extends StatelessWidget {
