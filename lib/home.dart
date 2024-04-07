@@ -111,30 +111,30 @@ class _TarotHomePageState extends State<TarotHomePage> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.black,
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.article_outlined),
-            label: 'Spreads',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.history),
-            label: 'History',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.self_improvement),
-            label: 'Meditation',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.copy_outlined),
-            label: 'Cards',
-          ),
-        ],
-      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   selectedItemColor: Colors.black,
+      //   unselectedItemColor: Colors.black,
+      //   currentIndex: _selectedIndex,
+      //   onTap: _onItemTapped,
+      //   items: const <BottomNavigationBarItem>[
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.article_outlined),
+      //       label: 'Spreads',
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.history),
+      //       label: 'History',
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.self_improvement),
+      //       label: 'Meditation',
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.copy_outlined),
+      //       label: 'Cards',
+      //     ),
+      //   ],
+      // ),
     );
   }
 }

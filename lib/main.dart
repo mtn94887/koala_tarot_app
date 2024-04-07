@@ -4,12 +4,14 @@ import 'package:koala_tarot_app/welcome.dart';
 import 'package:koala_tarot_app/purpose.dart';
 import 'package:koala_tarot_app/features.dart';
 import 'package:koala_tarot_app/background.dart';
+import 'bottom_navigation_bar.dart'; 
 
-void main() {
+void main(){
   runApp(MaterialApp(
-    home: Home(), 
+    home: BottomNavigationBarExampleApp(), 
   ));
 }
+
 // class TarotApp extends StatelessWidget {
 //   const TarotApp({Key? key}) : super(key: key);
 
