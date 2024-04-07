@@ -233,29 +233,29 @@ class _cardsState extends State<Cards> {
   ),
 ),
 
-      bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.article_outlined, color: Colors.black),
-            label: 'Spreads',
-          ),
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.history, color: Colors.black),
-            label: 'History',
-          ),
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.self_improvement, color: Colors.black),
-            label: 'Meditation',
-          ),
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.copy_outlined, color: Colors.black),
-            label: 'Cards',
-          ),
-        ],
-        selectedItemColor: Colors.black,
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   items: <BottomNavigationBarItem>[
+      //     const BottomNavigationBarItem(
+      //       icon: Icon(Icons.article_outlined, color: Colors.black),
+      //       label: 'Spreads',
+      //     ),
+      //     const BottomNavigationBarItem(
+      //       icon: Icon(Icons.history, color: Colors.black),
+      //       label: 'History',
+      //     ),
+      //     const BottomNavigationBarItem(
+      //       icon: Icon(Icons.self_improvement, color: Colors.black),
+      //       label: 'Meditation',
+      //     ),
+      //     const BottomNavigationBarItem(
+      //       icon: Icon(Icons.copy_outlined, color: Colors.black),
+      //       label: 'Cards',
+      //     ),
+      //   ],
+      //   selectedItemColor: Colors.black,
+      //   currentIndex: _selectedIndex,
+      //   onTap: _onItemTapped,
+      // ),
     );
   }
 }
