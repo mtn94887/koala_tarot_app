@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:koala_tarot_app/home.dart';
 import 'package:koala_tarot_app/setting.dart';
 
 void main() {
@@ -36,12 +37,15 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Personal Profile'),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
+        leading:  IconButton(
+            icon: Icon(Icons.home),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TarotHomePage()),
+              );
+            },
+          ),
         actions: [
           IconButton(
             icon: Icon(Icons.edit),
@@ -70,15 +74,7 @@ class _ProfilePageState extends State<ProfilePage> {
               );
             },
           ),
-          IconButton(
-            icon: Icon(Icons.settings),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => SettingScreen()),
-              );
-            },
-          ),
+         
         ],
       ),
       body: SingleChildScrollView(
