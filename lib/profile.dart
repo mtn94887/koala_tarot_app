@@ -35,7 +35,6 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        
         title: Text('Personal Profile'),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
@@ -43,9 +42,7 @@ class _ProfilePageState extends State<ProfilePage> {
             Navigator.pop(context);
           },
         ),
-       
         actions: [
-         
           IconButton(
             icon: Icon(Icons.edit),
             onPressed: () {
@@ -73,88 +70,112 @@ class _ProfilePageState extends State<ProfilePage> {
               );
             },
           ),
-         
+          IconButton(
+            icon: Icon(Icons.settings),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SettingScreen()),
+              );
+            },
+          ),
         ],
       ),
-      body: Center(
+      body: SingleChildScrollView(
+        scrollDirection: Axis.horizontal, // Scroll horizontally
         child: Padding(
           padding: const EdgeInsets.all(20.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Row(
             children: [
-              Center(
-                child: CircleAvatar(
-                  radius: 70.0,
-                  backgroundImage: AssetImage('assets/pp.png'),
-                ),
-              ),
-              SizedBox(height: 20),
-              Row(
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(Icons.person, size: 24),
-                  SizedBox(width: 10),
-                  Text(
-                    _name,
-                    style: TextStyle(fontSize: 20),
+                  Center(
+                    child: CircleAvatar(
+                      radius: 70.0,
+                      backgroundImage: AssetImage('assets/pp.png'),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Row(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Icon(Icons.person, size: 24),
+                              SizedBox(width: 10),
+                              Text(
+                                _name,
+                                style: TextStyle(fontSize: 20),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 10),
+                          Row(
+                            children: [
+                              Icon(Icons.email, size: 24),
+                              SizedBox(width: 10),
+                              Text(
+                                _email,
+                                style: TextStyle(fontSize: 20),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 10),
+                          Row(
+                            children: [
+                              Icon(Icons.cake, size: 24),
+                              SizedBox(width: 10),
+                              Text(
+                                _birthday,
+                                style: TextStyle(fontSize: 20),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 10),
+                          Row(
+                            children: [
+                              Icon(Icons.phone, size: 24),
+                              SizedBox(width: 10),
+                              Text(
+                                _phoneNumber,
+                                style: TextStyle(fontSize: 20),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 10),
+                          Row(
+                            children: [
+                              Icon(Icons.star, size: 24),
+                              SizedBox(width: 10),
+                              Text(
+                                _zodiacSign,
+                                style: TextStyle(fontSize: 20),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 20),
+                          Container(
+                            padding: EdgeInsets.all(10),
+                            constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width), // Limit container width to screen width
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: SingleChildScrollView(
+                              child: Text(
+                                getZodiacSignDescription(_zodiacSign),
+                                style: TextStyle(fontSize: 16),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ],
-              ),
-              SizedBox(height: 10),
-              Row(
-                children: [
-                  Icon(Icons.email, size: 24),
-                  SizedBox(width: 10),
-                  Text(
-                    _email,
-                    style: TextStyle(fontSize: 20),
-                  ),
-                ],
-              ),
-              SizedBox(height: 10),
-              Row(
-                children: [
-                  Icon(Icons.cake, size: 24),
-                  SizedBox(width: 10),
-                  Text(
-                    _birthday,
-                    style: TextStyle(fontSize: 20),
-                  ),
-                ],
-              ),
-              SizedBox(height: 10),
-              Row(
-                children: [
-                  Icon(Icons.phone, size: 24),
-                  SizedBox(width: 10),
-                  Text(
-                    _phoneNumber,
-                    style: TextStyle(fontSize: 20),
-                  ),
-                ],
-              ),
-              SizedBox(height: 10),
-              Row(
-                children: [
-                  Icon(Icons.star, size: 24),
-                  SizedBox(width: 10),
-                  Text(
-                    _zodiacSign,
-                    style: TextStyle(fontSize: 20),
-                  ),
-                ],
-              ),
-              SizedBox(height: 20),
-              Container(
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Text(
-                  getZodiacSignDescription(_zodiacSign),
-                  style: TextStyle(fontSize: 16),
-                ),
               ),
             ],
           ),
