@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:koala_tarot_app/home.dart';
 import 'package:koala_tarot_app/setting.dart';
 
 void main() {
@@ -9,13 +8,17 @@ void main() {
 class ProfileApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Profile Screen',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: ProfilePage(),
+    return Scaffold(
+      // appBar: AppBar(
+      //   title: Text('Profile Screen'),
+      //   leading: IconButton(
+      //     icon: Icon(Icons.arrow_back),
+      //     onPressed: () {
+      //        Navigator.pop(context);
+      //     },
+      //   ),
+      // ),
+      body: ProfilePage(),
     );
   }
 }
@@ -37,15 +40,13 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Personal Profile'),
-        leading:  IconButton(
-            icon: Icon(Icons.home),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => TarotHomePage()),
-              );
-            },
-          ),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+             Navigator.pop(context);
+          },
+        ),
+
         actions: [
           IconButton(
             icon: Icon(Icons.edit),
@@ -74,7 +75,15 @@ class _ProfilePageState extends State<ProfilePage> {
               );
             },
           ),
-         
+          // IconButton(
+          //   icon: Icon(Icons.settings),
+          //   onPressed: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => SettingScreen()),
+          //     );
+          //   },
+          // ),
         ],
       ),
       body: SingleChildScrollView(
@@ -227,7 +236,7 @@ class _EditScreenState extends State<EditScreen> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.of(context).pop(); // Use Navigator.of(context).pop()
           },
         ),
       ),
@@ -336,7 +345,7 @@ class _EditScreenState extends State<EditScreen> {
                       _phoneNumberController.text,
                       _zodiacSignController.text,
                     );
-                    Navigator.pop(context);
+                    Navigator.of(context).pop(); // Use Navigator.of(context).pop()
                   },
                   child: Text('Save Changes'),
                 ),
