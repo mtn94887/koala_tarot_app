@@ -11,41 +11,41 @@ class MeditationPage extends StatefulWidget {
 }
 
 class _MeditationPageState extends State<MeditationPage> {
-  int _selectedIndex = 0;
+  //int _selectedIndex = 0;
   double _volume = 0.5; // Track the volume value
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+  // void _onItemTapped(int index) {
+  //   setState(() {
+  //     _selectedIndex = index;
+  //   });
 
-    switch (index) {
-      case 0:
-        // Navigate to TarotHomePage if Spreads icon is tapped
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => TarotHomePage()),
-        );
-        break;
-      case 1:
-        // Navigate to TarotHistoryPage if History icon is tapped
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => tarothistorypage()),
-        );
-        break;
-      case 2:
-        // Do nothing if Meditation icon is tapped (current page)
-        break;
-      case 3:
-        // Navigate to SettingScreen if Settings icon is tapped
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => Cards()),
-        );
-        break;
-    }
-  }
+  //   switch (index) {
+  //     case 0:
+  //       // Navigate to TarotHomePage if Spreads icon is tapped
+  //       Navigator.push(
+  //         context,
+  //         MaterialPageRoute(builder: (context) => TarotHomePage()),
+  //       );
+  //       break;
+  //     case 1:
+  //       // Navigate to TarotHistoryPage if History icon is tapped
+  //       Navigator.push(
+  //         context,
+  //         MaterialPageRoute(builder: (context) => tarothistorypage()),
+  //       );
+  //       break;
+  //     case 2:
+  //       // Do nothing if Meditation icon is tapped (current page)
+  //       break;
+  //     case 3:
+  //       // Navigate to SettingScreen if Settings icon is tapped
+  //       Navigator.push(
+  //         context,
+  //         MaterialPageRoute(builder: (context) => Cards()),
+  //       );
+  //       break;
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -108,7 +108,7 @@ class _MeditationPageState extends State<MeditationPage> {
                 width: 230,
                 height: 250,
                 decoration: BoxDecoration(
-                  color: const Color(0xFFD8D2EF),
+                  color: Color(0xFFD8D2EF),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: const Column(
@@ -116,7 +116,7 @@ class _MeditationPageState extends State<MeditationPage> {
                   children: [
                     Icon(
                       Icons.play_circle_fill,
-                      size: 70,
+                      size: 100,
                       color: Colors.white,
                     ),
                     SizedBox(height: 16),

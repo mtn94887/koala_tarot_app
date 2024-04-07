@@ -39,22 +39,44 @@ Widget build(BuildContext context) {
 
 
 Widget _buildMusicTile(BuildContext context, String musicName) {
-  return ListTile(
-    title: Text(
-      musicName,
-      style: TextStyle(color: Colors.white),
-    ),
-    trailing: IconButton(
-      icon: Icon(Icons.play_arrow, color: Colors.white),
-      onPressed: () {
-        // Add functionality when play button is tapped
-      },
-    ),
-    onTap: () {
-      // Add functionality when music tile is tapped
-    },
-  );
-}
+    return SizedBox(
+      width: MediaQuery.of(context).size.width * 0.8, // Adjust the width as needed
+      child: Container(
+        margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10), // Adjust margins as needed
+        decoration: BoxDecoration(
+          color: Color(0xFFD8D2EF), // White background color
+          borderRadius: BorderRadius.circular(20), // Rounded corners
+          // Add padding to the left and right sides
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 5,
+              blurRadius: 7,
+              offset: Offset(0, 3), // changes position of shadow
+            ),
+          ],
+        ),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16), // Adjust padding as needed
+          child: ListTile(
+            title: Text(
+              musicName,
+              style: TextStyle(color: Colors.black), // Text color
+            ),
+            trailing: IconButton(
+              icon: Icon(Icons.play_circle_fill, color: Color.fromARGB(255, 169, 117, 178)), // Icon color
+              onPressed: () {
+                // Add functionality when play button is tapped
+              },
+            ),
+            onTap: () {
+              // Add functionality when music tile is tapped
+            },
+          ),
+        ),
+      ),
+    );
+  }
 
 
 
