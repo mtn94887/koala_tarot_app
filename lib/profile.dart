@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:koala_tarot_app/setting.dart';
 
+void main() {
+  runApp(ProfileApp());
+}
 
 class ProfileApp extends StatelessWidget {
   @override
@@ -32,42 +35,45 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        
         title: Text('Personal Profile'),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+       
         actions: [
+         
           IconButton(
             icon: Icon(Icons.edit),
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => EditScreen(
-                  name: _name,
-                  email: _email,
-                  birthday: _birthday,
-                  phoneNumber: _phoneNumber,
-                  zodiacSign: _zodiacSign,
-                  onUpdate: (String name, String email, String birthday, String phoneNumber, String zodiacSign) {
-                    setState(() {
-                      _name = name;
-                      _email = email;
-                      _birthday = birthday;
-                      _phoneNumber = phoneNumber;
-                      _zodiacSign = zodiacSign;
-                    });
-                  },
-                )),
+                MaterialPageRoute(
+                  builder: (context) => EditScreen(
+                    name: _name,
+                    email: _email,
+                    birthday: _birthday,
+                    phoneNumber: _phoneNumber,
+                    zodiacSign: _zodiacSign,
+                    onUpdate: (String name, String email, String birthday,
+                        String phoneNumber, String zodiacSign) {
+                      setState(() {
+                        _name = name;
+                        _email = email;
+                        _birthday = birthday;
+                        _phoneNumber = phoneNumber;
+                        _zodiacSign = zodiacSign;
+                      });
+                    },
+                  ),
+                ),
               );
             },
           ),
-         IconButton(
-            icon: Icon(Icons.settings),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => SettingScreen(
-                )),
-              );
-            },
-          ),
+         
         ],
       ),
       body: Center(
@@ -342,8 +348,18 @@ class _EditScreenState extends State<EditScreen> {
 }
 
 final List<String> zodiacSigns = [
-  'Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio',
-  'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'
+  'Aries',
+  'Taurus',
+  'Gemini',
+  'Cancer',
+  'Leo',
+  'Virgo',
+  'Libra',
+  'Scorpio',
+  'Sagittarius',
+  'Capricorn',
+  'Aquarius',
+  'Pisces'
 ];
 
 String getZodiacSignDescription(String sign) {
@@ -361,6 +377,6 @@ String getZodiacSignDescription(String sign) {
     'Aquarius': 'Despite the "aqua" in its name, Aquarius is actually the last air sign of the zodiac. Aquarius is represented by the water bearer, the mystical healer who bestows water, or life, upon the land.',
     'Pisces': 'Pisces, a water sign, is the last constellation of the zodiac. It\'s symbolized by two fish swimming in opposite directions, representing the constant division of Pisces\'s attention between fantasy and reality.',
   };
-  
+
   return zodiacDescriptions[sign] ?? 'No description available.';
 }
