@@ -42,41 +42,54 @@ class _BottomNavigationBarExampleState
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.article_outlined),
-            label: 'Spreads',
-            //backgroundColor: Colors.red,
+Widget build(BuildContext context) {
+  return Scaffold(
+    body: Center(
+      child: _widgetOptions.elementAt(_selectedIndex),
+    ),
+    bottomNavigationBar: BottomNavigationBar(
+      items: <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: Image.asset(
+            'assets/crystal-ball.png', // Path to your image for the first tab
+            width: 24,
+            height: 24,
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.history_outlined),
-            label: 'History',
-            //backgroundColor: Colors.green,
+          label: 'Spreads',
+        ),
+        BottomNavigationBarItem(
+          icon: Image.asset(
+            'assets/history-book.png', // Path to your image for the second tab
+            width: 24,
+            height: 24,
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.self_improvement_outlined),
-            label: 'Meditation',
-            //backgroundColor: Colors.purple,
+          label: 'History',
+        ),
+        BottomNavigationBarItem(
+          icon: Image.asset(
+            'assets/yoga.png', // Path to your image for the third tab
+            width: 24,
+            height: 24,
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.copy_outlined),
-            label: 'Cards',
-            //backgroundColor: Colors.pink,
+          label: 'Meditation',
+        ),
+        BottomNavigationBarItem(
+          icon: Image.asset(
+            'assets/magic.png', // Path to your image for the fourth tab
+            width: 24,
+            height: 24,
           ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: const Color.fromARGB(255, 0, 0, 0),
-        unselectedItemColor: const Color.fromARGB(255, 0, 0, 0),
-        onTap: _onItemTapped,
-      ),
-    );
-  }
+          label: 'Cards',
+        ),
+      ],
+      currentIndex: _selectedIndex,
+      selectedItemColor: const Color.fromARGB(255, 0, 0, 0),
+      unselectedItemColor: const Color.fromARGB(255, 0, 0, 0),
+      onTap: _onItemTapped,
+    ),
+  );
+}
+
 }
 
 
