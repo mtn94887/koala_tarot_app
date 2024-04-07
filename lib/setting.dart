@@ -1,12 +1,94 @@
 import 'package:flutter/material.dart';
+import 'package:koala_tarot_app/cards.dart';
 import 'package:koala_tarot_app/privacy.dart';
 import 'package:koala_tarot_app/purpose.dart';
 import 'package:koala_tarot_app/terms.dart';
-import 'package:koala_tarot_app/profile.dart'; // Import main.dart
-import 'package:koala_tarot_app/home.dart'; // Import home.dart
-import 'package:koala_tarot_app/meditationpage.dart'; // Import MeditationPage
+import 'package:koala_tarot_app/profile.dart';
+import 'package:koala_tarot_app/home.dart';
+import 'package:koala_tarot_app/meditationpage.dart';
 import 'package:koala_tarot_app/tarothistorypage.dart';
-import 'package:koala_tarot_app/welcome.dart'; // Import tarothistorypage
+import 'package:koala_tarot_app/welcome.dart';
+
+void main() {
+  runApp(BottomNavigationBarExampleApp());
+}
+
+class BottomNavigationBarExampleApp extends StatelessWidget {
+  const BottomNavigationBarExampleApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: BottomNavigationBarExample(),
+    );
+  }
+}
+
+class BottomNavigationBarExample extends StatefulWidget {
+  const BottomNavigationBarExample({Key? key}) : super(key: key);
+
+  @override
+  State<BottomNavigationBarExample> createState() =>
+      _BottomNavigationBarExampleState();
+}
+
+class _BottomNavigationBarExampleState
+    extends State<BottomNavigationBarExample> {
+  int _selectedIndex = 0;
+
+  static List<Widget> _widgetOptions = <Widget>[
+    TarotHomePage(),
+    tarothistorypage(),
+    MeditationPage(),
+    Cards(), // Changed from TarotCardPage to SettingScreen
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    if (index == 3) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => SettingScreen()), // Navigate to SettingScreen
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.article_outlined),
+            label: 'Spreads',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.history_outlined),
+            label: 'History',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.self_improvement_outlined),
+            label: 'Meditation',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.copy_outlined),
+            label: 'Cards',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: const Color.fromARGB(255, 0, 0, 0),
+        unselectedItemColor: const Color.fromARGB(255, 0, 0, 0),
+        onTap: _onItemTapped,
+      ),
+    );
+  }
+}
 
 class SettingScreen extends StatefulWidget {
   @override
@@ -21,41 +103,37 @@ class _SettingScreenState extends State<SettingScreen> {
     int currentYear = DateTime.now().year;
 
     return Scaffold(
-     appBar: AppBar(
-  automaticallyImplyLeading: false, // Remove automatic back arrow icon
-  title: Text(
-    'Settings',
-    style: TextStyle(
-      fontWeight: FontWeight.bold, // Make title bold
-      fontSize: 24, // Increase font size
-    ),
-  ),
-  leading: IconButton(
-    icon: Icon(Icons.arrow_back), // Back arrow icon
-    onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => TarotHomePage()), // Navigate to main.dart
-        );
-      },
-  ),
-  actions: [
-    GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => ProfileApp()), // Navigate to main.dart
-        );
-      },
-      child: CircleAvatar(
-        radius: 25,
-        backgroundImage: AssetImage('assets/pp.png'),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Text(
+          'Settings',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 24,
+          ),
+        ),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        actions: [
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProfileApp()),
+              );
+            },
+            child: CircleAvatar(
+              radius: 25,
+              backgroundImage: AssetImage('assets/pp.png'),
+            ),
+          ),
+          SizedBox(width: 25),
+        ],
       ),
-    ),
-    SizedBox(width: 25), // Adjust spacing as needed
-  ],
-),
-
       body: Column(
         children: [
           Expanded(
@@ -94,7 +172,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 ),
                 ListTile(
                   title: Text('Logout'),
-                 onTap: () {
+                  onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => Home()),
@@ -106,7 +184,7 @@ class _SettingScreenState extends State<SettingScreen> {
                     'Delete Account',
                     style: TextStyle(color: Colors.red),
                   ),
-                 onTap: () {
+                  onTap: () {
                     _deleteAccount();
                   },
                 ),
@@ -175,7 +253,8 @@ class _SettingScreenState extends State<SettingScreen> {
                     children: [
                       IconButton(
                         iconSize: 36,
-                        icon: Icon(Icons.star, color: stars[0] ? Colors.orange : null), // Change color if star is selected
+                        icon: Icon(Icons.star,
+                            color: stars[0] ? Colors.orange : null), // Change color if star is selected
                         onPressed: () {
                           setState(() {
                             for (int i = 0; i < 5; i++) {
@@ -190,7 +269,8 @@ class _SettingScreenState extends State<SettingScreen> {
                       ),
                       IconButton(
                         iconSize: 36,
-                        icon: Icon(Icons.star, color: stars[1] ? Colors.orange : null), // Change color if star is selected
+                        icon: Icon(Icons.star,
+                            color: stars[1] ? Colors.orange : null), // Change color if star is selected
                         onPressed: () {
                           setState(() {
                             for (int i = 0; i < 5; i++) {
@@ -205,7 +285,8 @@ class _SettingScreenState extends State<SettingScreen> {
                       ),
                       IconButton(
                         iconSize: 36,
-                        icon: Icon(Icons.star, color: stars[2] ? Colors.orange : null), // Change color if star is selected
+                        icon: Icon(Icons.star,
+                            color: stars[2] ? Colors.orange : null), // Change color if star is selected
                         onPressed: () {
                           setState(() {
                             for (int i = 0; i < 5; i++) {
@@ -220,7 +301,8 @@ class _SettingScreenState extends State<SettingScreen> {
                       ),
                       IconButton(
                         iconSize: 36,
-                        icon: Icon(Icons.star, color: stars[3] ? Colors.orange : null), // Change color if star is selected
+                        icon: Icon(Icons.star,
+                            color: stars[3] ? Colors.orange : null), // Change color if star is selected
                         onPressed: () {
                           setState(() {
                             for (int i = 0; i < 5; i++) {
@@ -235,7 +317,8 @@ class _SettingScreenState extends State<SettingScreen> {
                       ),
                       IconButton(
                         iconSize: 36,
-                        icon: Icon(Icons.star, color: stars[4] ? Colors.orange : null), // Change color if star is selected
+                        icon: Icon(Icons.star,
+                            color: stars[4] ? Colors.orange : null), // Change color if star is selected
                         onPressed: () {
                           setState(() {
                             for (int i = 0; i < 5; i++) {
@@ -274,14 +357,13 @@ class _SettingScreenState extends State<SettingScreen> {
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-               ElevatedButton(
+              ElevatedButton(
                 onPressed: () {
                   // Handle 'About Tarot'
-                    Navigator.push(
+                  Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => PurposePage()),
                   );
-
                 },
                 child: Text('About Tarot'),
               ),
