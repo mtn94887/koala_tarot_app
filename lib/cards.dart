@@ -292,11 +292,12 @@ class TheFool extends StatelessWidget {
 
                 // Add your text here
                 Text(
-                  '          The Fool is a very powerful card in the Tarot deck, usually representing a new beginning and, consequently, an end to something in your old life. The position of fool in your spread reveals which aspects of your life may be subject to change. The Fool portends important decisions ahead which may not be easy to make, and involve an element of risk for you. Approach the changes with optimism and care to gain the most positive outcome.',
+                  'The Fool is a very powerful card in the Tarot deck, usually representing a new beginning and, consequently, an end to something in your old life. The position of fool in your spread reveals which aspects of your life may be subject to change. The Fool portends important decisions ahead which may not be easy to make, and involve an element of risk for you. Approach the changes with optimism and care to gain the most positive outcome.',
                   style: TextStyle(
-                    color: Colors.white, // Change the text color as needed
-                    fontSize: 20, // Change the text size as needed
+                    color: Colors.black, 
+                    fontSize: 20, 
                   ),
+                    textAlign: TextAlign.center,
                 ),
               ],
             ),
@@ -334,18 +335,16 @@ class TheMagician extends StatelessWidget {
                   'assets/magician.png',
                   height: 500, // Change the height as needed
                   width: 300, // Change the width as needed
-                ), // Change 'your_image.png' to the path of your image
-
-                // Add some space between the image and the text
+                ), 
                 SizedBox(height: 20),
 
-                // Add your text here
                 Text(
-                  '          The Magician generally associates with intelligent and skillful communicators. His presence in your spread indicates a level of self-confidence and drive which allows you to translate ideas into action. A practical card, the revelations it brings are best applied to the pragmatic and physical aspects of your life, rather then the ephemeral or theoretical. Your success in upcoming ventures in politics or business will likely hinge upon your own strength of will and determination.',
+                  'The Magician generally associates with intelligent and skillful communicators. His presence in your spread indicates a level of self-confidence and drive which allows you to translate ideas into action. A practical card, the revelations it brings are best applied to the pragmatic and physical aspects of your life, rather then the ephemeral or theoretical. Your success in upcoming ventures in politics or business will likely hinge upon your own strength of will and determination.',
                   style: TextStyle(
-                    color: Colors.white, // Change the text color as needed
-                    fontSize: 20, // Change the text size as needed
+                    color: Colors.black,
+                    fontSize: 20, 
                   ),
+                   textAlign: TextAlign.center,
                 ),
               ],
             ),
@@ -383,18 +382,16 @@ class SixOfPentacles extends StatelessWidget {
                   'assets/sixofpentacles.png',
                   height: 500, // Change the height as needed
                   width: 300, // Change the width as needed
-                ), // Change 'your_image.png' to the path of your image
-
-                // Add some space between the image and the text
+                ), 
                 SizedBox(height: 20),
 
-                // Add your text here
                 Text(
-                  '          Success in your life is bound up to generosity. This may mean your prosperity will arise from your investment in others, perhaps a financial investment, or maybe advice and support for a friend. This card can also mean the reverse, that your success will arise from the generosity of someone else. The two are, of course, not exclusive, and drawing this card suggests you naturally lean towards benevolent acts and charity.',
+                  'Success in your life is bound up to generosity. This may mean your prosperity will arise from your investment in others, perhaps a financial investment, or maybe advice and support for a friend. This card can also mean the reverse, that your success will arise from the generosity of someone else. The two are, of course, not exclusive, and drawing this card suggests you naturally lean towards benevolent acts and charity.',
                   style: TextStyle(
-                    color: Colors.white, // Change the text color as needed
-                    fontSize: 20, // Change the text size as needed
+                    color: Colors.black, 
+                    fontSize: 20,
                   ),
+                   textAlign: TextAlign.center,
                 ),
               ],
             ),
@@ -439,11 +436,12 @@ class TheMoon extends StatelessWidget {
 
                 // Add your text here
                 Text(
-                  '          Something in your life is not what it seems. Perhaps a misunderstanding on your part, or a truth you cannot admit to yourself. It may also indicate something important being kept from you by another. This may be a source of worry or depression in your life, and the Moon is a strong indicator that you must rely on your intuition to see through the subterfuge.',
+                  ' Something in your life is not what it seems. Perhaps a misunderstanding on your part, or a truth you cannot admit to yourself. It may also indicate something important being kept from you by another. This may be a source of worry or depression in your life, and the Moon is a strong indicator that you must rely on your intuition to see through the subterfuge.',
                   style: TextStyle(
-                    color: Colors.white, // Change the text color as needed
-                    fontSize: 20, // Change the text size as needed
+                    color: Colors.black, 
+                    fontSize: 20, 
                   ),
+                   textAlign: TextAlign.center,
                 ),
               ],
             ),
@@ -484,11 +482,12 @@ class AceOfSwords extends StatelessWidget {
                 SizedBox(height: 20),
             
                 Text(
-                  '          The Ace of Swords is, like all of the Aces, the purest embodiment of its suit. In relation to your personality or your actions it implies a strong element of focus, determination, and an intellectual capacity. It may suggest change through warring forces, possibly internal; conflicts of not necessarily overt reasoning regarding inner consciousness, keep energetic to triumph.',
+                  '  The Ace of Swords is, like all of the Aces, the purest embodiment of its suit. In relation to your personality or your actions it implies a strong element of focus, determination, and an intellectual capacity. It may suggest change through warring forces, possibly internal; conflicts of not necessarily overt reasoning regarding inner consciousness, keep energetic to triumph.',
                   style: TextStyle(
-                    color: Colors.white, 
+                    color: Colors.black, 
                     fontSize: 20, 
                   ),
+                   textAlign: TextAlign.center,
                 ),
               ],
             ),
@@ -529,11 +528,12 @@ class KingOfPentacles extends StatelessWidget {
                 SizedBox(height: 20),
             
                 Text(
-                  '          The King of Pentacles embodies the mature and dependable aspects of maturity. Anyone represented by this card is tied to success and status. While it may refer to your own characteristics, the Kings most often stand in for other people in your life who can aid you. You can expect this person to value prudence of intelligence, and, if it represents an event, it may be a financial windfall or promotion.',
+                  'The King of Pentacles embodies the mature and dependable aspects of maturity. Anyone represented by this card is tied to success and status. While it may refer to your own characteristics, the Kings most often stand in for other people in your life who can aid you. You can expect this person to value prudence of intelligence, and, if it represents an event, it may be a financial windfall or promotion.',
                   style: TextStyle(
-                    color: Colors.white, 
+                    color: Colors.black, 
                     fontSize: 20, 
                   ),
+                   textAlign: TextAlign.center,
                 ),
               ],
             ),
@@ -575,11 +575,12 @@ class NineOfWands extends StatelessWidget {
                 SizedBox(height: 20),
             
                 Text(
-                  '          The IX of Wands is a bittersweet discovery in your spread, as it suggests both struggles ahead and the capacity within you to overcome them. Your life is probably comfortable at the moment, but there are also likely signs of trouble in some of the less critical aspects of your personal or professional life. Your inner strength will be called upon to maintain the current situation, and then to move forward when progress becomes possible for you.',
+                  '  The IX of Wands is a bittersweet discovery in your spread, as it suggests both struggles ahead and the capacity within you to overcome them. Your life is probably comfortable at the moment, but there are also likely signs of trouble in some of the less critical aspects of your personal or professional life. Your inner strength will be called upon to maintain the current situation, and then to move forward when progress becomes possible for you.',
                   style: TextStyle(
-                    color: Colors.white, 
+                    color: Colors.black, 
                     fontSize: 20, 
                   ),
+                   textAlign: TextAlign.center,
                 ),
               ],
             ),
@@ -620,11 +621,12 @@ class WheelOfFortune extends StatelessWidget {
                 SizedBox(height: 20),
             
                 Text(
-                  '          Symbolic of life cycles, the Wheel of Fortune speaks to good beginnings. Most likely, you will find the events foretold to be positive, but, being aspects of luck, they may also be beyond your control and influence. Tend those things you can control with care, and learn not to agonize over the ones you cannot.',
+                  'Symbolic of life cycles, the Wheel of Fortune speaks to good beginnings. Most likely, you will find the events foretold to be positive, but, being aspects of luck, they may also be beyond your control and influence. Tend those things you can control with care, and learn not to agonize over the ones you cannot.',
                   style: TextStyle(
-                    color: Colors.white, 
+                    color: Colors.black, 
                     fontSize: 20, 
                   ),
+                   textAlign: TextAlign.center,
                 ),
               ],
             ),
@@ -669,11 +671,12 @@ class TheEmpress extends StatelessWidget {
 
                 // Add your text here
                 Text(
-                  '          Traditionally associated with strong maternal influence, the presence of the Empress is excellent news if you are looking for harmony in your marriage or hoping to start a family. Any artistic endeavours you are currently associated with are also likely to be more successful, as this card often finds those exposed to strong bursts of creative or artistic energy. That creative energy may not be in the form of a painting or art project, however: This card also suggests a very strong possibility of pregnancy -- not necessarily yours, but you might be seeing a new addition to your extended family or the family of a close friend in the near future! This card is a good portent for you and those around you.',
+                  'Traditionally associated with strong maternal influence, the presence of the Empress is excellent news if you are looking for harmony in your marriage or hoping to start a family. Any artistic endeavours you are currently associated with are also likely to be more successful, as this card often finds those exposed to strong bursts of creative or artistic energy. That creative energy may not be in the form of a painting or art project, however: This card also suggests a very strong possibility of pregnancy -- not necessarily yours, but you might be seeing a new addition to your extended family or the family of a close friend in the near future! This card is a good portent for you and those around you.',
                   style: TextStyle(
-                    color: Colors.white, // Change the text color as needed
+                    color: Colors.black, // Change the text color as needed
                     fontSize: 20, // Change the text size as needed
                   ),
+                   textAlign: TextAlign.center,
                 ),
               ],
             ),
