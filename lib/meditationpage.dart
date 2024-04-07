@@ -12,6 +12,7 @@ class MeditationPage extends StatefulWidget {
 
 class _MeditationPageState extends State<MeditationPage> {
   int _selectedIndex = 0;
+  double _volume = 0.5; // Track the volume value
 
   void _onItemTapped(int index) {
     setState(() {
@@ -40,7 +41,7 @@ class _MeditationPageState extends State<MeditationPage> {
         // Navigate to SettingScreen if Settings icon is tapped
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) =>  Cards()),
+          MaterialPageRoute(builder: (context) => Cards()),
         );
         break;
     }
@@ -52,22 +53,20 @@ class _MeditationPageState extends State<MeditationPage> {
       appBar: AppBar(
         backgroundColor: const Color(0xFF7D5AAD),
         automaticallyImplyLeading: false,
-        title: const Text(
-          "Meditation"
-        ),
+        title: const Text("Meditation"),
         centerTitle: true,
-        actions: <Widget> [
+        actions: <Widget>[
           IconButton(
             onPressed: () {
               Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SettingScreen()),
-                );
-            }, 
+                context,
+                MaterialPageRoute(builder: (context) => SettingScreen()),
+              );
+            },
             icon: const Icon(Icons.settings),
             color: Colors.black,
           )
-        ]
+        ],
       ),
       body: Container(
         decoration: const BoxDecoration(
@@ -167,9 +166,11 @@ class _MeditationPageState extends State<MeditationPage> {
                   const Icon(Icons.volume_mute, color: Colors.white), // Mute icon
                   Expanded(
                     child: Slider(
-                      value: 0.5, // Current volume value
+                      value: _volume, // Current volume value
                       onChanged: (newValue) {
-                        // Update volume
+                        setState(() {
+                          _volume = newValue; // Update volume
+                        });
                       },
                     ),
                   ),
@@ -180,6 +181,8 @@ class _MeditationPageState extends State<MeditationPage> {
           ],
         ),
       ),
+
+
       // bottomNavigationBar: BottomNavigationBar(
       //   items: <BottomNavigationBarItem>[
       //     const BottomNavigationBarItem(
