@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:koala_tarot_app/home.dart';
 import 'dart:math';
 
-class TarotApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: TarotCardPage(),
-    );
-  }
-}
+// class TarotApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: TarotCardPage(),
+//     );
+//   }
+// }
 
 class TarotCardPage extends StatelessWidget {
   final List<Map<String, String>> tarotCards = List.generate(

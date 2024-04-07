@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:koala_tarot_app/cards.dart';
 import 'home.dart';
 import 'tarothistorypage.dart'; 
 import 'meditationpage.dart';
@@ -31,7 +32,7 @@ class _BottomNavigationBarExampleState
     TarotHomePage(),
     tarothistorypage(),
     MeditationPage(),
-    TarotCardPage(),
+    Cards(),
   ];
 
   void _onItemTapped(int index) {
