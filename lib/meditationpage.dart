@@ -11,41 +11,16 @@ class MeditationPage extends StatefulWidget {
 }
 
 class _MeditationPageState extends State<MeditationPage> {
-  //int _selectedIndex = 0;
+  // Add a boolean variable to track the play/pause state
+  bool _isPlaying = false;
   double _volume = 0.5; // Track the volume value
 
-  // void _onItemTapped(int index) {
-  //   setState(() {
-  //     _selectedIndex = index;
-  //   });
-
-  //   switch (index) {
-  //     case 0:
-  //       // Navigate to TarotHomePage if Spreads icon is tapped
-  //       Navigator.push(
-  //         context,
-  //         MaterialPageRoute(builder: (context) => TarotHomePage()),
-  //       );
-  //       break;
-  //     case 1:
-  //       // Navigate to TarotHistoryPage if History icon is tapped
-  //       Navigator.push(
-  //         context,
-  //         MaterialPageRoute(builder: (context) => tarothistorypage()),
-  //       );
-  //       break;
-  //     case 2:
-  //       // Do nothing if Meditation icon is tapped (current page)
-  //       break;
-  //     case 3:
-  //       // Navigate to SettingScreen if Settings icon is tapped
-  //       Navigator.push(
-  //         context,
-  //         MaterialPageRoute(builder: (context) => Cards()),
-  //       );
-  //       break;
-  //   }
-  // }
+  // Function to toggle play/pause state
+  void _togglePlaying() {
+    setState(() {
+      _isPlaying = !_isPlaying;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -104,31 +79,44 @@ class _MeditationPageState extends State<MeditationPage> {
             // Rectangle with play button and "Press to start breathing exercise"
             const SizedBox(height: 20),
             Center(
-              child: Container(
-                width: 230,
-                height: 250,
-                decoration: BoxDecoration(
-                  color: Color(0xFFD8D2EF),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: const Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.play_circle_fill,
-                      size: 100,
-                      color: Colors.white,
-                    ),
-                    SizedBox(height: 16),
-                    Text(
-                      'Press to start breathing exercise',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16,
+              child: GestureDetector(
+                onTap: () {
+                  // Toggle play/pause state
+                  _togglePlaying();
+                },
+                child: Container(
+                  width: 230,
+                  height: 250,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFD8D2EF),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      // Change the icon based on play/pause state
+                      _isPlaying
+                          ? Icon(
+                              Icons.pause_circle_filled,
+                              size: 100,
+                              color: Colors.white,
+                            )
+                          : Icon(
+                              Icons.play_circle_fill,
+                              size: 100,
+                              color: Colors.white,
+                            ),
+                      const SizedBox(height: 16),
+                      Text(
+                        'Press to ${_isPlaying ? 'pause' : 'start'} breathing exercise',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -181,31 +169,6 @@ class _MeditationPageState extends State<MeditationPage> {
           ],
         ),
       ),
-
-
-      // bottomNavigationBar: BottomNavigationBar(
-      //   items: <BottomNavigationBarItem>[
-      //     const BottomNavigationBarItem(
-      //       icon: Icon(Icons.article_outlined, color: Colors.black),
-      //       label: 'Spreads',
-      //     ),
-      //     const BottomNavigationBarItem(
-      //       icon: Icon(Icons.history, color: Colors.black),
-      //       label: 'History',
-      //     ),
-      //     const BottomNavigationBarItem(
-      //       icon: Icon(Icons.self_improvement, color: Colors.black),
-      //       label: 'Meditation',
-      //     ),
-      //     const BottomNavigationBarItem(
-      //       icon: Icon(Icons.copy_outlined, color: Colors.black),
-      //       label: 'Cards',
-      //     ),
-      //   ],
-      //   selectedItemColor: Colors.black,
-      //   currentIndex: _selectedIndex,
-      //   onTap: _onItemTapped,
-      // ),
     );
   }
 }
