@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:audioplayers/audioplayers.dart';
+import 'package:koala_tarot_app/cards.dart';
+import 'package:koala_tarot_app/home.dart';
 import 'package:koala_tarot_app/setting.dart';
-import 'package:koala_tarot_app/music.dart';
+import 'package:koala_tarot_app/tarothistorypage.dart'; // Import the TarotHistoryPage
+import 'package:koala_tarot_app/music.dart'; // Import the music page
 
 class MeditationPage extends StatefulWidget {
   @override
@@ -9,25 +11,15 @@ class MeditationPage extends StatefulWidget {
 }
 
 class _MeditationPageState extends State<MeditationPage> {
+  // Add a boolean variable to track the play/pause state
   bool _isPlaying = false;
-  double _volume = 0.5;
-  AudioPlayer _audioPlayer = AudioPlayer();
+  double _volume = 0.5; // Track the volume value
 
-  void _togglePlaying() async {
-    if (_isPlaying) {
-      await _audioPlayer.pause(); // Pause the audio if it's playing
-    } else {
-      await _audioPlayer.play('assets/intro.mp3', isLocal: true); // Play the audio
-    }
+  // Function to toggle play/pause state
+  void _togglePlaying() {
     setState(() {
-      _isPlaying = !_isPlaying; // Toggle the play/pause state
+      _isPlaying = !_isPlaying;
     });
-  }
-
-  @override
-  void dispose() {
-    _audioPlayer.dispose(); // Dispose the audio player when the widget is disposed
-    super.dispose();
   }
 
   @override
@@ -61,6 +53,7 @@ class _MeditationPageState extends State<MeditationPage> {
         ),
         child: Column(
           children: [
+            // "Relax" and "your mind and body" text
             const Center(
               child: Column(
                 children: [
@@ -83,11 +76,13 @@ class _MeditationPageState extends State<MeditationPage> {
                 ],
               ),
             ),
+            // Rectangle with play button and "Press to start breathing exercise"
             const SizedBox(height: 20),
             Center(
               child: GestureDetector(
                 onTap: () {
-                  _togglePlaying(); // Toggle play/pause when the button is pressed
+                  // Toggle play/pause state
+                  _togglePlaying();
                 },
                 child: Container(
                   width: 230,
