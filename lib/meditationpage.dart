@@ -4,6 +4,7 @@ import 'package:koala_tarot_app/home.dart';
 import 'package:koala_tarot_app/setting.dart';
 import 'package:koala_tarot_app/tarothistorypage.dart'; // Import the TarotHistoryPage
 import 'package:koala_tarot_app/music.dart'; // Import the music page
+import 'package:audioplayers/audioplayers.dart'; 
 
 class MeditationPage extends StatefulWidget {
   @override
@@ -13,10 +14,17 @@ class MeditationPage extends StatefulWidget {
 class _MeditationPageState extends State<MeditationPage> {
   // Add a boolean variable to track the play/pause state
   bool _isPlaying = false;
+  AudioPlayer _audioPlayer = AudioPlayer(); 
   double _volume = 0.5; // Track the volume value
 
   // Function to toggle play/pause state
-  void _togglePlaying() {
+  void _togglePlaying() async {
+    if (_isPlaying){
+      await _audioPlayer.pause(); 
+    }
+    else{
+      await _audioPlayer.play('assets/deep_relaxation.mp3' as Source); 
+    }
     setState(() {
       _isPlaying = !_isPlaying;
     });
@@ -24,7 +32,10 @@ class _MeditationPageState extends State<MeditationPage> {
 
   @override
   Widget build(BuildContext context) {
+//------------------------------------------------------------------------Scaffold
     return Scaffold(
+
+      //-----------------------------------------app bar 
       appBar: AppBar(
         backgroundColor: const Color(0xFF7D5AAD),
         automaticallyImplyLeading: false,
@@ -43,7 +54,11 @@ class _MeditationPageState extends State<MeditationPage> {
           )
         ],
       ),
+
+
+      //-----------------------------------------body:Container 
       body: Container(
+
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
@@ -51,8 +66,16 @@ class _MeditationPageState extends State<MeditationPage> {
             colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
           ),
         ),
+
+
         child: Column(
           children: [
+            ElevatedButton(onPressed: (){
+              final player = AudioPlayer(); 
+              player.play(AssetSource('deep_relaxation.mp3'));
+              }, 
+              child: Text('click me')
+            ),
             // "Relax" and "your mind and body" text
             const Center(
               child: Column(
@@ -76,6 +99,7 @@ class _MeditationPageState extends State<MeditationPage> {
                 ],
               ),
             ),
+
             // Rectangle with play button and "Press to start breathing exercise"
             const SizedBox(height: 20),
             Center(
@@ -91,6 +115,7 @@ class _MeditationPageState extends State<MeditationPage> {
                     color: Color(0xFFD8D2EF),
                     borderRadius: BorderRadius.circular(20),
                   ),
+                  
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -120,6 +145,8 @@ class _MeditationPageState extends State<MeditationPage> {
                 ),
               ),
             ),
+
+
             // Three-stripe menu with "Choose relaxation music" text
             const SizedBox(height: 20),
             GestureDetector(
@@ -144,6 +171,8 @@ class _MeditationPageState extends State<MeditationPage> {
                 ],
               ),
             ),
+
+
             // Volume adjustment line with mute icon on the left and full volume on the right
             const SizedBox(height: 20),
             Padding(
@@ -170,5 +199,6 @@ class _MeditationPageState extends State<MeditationPage> {
         ),
       ),
     );
+//--------------------------------------------------------------------------------------------Scaffold
   }
 }
