@@ -78,13 +78,14 @@ class CardReadingPage extends StatelessWidget {
   final String tarotCard;
   final List<Map<String, String>> tarotCards;
   final List<String> cardImages = [
-    'assets/image_0 copy.png',
-    'assets/image_1 copy.png',
-    'assets/image_2 copy.png',
-    'assets/image_3 copy.png',
-    'assets/image_4 copy.png',
-    'assets/image_5 copy.png',
-    'assets/image_6 copy.png',
+    
+    'assets/Tarot card/image_0 copy.png',
+    'assets/Tarot card/image_1 copy.png',
+    'assets/Tarot card/image_2 copy 2.png',
+    'assets/Tarot card/image_3 copy.png',
+    'assets/Tarot card/image_4 copy.png',
+    'assets/Tarot card/image_5 copy.png',
+    'assets/Tarot card/image_6 copy.png',
   ];
 
   CardReadingPage({required this.tarotCard, required this.tarotCards});
