@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:koala_tarot_app/home.dart';
 
 class FormPage extends StatelessWidget {
+  TextEditingController _birthdayController = TextEditingController();
+  FocusNode _birthdayFocusNode = FocusNode();
+
   // Function to open date picker dialog
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -11,8 +14,10 @@ class FormPage extends StatelessWidget {
       lastDate: DateTime.now(),
     );
     if (picked != null) {
-      // Do something with the picked date, such as saving it to a variable
-      print('Selected date: $picked');
+      // Format the picked date as dd/mm/yyyy
+      String formattedDate = "${picked.day}/${picked.month}/${picked.year}";
+      // Update the text field with the selected date
+      _birthdayController.text = formattedDate;
     }
   }
 
@@ -96,8 +101,11 @@ class FormPage extends StatelessWidget {
                     Row(
                       children: [
                         SizedBox(
-                          width: 200, // Adjust the width as needed
+                          width: 200,
                           child: TextFormField(
+                            controller: _birthdayController,
+                            focusNode: _birthdayFocusNode,
+                            keyboardType: TextInputType.datetime,
                             decoration: InputDecoration(
                               hintText: 'dd/mm/yyyy',
                               border: OutlineInputBorder(
@@ -107,19 +115,12 @@ class FormPage extends StatelessWidget {
                           ),
                         ),
                         SizedBox(width: 40),
-                        // Button to open date picker dialog
-                        ElevatedButton(
+                        // Calendar icon button to open date picker dialog
+                        IconButton(
                           onPressed: () => _selectDate(context),
-                          child: Text('Select \n  Date'),
-                          style: ButtonStyle(
-                            minimumSize: MaterialStateProperty.all(Size(20, 50)),
-                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                              ),
-                            ),
-                            elevation: MaterialStateProperty.all(4),
-                          ),
+                          icon: Icon(Icons.calendar_today),
+                          iconSize: 30,
+                          tooltip: 'Select Date',
                         ),
                       ],
                     ),
@@ -142,4 +143,10 @@ class FormPage extends StatelessWidget {
       ),
     );
   }
+}
+
+void main() {
+  runApp(MaterialApp(
+    home: FormPage(),
+  ));
 }
