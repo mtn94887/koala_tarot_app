@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:koala_tarot_app/cards.dart';
-import 'package:koala_tarot_app/home.dart';
-import 'package:koala_tarot_app/setting.dart';
-import 'package:koala_tarot_app/tarothistorypage.dart'; // Import the TarotHistoryPage
-import 'package:koala_tarot_app/music.dart'; // Import the music page
-import 'package:audioplayers/audioplayers.dart'; 
+import 'package:audioplayers/audioplayers.dart';
+import 'package:koala_tarot_app/music.dart';
+import 'package:koala_tarot_app/setting.dart'; 
 
 class MeditationPage extends StatefulWidget {
   @override
@@ -12,23 +9,27 @@ class MeditationPage extends StatefulWidget {
 }
 
 class _MeditationPageState extends State<MeditationPage> {
-  // Add a boolean variable to track the play/pause state
-  bool _isPlaying = false;
+  bool _isPlaying = true;
   AudioPlayer _audioPlayer = AudioPlayer(); 
-  double _volume = 0.5; // Track the volume value
+  double _volume = 0.5;
 
-  // Function to toggle play/pause state
   void _togglePlaying() async {
-    if (_isPlaying){
-      await _audioPlayer.pause(); 
-    }
-    else{
-      await _audioPlayer.play('assets/deep_relaxation.mp3' as Source); 
+    if (_isPlaying) {
+      await _audioPlayer.pause();
+    } else {
+       await _audioPlayer.play('assets/intro.mp3' as Source);  
     }
     setState(() {
       _isPlaying = !_isPlaying;
     });
   }
+  void _setVolume(double value) {
+    setState(() {
+      _volume = value;
+    });
+    _audioPlayer.setVolume(_volume);
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +39,7 @@ class _MeditationPageState extends State<MeditationPage> {
       //-----------------------------------------app bar 
       appBar: AppBar(
         backgroundColor: const Color(0xFF7D5AAD),
-        automaticallyImplyLeading: false,
+        automaticallyImplyLeading: true,
         title: const Text("Meditation"),
         centerTitle: true,
         actions: <Widget>[
@@ -70,12 +71,7 @@ class _MeditationPageState extends State<MeditationPage> {
 
         child: Column(
           children: [
-            ElevatedButton(onPressed: (){
-              final player = AudioPlayer(); 
-              player.play(AssetSource('deep_relaxation.mp3'));
-              }, 
-              child: Text('click me')
-            ),
+          
             // "Relax" and "your mind and body" text
             const Center(
               child: Column(
@@ -106,6 +102,9 @@ class _MeditationPageState extends State<MeditationPage> {
               child: GestureDetector(
                 onTap: () {
                   // Toggle play/pause state
+                   final player = AudioPlayer(); 
+              player.play(AssetSource('intro.mp3'));
+              player.pause();
                   _togglePlaying();
                 },
                 child: Container(
@@ -121,19 +120,21 @@ class _MeditationPageState extends State<MeditationPage> {
                     children: [
                       // Change the icon based on play/pause state
                       _isPlaying
+                    
                           ? Icon(
-                              Icons.pause_circle_filled,
+                              Icons.play_circle_filled,
                               size: 100,
                               color: Colors.white,
                             )
                           : Icon(
-                              Icons.play_circle_fill,
+                              Icons.pause_circle_filled,
                               size: 100,
                               color: Colors.white,
                             ),
+                          
                       const SizedBox(height: 16),
                       Text(
-                        'Press to ${_isPlaying ? 'pause' : 'start'} breathing exercise',
+                        'Press to ${_isPlaying ? 'start' : 'pause'} breathing exercise',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.black,
@@ -171,27 +172,20 @@ class _MeditationPageState extends State<MeditationPage> {
                 ],
               ),
             ),
-
-
-            // Volume adjustment line with mute icon on the left and full volume on the right
-            const SizedBox(height: 20),
+                      const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Icon(Icons.volume_mute, color: Colors.white), // Mute icon
+                  const Icon(Icons.volume_mute, color: Colors.white),
                   Expanded(
                     child: Slider(
-                      value: _volume, // Current volume value
-                      onChanged: (newValue) {
-                        setState(() {
-                          _volume = newValue; // Update volume
-                        });
-                      },
+                      value: _volume,
+                      onChanged: _setVolume,
                     ),
                   ),
-                  const Icon(Icons.volume_up, color: Colors.white), // Full volume icon
+                  const Icon(Icons.volume_up, color: Colors.white),
                 ],
               ),
             ),
@@ -199,6 +193,11 @@ class _MeditationPageState extends State<MeditationPage> {
         ),
       ),
     );
-//--------------------------------------------------------------------------------------------Scaffold
   }
+}
+
+void main() {
+  runApp(MaterialApp(
+    home: MeditationPage(),
+  ));
 }
