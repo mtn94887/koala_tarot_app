@@ -80,15 +80,28 @@ flutter:
     - assets/_ Photo.jpg
     - assets/NEW Print Sale 8x10the Fireflies - Etsy.jpg
     - assets/download (6).jpg
-    - assets/fool.png
-    - assets/empress.png
-    - assets/aceofswords.png
-    - assets/kingofpentacles.png
-    - assets/nineofwands.png
-    - assets/sixofpentacles.png
-    - assets/magician.png
-    - assets/moon.png
-    - assets/wheeloffortune.png
+    - assets/the-fool.png
+    - assets/the-megician.png
+    - assets/the-high-priestess.png
+    - assets/the-empress.png
+    - assets/the-emperor.png
+    - assets/the-heirophant.png
+    - assets/the-lovers.png
+    - assets/the-chariot.png
+    - assets/strength.png
+    - assets/the-hermit.png
+    - assets/wheel-of-fortune.png
+    - assets/justice.png
+    - assets/the-hanged-man.png
+    - assets/death.png
+    - assets/temperance.png
+    - assets/the-devil.png
+    - assets/the-tower.png
+    - assets/the-star.png
+    - assets/the-moon.png
+    - assets/the-sun.png
+    - assets/judgement.png
+    - assets/the-world.png
     - assets/image_0.png
     - assets/image_1.png
     - assets/image_2.png

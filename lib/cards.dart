@@ -75,8 +75,9 @@ class _cardsState extends State<Cards> {
           )
         ]
       ),
-      
-     body: Container(
+
+body: SingleChildScrollView( 
+    child : Container(
   decoration: BoxDecoration(
     gradient: LinearGradient(
       begin: Alignment.topCenter,
@@ -101,7 +102,7 @@ class _cardsState extends State<Cards> {
             child: Container(
               height: 200,
               width: 130,
-              child: Image.asset('assets/fool.png'),
+              child: Image.asset('assets/the-fool.png'),
             ),
           ),
           GestureDetector(
@@ -115,7 +116,7 @@ class _cardsState extends State<Cards> {
             child: Container(
               height: 200,
               width: 130,
-              child: Image.asset('assets/magician.png'),
+              child: Image.asset('assets/the-magician.png'),
             ),
           ),
           GestureDetector(
@@ -123,13 +124,248 @@ class _cardsState extends State<Cards> {
               // Navigate to the second page
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => SixOfPentacles()),
+                MaterialPageRoute(builder: (context) => TheHighPriestess()),
               );
             },
             child: Container(
               height: 200,
               width: 130,
-              child: Image.asset('assets/sixofpentacles.png'),
+              child: Image.asset('assets/the-high-priestess.png'),
+            ),
+          ),
+        ],
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          GestureDetector(
+            onTap: () {
+              // Navigate to the second page
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TheEmpress()),
+              );
+            },
+            child: Container(
+              height: 200,
+              width: 130,
+              child: Image.asset('assets/the-empress.png'),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              // Navigate to the second page
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TheEmperor()),
+              );
+            },
+            child: Container(
+              height: 200,
+              width: 130,
+              child: Image.asset('assets/the-emperor.png'),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              // Navigate to the second page
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TheHierophant()),
+              );
+            },
+            child: Container(
+              height: 200,
+              width: 130,
+              child: Image.asset('assets/the-heirophant.png'),
+            ),
+          ),
+        ],
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          GestureDetector(
+            onTap: () {
+              // Navigate to the second page
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TheLovers()),
+              );
+            },
+            child: Container(
+              height: 200,
+              width: 130,
+              child: Image.asset('assets/the-lovers.png'),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              // Navigate to the second page
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TheChariot()),
+              );
+            },
+            child: Container(
+              height: 200,
+              width: 130,
+              child: Image.asset('assets/the-chariot.png'),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              // Navigate to the second page
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Strength()),
+              );
+            },
+            child: Container(
+              height: 200,
+              width: 130,
+              child: Image.asset('assets/strength.png'),
+            ),
+          ),
+        ],
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          GestureDetector(
+            onTap: () {
+              // Navigate to the second page
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TheHermit()),
+              );
+            },
+            child: Container(
+              height: 200,
+              width: 130,
+              child: Image.asset('assets/the-hermit.png'),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              // Navigate to the second page
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => WheelOfFortune()),
+              );
+            },
+            child: Container(
+              height: 200,
+              width: 130,
+              child: Image.asset('assets/wheel-of-fortune.png'),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              // Navigate to the second page
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Justice()),
+              );
+            },
+            child: Container(
+              height: 200,
+              width: 130,
+              child: Image.asset('assets/justice.png'),
+            ),
+          ),
+        ],
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          GestureDetector(
+            onTap: () {
+              // Navigate to the second page
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TheHangedMan()),
+              );
+            },
+            child: Container(
+              height: 200,
+              width: 130,
+              child: Image.asset('assets/the-hanged-man.png'),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              // Navigate to the second page
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Death()),
+              );
+            },
+            child: Container(
+              height: 200,
+              width: 130,
+              child: Image.asset('assets/death.png'),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              // Navigate to the second page
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Temperance()),
+              );
+            },
+            child: Container(
+              height: 200,
+              width: 130,
+              child: Image.asset('assets/temperance.png'),
+            ),
+          ),
+        ],
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          GestureDetector(
+            onTap: () {
+              // Navigate to the second page
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TheDevil()),
+              );
+            },
+            child: Container(
+              height: 200,
+              width: 130,
+              child: Image.asset('assets/the-devil.png'),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              // Navigate to the second page
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TheTower()),
+              );
+            },
+            child: Container(
+              height: 200,
+              width: 130,
+              child: Image.asset('assets/the-tower.png'),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              // Navigate to the second page
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TheStar()),
+              );
+            },
+            child: Container(
+              height: 200,
+              width: 130,
+              child: Image.asset('assets/the-star.png'),
             ),
           ),
         ],
@@ -148,7 +384,7 @@ class _cardsState extends State<Cards> {
             child: Container(
               height: 200,
               width: 130,
-              child: Image.asset('assets/moon.png'),
+              child: Image.asset('assets/the-moon.png'),
             ),
           ),
           GestureDetector(
@@ -156,13 +392,13 @@ class _cardsState extends State<Cards> {
               // Navigate to the second page
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => AceOfSwords()),
+                MaterialPageRoute(builder: (context) => TheSun()),
               );
             },
             child: Container(
               height: 200,
               width: 130,
-              child: Image.asset('assets/aceofswords.png'),
+              child: Image.asset('assets/the-sun.png'),
             ),
           ),
           GestureDetector(
@@ -170,18 +406,18 @@ class _cardsState extends State<Cards> {
               // Navigate to the second page
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => KingOfPentacles()),
+                MaterialPageRoute(builder: (context) => Judgement()),
               );
             },
             child: Container(
               height: 200,
               width: 130,
-              child: Image.asset('assets/kingofpentacles.png'),
+              child: Image.asset('assets/judgement.png'),
             ),
           ),
         ],
       ),
-      Row(
+         Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           GestureDetector(
@@ -189,75 +425,34 @@ class _cardsState extends State<Cards> {
               // Navigate to the second page
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => NineOfWands()),
+                MaterialPageRoute(builder: (context) => TheWorld()),
               );
             },
             child: Container(
               height: 200,
               width: 130,
-              child: Image.asset('assets/nineofwands.png'),
+              child: Image.asset('assets/the-world.png'),
             ),
-          ),
-          GestureDetector(
-            onTap: () {
-              // Navigate to the second page
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => WheelOfFortune()),
-              );
-            },
-            child: Container(
-              height: 200,
-              width: 130,
-              child: Image.asset('assets/wheeloffortune.png'),
-            ),
-          ),
-          GestureDetector(
-            onTap: () {
-              // Navigate to the second page
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => TheEmpress()),
-              );
-            },
-            child: Container(
-              height: 200,
-              width: 130,
-              child: Image.asset('assets/empress.png'),
-            ),
-          ),
+          ),                   
         ],
-      )
+      ),
+     
+      
     ],
   ),
 ),
 
-      // bottomNavigationBar: BottomNavigationBar(
-      //   items: <BottomNavigationBarItem>[
-      //     const BottomNavigationBarItem(
-      //       icon: Icon(Icons.article_outlined, color: Colors.black),
-      //       label: 'Spreads',
-      //     ),
-      //     const BottomNavigationBarItem(
-      //       icon: Icon(Icons.history, color: Colors.black),
-      //       label: 'History',
-      //     ),
-      //     const BottomNavigationBarItem(
-      //       icon: Icon(Icons.self_improvement, color: Colors.black),
-      //       label: 'Meditation',
-      //     ),
-      //     const BottomNavigationBarItem(
-      //       icon: Icon(Icons.copy_outlined, color: Colors.black),
-      //       label: 'Cards',
-      //     ),
-      //   ],
-      //   selectedItemColor: Colors.black,
-      //   currentIndex: _selectedIndex,
-      //   onTap: _onItemTapped,
-      // ),
+      
+)
     );
   }
 }
+
+
+
+
+
+
 
 
 class TheFool extends StatelessWidget {
@@ -284,9 +479,9 @@ class TheFool extends StatelessWidget {
               children: [
                 // Add your image here
                 Image.asset(
-                  'assets/fool.png',
-                  height: 500, // Change the height as needed
-                  width: 300, // Change the width as needed
+                  'assets/the-fool.png',
+                  height: 500, 
+                  width: 300, 
                 ), 
                 SizedBox(height: 20),
 
@@ -332,9 +527,9 @@ class TheMagician extends StatelessWidget {
               children: [
                 // Add your image here
                 Image.asset(
-                  'assets/magician.png',
-                  height: 500, // Change the height as needed
-                  width: 300, // Change the width as needed
+                  'assets/the-magician.png',
+                  height: 500, 
+                  width: 300, 
                 ), 
                 SizedBox(height: 20),
 
@@ -355,12 +550,12 @@ class TheMagician extends StatelessWidget {
   }
 }
 
-class SixOfPentacles extends StatelessWidget {
+class TheHighPriestess extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Six Of Pentacles'),
+        title: Text('The High Priestess'),
         backgroundColor: Color(0xFF7D5AAD),
         centerTitle: true,
       ),
@@ -379,252 +574,17 @@ class SixOfPentacles extends StatelessWidget {
               children: [
                 // Add your image here
                 Image.asset(
-                  'assets/sixofpentacles.png',
-                  height: 500, // Change the height as needed
-                  width: 300, // Change the width as needed
+                  'assets/the-high-priestess.png',
+                  height: 500, 
+                  width: 300, 
                 ), 
                 SizedBox(height: 20),
 
                 Text(
-                  'Success in your life is bound up to generosity. This may mean your prosperity will arise from your investment in others, perhaps a financial investment, or maybe advice and support for a friend. This card can also mean the reverse, that your success will arise from the generosity of someone else. The two are, of course, not exclusive, and drawing this card suggests you naturally lean towards benevolent acts and charity.',
+                  '  important to you.',
                   style: TextStyle(
                     color: Colors.black, 
                     fontSize: 20,
-                  ),
-                   textAlign: TextAlign.center,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class TheMoon extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('The Moon'),
-        backgroundColor: Color(0xFF7D5AAD),
-        centerTitle: true,
-      ),
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
-          ),
-        ),
-        child: SingleChildScrollView(
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Add your image here
-                Image.asset(
-                  'assets/moon.png',
-                  height: 500, // Change the height as needed
-                  width: 300, // Change the width as needed
-                ), // Change 'your_image.png' to the path of your image
-
-                // Add some space between the image and the text
-                SizedBox(height: 20),
-
-                // Add your text here
-                Text(
-                  ' Something in your life is not what it seems. Perhaps a misunderstanding on your part, or a truth you cannot admit to yourself. It may also indicate something important being kept from you by another. This may be a source of worry or depression in your life, and the Moon is a strong indicator that you must rely on your intuition to see through the subterfuge.',
-                  style: TextStyle(
-                    color: Colors.black, 
-                    fontSize: 20, 
-                  ),
-                   textAlign: TextAlign.center,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class AceOfSwords extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Ace Of Swords'),
-        backgroundColor: Color(0xFF7D5AAD),
-        centerTitle: true,
-      ),
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
-          ),
-        ),
-        child: SingleChildScrollView(
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [                
-                Image.asset(
-                  'assets/aceofswords.png',
-                  height: 500, // Change the height as needed
-                  width: 300, // Change the width as needed
-                ), 
-                SizedBox(height: 20),
-            
-                Text(
-                  '  The Ace of Swords is, like all of the Aces, the purest embodiment of its suit. In relation to your personality or your actions it implies a strong element of focus, determination, and an intellectual capacity. It may suggest change through warring forces, possibly internal; conflicts of not necessarily overt reasoning regarding inner consciousness, keep energetic to triumph.',
-                  style: TextStyle(
-                    color: Colors.black, 
-                    fontSize: 20, 
-                  ),
-                   textAlign: TextAlign.center,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class KingOfPentacles extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('King Of Pentacles'),
-        backgroundColor: Color(0xFF7D5AAD),
-        centerTitle: true,
-      ),
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
-          ),
-        ),
-        child: SingleChildScrollView(
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [                
-                Image.asset(
-                  'assets/kingofpentacles.png',
-                  height: 500, // Change the height as needed
-                  width: 300, // Change the width as needed
-                ), 
-                SizedBox(height: 20),
-            
-                Text(
-                  'The King of Pentacles embodies the mature and dependable aspects of maturity. Anyone represented by this card is tied to success and status. While it may refer to your own characteristics, the Kings most often stand in for other people in your life who can aid you. You can expect this person to value prudence of intelligence, and, if it represents an event, it may be a financial windfall or promotion.',
-                  style: TextStyle(
-                    color: Colors.black, 
-                    fontSize: 20, 
-                  ),
-                   textAlign: TextAlign.center,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-
-class NineOfWands extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Nine Of Wands'),
-        backgroundColor: Color(0xFF7D5AAD),
-        centerTitle: true,
-      ),
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
-          ),
-        ),
-        child: SingleChildScrollView(
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [                
-                Image.asset(
-                  'assets/nineofwands.png',
-                  height: 500, // Change the height as needed
-                  width: 300, // Change the width as needed
-                ), 
-                SizedBox(height: 20),
-            
-                Text(
-                  '  The IX of Wands is a bittersweet discovery in your spread, as it suggests both struggles ahead and the capacity within you to overcome them. Your life is probably comfortable at the moment, but there are also likely signs of trouble in some of the less critical aspects of your personal or professional life. Your inner strength will be called upon to maintain the current situation, and then to move forward when progress becomes possible for you.',
-                  style: TextStyle(
-                    color: Colors.black, 
-                    fontSize: 20, 
-                  ),
-                   textAlign: TextAlign.center,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class WheelOfFortune extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Wheel Of Fortune'),
-        backgroundColor: Color(0xFF7D5AAD),
-        centerTitle: true,
-      ),
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
-          ),
-        ),
-        child: SingleChildScrollView(
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [                
-                Image.asset(
-                  'assets/wheeloffortune.png',
-                  height: 500, // Change the height as needed
-                  width: 300, // Change the width as needed
-                ), 
-                SizedBox(height: 20),
-            
-                Text(
-                  'Symbolic of life cycles, the Wheel of Fortune speaks to good beginnings. Most likely, you will find the events foretold to be positive, but, being aspects of luck, they may also be beyond your control and influence. Tend those things you can control with care, and learn not to agonize over the ones you cannot.',
-                  style: TextStyle(
-                    color: Colors.black, 
-                    fontSize: 20, 
                   ),
                    textAlign: TextAlign.center,
                 ),
@@ -661,20 +621,857 @@ class TheEmpress extends StatelessWidget {
               children: [
                 // Add your image here
                 Image.asset(
-                  'assets/empress.png',
-                  height: 500, // Change the height as needed
-                  width: 300, // Change the width as needed
-                ), // Change 'your_image.png' to the path of your image
+                  'assets/the-empress.png',
+                  height: 500, 
+                  width: 300, 
+                ), 
+                SizedBox(height: 20),              
+                Text(
+                  ' It may aerfuge.',
+                  style: TextStyle(
+                    color: Colors.black, 
+                    fontSize: 20, 
+                  ),
+                   textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
 
-                // Add some space between the image and the text
+class TheEmperor extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('The Emperor'),
+        backgroundColor: Color(0xFF7D5AAD),
+        centerTitle: true,
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [                
+                Image.asset(
+                  'assets/the-emperor.png',
+                  height: 500, 
+                  width: 300, 
+                ), 
+                SizedBox(height: 20),
+            
+                Text(
+                  '  triumph.',
+                  style: TextStyle(
+                    color: Colors.black, 
+                    fontSize: 20, 
+                  ),
+                   textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class TheHierophant extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('The Hierophant'),
+        backgroundColor: Color(0xFF7D5AAD),
+        centerTitle: true,
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [                
+                Image.asset(
+                  'assets/the-hierophant.png',
+                  height: 500, 
+                  width: 300, 
+                ), 
+                SizedBox(height: 20),            
+                Text(                  
+                  '  or promotion.',
+                  style: TextStyle(
+                    color: Colors.black, 
+                    fontSize: 20, 
+                  ),
+                   textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+class TheLovers extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('The Lovers'),
+        backgroundColor: Color(0xFF7D5AAD),
+        centerTitle: true,
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [                
+                Image.asset(
+                  'assets/the-lovers.png',
+                  height: 500, 
+                  width: 300, 
+                ), 
+                SizedBox(height: 20),
+            
+                Text(
+                  '   possible for you.',
+                  style: TextStyle(
+                    color: Colors.black, 
+                    fontSize: 20, 
+                  ),
+                   textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class TheChariot extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('The Chariot'),
+        backgroundColor: Color(0xFF7D5AAD),
+        centerTitle: true,
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [                
+                Image.asset(
+                  'assets/the-chariot.png',
+                  height: 500, 
+                  width: 300, 
+                ), 
+                SizedBox(height: 20),
+            
+                Text(
+                  'Symbolic of life cycles, the Wheel of Fortune speaks to good beginnings. Most likely, you will find the events foretold to be positive, but, being aspects of luck, they may also be beyond your control and influence. Tend those things you can control with care, and learn not to agonize over the ones you cannot.',
+                  style: TextStyle(
+                    color: Colors.black, 
+                    fontSize: 20, 
+                  ),
+                   textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class Strength extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Strength'),
+        backgroundColor: Color(0xFF7D5AAD),
+        centerTitle: true,
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Add your image here
+                Image.asset(
+                  'assets/strength.png',
+                  height: 500, 
+                  width: 300, 
+                ), 
                 SizedBox(height: 20),
 
-                // Add your text here
+                
                 Text(
-                  'Traditionally associated with strong maternal influence, the presence of the Empress is excellent news if you are looking for harmony in your marriage or hoping to start a family. Any artistic endeavours you are currently associated with are also likely to be more successful, as this card often finds those exposed to strong bursts of creative or artistic energy. That creative energy may not be in the form of a painting or art project, however: This card also suggests a very strong possibility of pregnancy -- not necessarily yours, but you might be seeing a new addition to your extended family or the family of a close friend in the near future! This card is a good portent for you and those around you.',
+                  'nfluence,e .',
                   style: TextStyle(
-                    color: Colors.black, // Change the text color as needed
-                    fontSize: 20, // Change the text size as needed
+                    color: Colors.black, 
+                    fontSize: 20, 
+                  ),
+                   textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+class TheHermit extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('The Hermit'),
+        backgroundColor: Color(0xFF7D5AAD),
+        centerTitle: true,
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Add your image here
+                Image.asset(
+                  'assets/the-hermit.png',
+                  height: 500, 
+                  width: 300, 
+                ), 
+                SizedBox(height: 20),
+
+                
+                Text(
+                  'nfluence,e .',
+                  style: TextStyle(
+                    color: Colors.black, 
+                    fontSize: 20, 
+                  ),
+                   textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+class WheelOfFortune extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Wheel Of Fortune'),
+        backgroundColor: Color(0xFF7D5AAD),
+        centerTitle: true,
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Add your image here
+                Image.asset(
+                  'assets/wheel-of-fortune.png',
+                  height: 500, 
+                  width: 300, 
+                ), 
+                SizedBox(height: 20),
+
+                
+                Text(
+                  'nfluence,e .',
+                  style: TextStyle(
+                    color: Colors.black, 
+                    fontSize: 20, 
+                  ),
+                   textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+class Justice extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Justice'),
+        backgroundColor: Color(0xFF7D5AAD),
+        centerTitle: true,
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Add your image here
+                Image.asset(
+                  'assets/justice.png',
+                  height: 500, 
+                  width: 300, 
+                ), 
+                SizedBox(height: 20),
+
+                
+                Text(
+                  'nfluence,e .',
+                  style: TextStyle(
+                    color: Colors.black, 
+                    fontSize: 20, 
+                  ),
+                   textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+class TheHangedMan extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('The Hanged Man'),
+        backgroundColor: Color(0xFF7D5AAD),
+        centerTitle: true,
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Add your image here
+                Image.asset(
+                  'assets/the-hanged-man.png',
+                  height: 500, 
+                  width: 300, 
+                ), 
+                SizedBox(height: 20),
+
+                
+                Text(
+                  'nfluence,e .',
+                  style: TextStyle(
+                    color: Colors.black, 
+                    fontSize: 20, 
+                  ),
+                   textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+class Death extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Death'),
+        backgroundColor: Color(0xFF7D5AAD),
+        centerTitle: true,
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Add your image here
+                Image.asset(
+                  'assets/death.png',
+                  height: 500, 
+                  width: 300, 
+                ), 
+                SizedBox(height: 20),
+
+                
+                Text(
+                  'nfluence,e .',
+                  style: TextStyle(
+                    color: Colors.black, 
+                    fontSize: 20, 
+                  ),
+                   textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+class Temperance extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Temperance'),
+        backgroundColor: Color(0xFF7D5AAD),
+        centerTitle: true,
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Add your image here
+                Image.asset(
+                  'assets/temperance.png',
+                  height: 500, 
+                  width: 300, 
+                ), 
+                SizedBox(height: 20),
+
+                
+                Text(
+                  'nfluence,e .',
+                  style: TextStyle(
+                    color: Colors.black, 
+                    fontSize: 20, 
+                  ),
+                   textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+class TheDevil extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('The Devil'),
+        backgroundColor: Color(0xFF7D5AAD),
+        centerTitle: true,
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Add your image here
+                Image.asset(
+                  'assets/the-devil.png',
+                  height: 500, 
+                  width: 300, 
+                ), 
+                SizedBox(height: 20),
+
+                
+                Text(
+                  'nfluence,e .',
+                  style: TextStyle(
+                    color: Colors.black, 
+                    fontSize: 20, 
+                  ),
+                   textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+class TheTower extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('The Tower'),
+        backgroundColor: Color(0xFF7D5AAD),
+        centerTitle: true,
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Add your image here
+                Image.asset(
+                  'assets/the-tower.png',
+                  height: 500, 
+                  width: 300, 
+                ), 
+                SizedBox(height: 20),
+
+                
+                Text(
+                  'nfluence,e .',
+                  style: TextStyle(
+                    color: Colors.black, 
+                    fontSize: 20, 
+                  ),
+                   textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+class TheStar extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('The Star'),
+        backgroundColor: Color(0xFF7D5AAD),
+        centerTitle: true,
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Add your image here
+                Image.asset(
+                  'assets/the-star.png',
+                  height: 500, 
+                  width: 300, 
+                ), 
+                SizedBox(height: 20),
+
+                
+                Text(
+                  'nfluence,e .',
+                  style: TextStyle(
+                    color: Colors.black, 
+                    fontSize: 20, 
+                  ),
+                   textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+class TheMoon extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('The Moon'),
+        backgroundColor: Color(0xFF7D5AAD),
+        centerTitle: true,
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Add your image here
+                Image.asset(
+                  'assets/the-moon.png',
+                  height: 500, 
+                  width: 300, 
+                ), 
+                SizedBox(height: 20),
+
+                
+                Text(
+                  'nfluence,e .',
+                  style: TextStyle(
+                    color: Colors.black, 
+                    fontSize: 20, 
+                  ),
+                   textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+class TheSun extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('The Sun'),
+        backgroundColor: Color(0xFF7D5AAD),
+        centerTitle: true,
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Add your image here
+                Image.asset(
+                  'assets/the-sun.png',
+                  height: 500, 
+                  width: 300, 
+                ), 
+                SizedBox(height: 20),
+
+                
+                Text(
+                  'nfluence,e .',
+                  style: TextStyle(
+                    color: Colors.black, 
+                    fontSize: 20, 
+                  ),
+                   textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+class Judgement extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Judgement'),
+        backgroundColor: Color(0xFF7D5AAD),
+        centerTitle: true,
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Add your image here
+                Image.asset(
+                  'assets/judgement.png',
+                  height: 500, 
+                  width: 300, 
+                ), 
+                SizedBox(height: 20),
+
+                
+                Text(
+                  'nfluence,e .',
+                  style: TextStyle(
+                    color: Colors.black, 
+                    fontSize: 20, 
+                  ),
+                   textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+class TheWorld extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('The World'),
+        backgroundColor: Color(0xFF7D5AAD),
+        centerTitle: true,
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Add your image here
+                Image.asset(
+                  'assets/the-world.png',
+                  height: 500, 
+                  width: 300, 
+                ), 
+                SizedBox(height: 20),                
+                Text(
+                  'nfluence,e .',
+                  style: TextStyle(
+                    color: Colors.black, 
+                    fontSize: 20, 
                   ),
                    textAlign: TextAlign.center,
                 ),
