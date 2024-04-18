@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:koala_tarot_app/music.dart';
-import 'package:koala_tarot_app/setting.dart'; 
+import 'package:koala_tarot_app/setting.dart';
 
 class MeditationPage extends StatefulWidget {
   @override
@@ -9,20 +9,26 @@ class MeditationPage extends StatefulWidget {
 }
 
 class _MeditationPageState extends State<MeditationPage> {
-  bool _isPlaying = true;
-  AudioPlayer _audioPlayer = AudioPlayer(); 
+  bool _isPlaying = false;
+  AudioPlayer _audioPlayer = AudioPlayer();
   double _volume = 0.5;
 
   void _togglePlaying() async {
-    if (_isPlaying) {
-      await _audioPlayer.pause();
-    } else {
-       await _audioPlayer.play('assets/intro.mp3' as Source);  
-    }
+  if (_isPlaying) {
+    //await _audioPlayer.pause();
+    _audioPlayer.stop();
     setState(() {
-      _isPlaying = !_isPlaying;
+      _isPlaying = false; 
+    });
+  } else {
+    //await _audioPlayer.play('assets/intro.mp3' as Source) ;
+    _audioPlayer.play(AssetSource('Download.mp3'));
+    setState(() {
+      _isPlaying = true; 
     });
   }
+}
+
   void _setVolume(double value) {
     setState(() {
       _volume = value;
@@ -30,13 +36,10 @@ class _MeditationPageState extends State<MeditationPage> {
     _audioPlayer.setVolume(_volume);
   }
 
-
   @override
   Widget build(BuildContext context) {
-//------------------------------------------------------------------------Scaffold
     return Scaffold(
-
-      //-----------------------------------------app bar 
+      
       appBar: AppBar(
         backgroundColor: const Color(0xFF7D5AAD),
         automaticallyImplyLeading: true,
@@ -56,8 +59,6 @@ class _MeditationPageState extends State<MeditationPage> {
         ],
       ),
 
-
-      //-----------------------------------------body:Container 
       body: Container(
 
         decoration: const BoxDecoration(
@@ -68,11 +69,9 @@ class _MeditationPageState extends State<MeditationPage> {
           ),
         ),
 
-
         child: Column(
           children: [
-          
-            // "Relax" and "your mind and body" text
+            
             const Center(
               child: Column(
                 children: [
@@ -96,15 +95,11 @@ class _MeditationPageState extends State<MeditationPage> {
               ),
             ),
 
-            // Rectangle with play button and "Press to start breathing exercise"
             const SizedBox(height: 20),
+
             Center(
               child: GestureDetector(
                 onTap: () {
-                  // Toggle play/pause state
-                   final player = AudioPlayer(); 
-              player.play(AssetSource('intro.mp3'));
-              player.pause();
                   _togglePlaying();
                 },
                 child: Container(
@@ -114,27 +109,23 @@ class _MeditationPageState extends State<MeditationPage> {
                     color: Color(0xFFD8D2EF),
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      // Change the icon based on play/pause state
                       _isPlaying
-                    
                           ? Icon(
-                              Icons.play_circle_filled,
+                              Icons.pause_circle_filled,
                               size: 100,
                               color: Colors.white,
                             )
                           : Icon(
-                              Icons.pause_circle_filled,
+                              Icons.play_circle_filled,
                               size: 100,
                               color: Colors.white,
                             ),
-                          
                       const SizedBox(height: 16),
                       Text(
-                        'Press to ${_isPlaying ? 'start' : 'pause'} breathing exercise',
+                        'Press to ${_isPlaying ? 'pause' : 'start'} breathing exercise',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.black,
@@ -148,20 +139,20 @@ class _MeditationPageState extends State<MeditationPage> {
             ),
 
 
-            // Three-stripe menu with "Choose relaxation music" text
+
             const SizedBox(height: 20),
             GestureDetector(
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => music()), // Navigate to the music page
+                  MaterialPageRoute(builder: (context) => music()),
                 );
               },
               child: const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.menu, color: Colors.white), // Three-stripe menu icon
-                  SizedBox(width: 10), // Add space between the icon and the text
+                  Icon(Icons.menu, color: Colors.white),
+                  SizedBox(width: 10),
                   Text(
                     'Choose relaxation music',
                     style: TextStyle(
@@ -172,7 +163,7 @@ class _MeditationPageState extends State<MeditationPage> {
                 ],
               ),
             ),
-                      const SizedBox(height: 20),
+            const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Row(
