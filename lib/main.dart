@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Your App Title',
+      //title: 'Your App Title',
       home: Home(),
       // You can add more MaterialApp configurations here
     );
