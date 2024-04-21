@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "267609904574",
+    "project_id": "koala-tarot-app",
+    "storage_bucket": "koala-tarot-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:267609904574:android:70f8dc63bf472bb50595ef",
+        "android_client_info": {
+          "package_name": "com.example.koala_tarot_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8Or8KtdKcrivUFGoaAl51wilKpnFYe-4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
