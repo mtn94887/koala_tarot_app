@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:koala_tarot_app/cards.dart';
 import 'package:koala_tarot_app/home.dart';
 import 'package:koala_tarot_app/mainpage.dart';
+import 'package:koala_tarot_app/meditationpage.dart';
+import 'package:koala_tarot_app/tarothistorypage.dart';
 import 'package:koala_tarot_app/welcome.dart';
 import 'package:koala_tarot_app/purpose.dart';
 import 'package:koala_tarot_app/features.dart';
@@ -27,27 +30,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       //title: 'Your App Title',
-      home: MainPage(),
+      home: Home(),
       // You can add more MaterialApp configurations here
     );
   }
 }
-
-// class TarotApp extends StatelessWidget {
-//   const TarotApp({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//         // Set PurposePage as initial route
-//         initialRoute: '/',
-//         routes: {
-//           '/': (context) => PurposePage(), // Set PurposePage as '/' route
-//           '/features': (context) => FeaturesPage(), // Add FeaturesPage route
-//           '/background': (context) =>
-//               BackgroundPage(), // Add BackgroundPage route
-//         });
-//     // home: const MyHomePage(title: 'Flutter Demo Home Page'),
-//     //);
-//   }
-// }

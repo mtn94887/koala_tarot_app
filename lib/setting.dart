@@ -9,87 +9,88 @@ import 'package:koala_tarot_app/meditationpage.dart';
 import 'package:koala_tarot_app/tarothistorypage.dart';
 import 'package:koala_tarot_app/welcome.dart';
 
-void main() {
-  runApp(BottomNavigationBarExampleApp());
-}
+// void main() {
+//   runApp(BottomNavigationBarExampleApp());
+// }
 
-class BottomNavigationBarExampleApp extends StatelessWidget {
-  const BottomNavigationBarExampleApp({Key? key}) : super(key: key);
+// class BottomNavigationBarExampleApp extends StatelessWidget {
+//   const BottomNavigationBarExampleApp({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: BottomNavigationBarExample(),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: BottomNavigationBarExample(),
+//     );
+//   }
+// }
 
-class BottomNavigationBarExample extends StatefulWidget {
-  const BottomNavigationBarExample({Key? key}) : super(key: key);
+// class BottomNavigationBarExample extends StatefulWidget {
+//   const BottomNavigationBarExample({Key? key}) : super(key: key);
 
-  @override
-  State<BottomNavigationBarExample> createState() =>
-      _BottomNavigationBarExampleState();
-}
+//   @override
+//   State<BottomNavigationBarExample> createState() =>
+//       _BottomNavigationBarExampleState();
+// }
 
-class _BottomNavigationBarExampleState
-    extends State<BottomNavigationBarExample> {
-  int _selectedIndex = 0;
+// class _BottomNavigationBarExampleState
+//     extends State<BottomNavigationBarExample> {
+//   int _selectedIndex = 0;
 
-  static List<Widget> _widgetOptions = <Widget>[
-    TarotHomePage(),
-    tarothistorypage(),
-    MeditationPage(),
-    Cards(), // Changed from TarotCardPage to SettingScreen
-  ];
+//   static List<Widget> _widgetOptions = <Widget>[
+//     TarotHomePage(),
+//     tarothistorypage(),
+//     MeditationPage(),
+//     Cards(), // Changed from TarotCardPage to SettingScreen
+//   ];
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+//   // void _onItemTapped(int index) {
+//   //   setState(() {
+//   //     _selectedIndex = index;
+//   //   });
 
-    if (index == 3) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => SettingScreen()), // Navigate to SettingScreen
-      );
-    }
-  }
+//   //   if (index == 3) {
+//   //     Navigator.push(
+//   //       context,
+//   //       MaterialPageRoute(builder: (context) => SettingScreen()), // Navigate to SettingScreen
+//   //     );
+//   //   }
+//   // }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.article_outlined),
-            label: 'Spreads',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.history_outlined),
-            label: 'History',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.self_improvement_outlined),
-            label: 'Meditation',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.copy_outlined),
-            label: 'Cards',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: const Color.fromARGB(255, 0, 0, 0),
-        unselectedItemColor: const Color.fromARGB(255, 0, 0, 0),
-        onTap: _onItemTapped,
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Center(
+//         child: _widgetOptions.elementAt(_selectedIndex),
+//       ),
+//       bottomNavigationBar: BottomNavigationBar(
+//         items: const <BottomNavigationBarItem>[
+//           BottomNavigationBarItem(
+//             icon: Icon(Icons.article_outlined),
+//             label: 'Spreads',
+//           ),
+//           BottomNavigationBarItem(
+//             icon: Icon(Icons.history_outlined),
+//             label: 'History',
+//           ),
+//           BottomNavigationBarItem(
+//             icon: Icon(Icons.self_improvement_outlined),
+//             label: 'Meditation',
+//           ),
+//           BottomNavigationBarItem(
+//             icon: Icon(Icons.copy_outlined),
+//             label: 'Cards',
+//           ),
+//         ],
+//         currentIndex: _selectedIndex,
+//         selectedItemColor: const Color.fromARGB(255, 0, 0, 0),
+//         unselectedItemColor: const Color.fromARGB(255, 0, 0, 0),
+//         //onTap: _onItemTapped,
+//       ),
+//     );
+//   }
+// }
 
+//SETTING CODE
 class SettingScreen extends StatefulWidget {
   @override
   _SettingScreenState createState() => _SettingScreenState();

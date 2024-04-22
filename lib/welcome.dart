@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:koala_tarot_app/signup.dart';
 import 'package:koala_tarot_app/login_page.dart';
 
+
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -53,7 +54,7 @@ class Home extends StatelessWidget {
                   ),
                 ),
 
-                
+
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

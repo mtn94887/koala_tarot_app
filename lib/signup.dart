@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:koala_tarot_app/bottom_navigation_bar.dart';
+import 'package:koala_tarot_app/cards.dart';
 import 'package:koala_tarot_app/home.dart';
+import 'package:koala_tarot_app/meditationpage.dart';
+import 'package:koala_tarot_app/setting.dart';
+import 'package:koala_tarot_app/tarothistorypage.dart';
 
+
+//CODE FOR SIGNUP REGISTER START HERE ... 
 class FormPage extends StatelessWidget {
   TextEditingController _birthdayController = TextEditingController();
   FocusNode _birthdayFocusNode = FocusNode();
@@ -131,7 +138,7 @@ class FormPage extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => TarotHomePage()),
+                            MaterialPageRoute(builder: (context) => BottomNavigationBarExampleApp()),
                           );
                         }, 
                         child: Text('Continue')
@@ -148,8 +155,8 @@ class FormPage extends StatelessWidget {
   }
 }
 
-void main() {
-  runApp(MaterialApp(
-    home: FormPage(),
-  ));
-}
+// void main() {
+//   runApp(MaterialApp(
+//     home: FormPage(),
+//   ));
+// }

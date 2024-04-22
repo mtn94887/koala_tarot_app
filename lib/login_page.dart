@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:koala_tarot_app/bottom_navigation_bar.dart';
 import 'package:koala_tarot_app/cards.dart';
 import 'package:koala_tarot_app/home.dart'; 
 import 'package:firebase_auth/firebase_auth.dart';
@@ -21,11 +22,21 @@ class _LoginPageState extends State<LoginPage> {
   final _emailController = TextEditingController(); 
   final _passwordController = TextEditingController(); 
 
-  Future signIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: _emailController.text.trim(), 
-      password: _passwordController.text.trim(), 
+  Future signIn(BuildContext context) async {
+    try{
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _emailController.text.trim(), 
+        password: _passwordController.text.trim(), 
+      );
+      Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => BottomNavigationBarExampleApp()),
     );
+    }
+    catch(e){
+      print("Error sigining in: $e");
+    }
+    
   }
 
   @override
@@ -123,7 +134,7 @@ class _LoginPageState extends State<LoginPage> {
 
                       //continue button
                       GestureDetector(
-                        onTap: signIn, 
+                        onTap: () => signIn(context), 
                         child: ElevatedButton(
                           onPressed: () {
                             // Navigator.push(
