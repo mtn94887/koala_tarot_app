@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:koala_tarot_app/cards.dart';
+import 'package:koala_tarot_app/mainpage.dart';
 import 'package:koala_tarot_app/privacy.dart';
 import 'package:koala_tarot_app/purpose.dart';
 import 'package:koala_tarot_app/terms.dart';

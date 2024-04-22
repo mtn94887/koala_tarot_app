@@ -135,40 +135,65 @@ class _LoginPageState extends State<LoginPage> {
 
 
                       //continue button
-                      GestureDetector(
-                        onTap: signIn, 
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                          child:Container(
-                            padding: EdgeInsets.all(20),
-                            decoration: BoxDecoration(
-                              color: Colors.deepPurple, 
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child:Center(
-                              child:Text(
-                                'Log In', 
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold, 
-                                  fontSize: 18, 
+                      // GestureDetector(
+                      //   onTap: signIn, 
+                      //   child: Padding(
+                      //     padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                      //     child:Container(
+                      //       padding: EdgeInsets.all(20),
+                      //       decoration: BoxDecoration(
+                      //         color: Colors.deepPurple, 
+                      //         borderRadius: BorderRadius.circular(12),
+                      //       ),
+                      //       child:Center(
+                      //         child:Text(
+                      //           'Log In', 
+                      //           style: TextStyle(
+                      //             color: Colors.white,
+                      //             fontWeight: FontWeight.bold, 
+                      //             fontSize: 18, 
                                   
-                                ),
-                              )
-                            ),
+                      //           ),
+                      //         )
+                      //       ),
+                      //     ),
+                      //   ),
+                      // )
+                      
+                      // GestureDetector(
+                      //   child: ElevatedButton(
+                      //     onPressed: () {
+                      //       // Navigator.push(
+                      //       //   context,
+                      //       //   MaterialPageRoute(builder: (context) => TarotHomePage()),
+                      //       // );
+                      //     }, 
+                      //     child: Text('Continue'),
+                      //   ),
+                      // )
+
+                      ElevatedButton(
+                        onPressed: signIn,
+                        style: ButtonStyle(
+                        minimumSize: MaterialStateProperty.all(Size(100, 50)),
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
                           ),
                         ),
-                        // child: ElevatedButton(
-                        //   onPressed: () {
-                        //     // Navigator.push(
-                        //     //   context,
-                        //     //   MaterialPageRoute(builder: (context) => TarotHomePage()),
-                        //     // );
-                        //   }, 
-                        //   child: Text('Continue'),
+                        elevation: MaterialStateProperty.all(4),
+                      ),
+                      child: Text('Log In'),
+                        // child: Text(
+                        //   'Log In',
+                        //   style: TextStyle(
+                        //     color: Colors.white,
+                        //     fontWeight: FontWeight.bold,
+                        //     fontSize: 18,
+                        //   ),
                         // ),
                       )
-                      
+
 
 
                     ],
