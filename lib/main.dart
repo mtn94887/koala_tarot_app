@@ -14,13 +14,13 @@ import 'package:firebase_core/firebase_core.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    options: FirebaseOptions(
-      apiKey: 'key',
-      appId: 'id',
-      messagingSenderId: 'sendid',
-      projectId: 'myapp',
-      storageBucket: 'myapp-b9yt18.appspot.com',
-    )
+    // options: FirebaseOptions(
+    //   apiKey: 'key',
+    //   appId: 'id',
+    //   messagingSenderId: 'sendid',
+    //   projectId: 'myapp',
+    //   storageBucket: 'myapp-b9yt18.appspot.com',
+    // )
   );
   runApp(MyApp());
 }
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       //title: 'Your App Title',
-      home: Home(),
+      home: MainPage(),
       // You can add more MaterialApp configurations here
     );
   }

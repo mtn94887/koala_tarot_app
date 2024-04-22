@@ -22,20 +22,20 @@ class _LoginPageState extends State<LoginPage> {
   final _emailController = TextEditingController(); 
   final _passwordController = TextEditingController(); 
 
-  Future signIn(BuildContext context) async {
-    try{
+  Future signIn() async {
+    // try{
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: _emailController.text.trim(), 
         password: _passwordController.text.trim(), 
       );
-      Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => BottomNavigationBarExampleApp()),
-    );
-    }
-    catch(e){
-      print("Error sigining in: $e");
-    }
+    //   Navigator.pushReplacement(
+    //   context,
+    //   MaterialPageRoute(builder: (context) => BottomNavigationBarExampleApp()),
+    // );
+    // }
+    // catch(e){
+    //   print("Error sigining in: $e");
+    // }
     
   }
 
@@ -132,18 +132,41 @@ class _LoginPageState extends State<LoginPage> {
 
                       SizedBox(height: 30),
 
+
+
                       //continue button
                       GestureDetector(
-                        onTap: () => signIn(context), 
-                        child: ElevatedButton(
-                          onPressed: () {
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(builder: (context) => TarotHomePage()),
-                            // );
-                          }, 
-                          child: Text('Continue'),
+                        onTap: signIn, 
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                          child:Container(
+                            padding: EdgeInsets.all(20),
+                            decoration: BoxDecoration(
+                              color: Colors.deepPurple, 
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child:Center(
+                              child:Text(
+                                'Log In', 
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold, 
+                                  fontSize: 18, 
+                                  
+                                ),
+                              )
+                            ),
+                          ),
                         ),
+                        // child: ElevatedButton(
+                        //   onPressed: () {
+                        //     // Navigator.push(
+                        //     //   context,
+                        //     //   MaterialPageRoute(builder: (context) => TarotHomePage()),
+                        //     // );
+                        //   }, 
+                        //   child: Text('Continue'),
+                        // ),
                       )
                       
 
