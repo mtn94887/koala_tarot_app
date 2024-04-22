@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:koala_tarot_app/cards.dart';
 import 'package:koala_tarot_app/home.dart'; 
-import 'package:firebase_auth/firebase_auth.dart'; 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:koala_tarot_app/meditationpage.dart';
+import 'package:koala_tarot_app/setting.dart';
+import 'package:koala_tarot_app/tarothistorypage.dart'; 
 
+
+
+//LOGIN CODE START HERE ....
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 

@@ -7,6 +7,8 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+
+        //purple bar 
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
@@ -14,10 +16,14 @@ class Home extends StatelessWidget {
             colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
           ),
         ),
+
+
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
+
+            //welcome text 
             SizedBox(
               height: 200,
               child: Container(
@@ -30,9 +36,15 @@ class Home extends StatelessWidget {
                 ),
               ),
             ),
+
+
             SizedBox(height: 20),
+
+
             Expanded(
               child: Container(
+
+                //white background 
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -40,6 +52,8 @@ class Home extends StatelessWidget {
                     topRight: Radius.circular(50),
                   ),
                 ),
+
+                
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
