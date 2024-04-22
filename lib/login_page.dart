@@ -14,6 +14,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: SafeArea(
         child: Container(
+
           //purple decoration bar 
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -22,11 +23,17 @@ class _LoginPageState extends State<LoginPage> {
               colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
             ),
           ),
+
+
           child: SingleChildScrollView(
             child: Column(
               children: [
+              
                 SizedBox(height: 100),
+
                 Container(
+
+                  //white background 
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
@@ -34,9 +41,15 @@ class _LoginPageState extends State<LoginPage> {
                       topRight: Radius.circular(30),
                     ),
                   ),
+
                   padding: EdgeInsets.all(20),
+
+
+                  //text boxes 
                   child: Column(
                     children: [
+
+                      //back key + text
                       Row(
                         children: [
                           IconButton(
@@ -51,7 +64,11 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ],
                       ),
+
+
                       SizedBox(height: 70),
+
+                      //gmail text field
                       TextField(
                         decoration: InputDecoration(
                           hintText: 'Gmail',
@@ -60,7 +77,10 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ),
+
                       SizedBox(height: 30),
+
+                      //password text field 
                       TextField(
                         decoration: InputDecoration(
                           hintText: 'Password',
@@ -69,7 +89,10 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ),
+
                       SizedBox(height: 30),
+
+                      //continue button
                       ElevatedButton(
                         onPressed: () {
                           Navigator.push(
@@ -79,6 +102,8 @@ class _LoginPageState extends State<LoginPage> {
                         }, 
                         child: Text('Continue'),
                       ),
+
+
                     ],
                   ),
                 ),
