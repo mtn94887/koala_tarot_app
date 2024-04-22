@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:koala_tarot_app/home.dart';
+import 'package:koala_tarot_app/mainpage.dart';
 import 'package:koala_tarot_app/welcome.dart';
 import 'package:koala_tarot_app/purpose.dart';
 import 'package:koala_tarot_app/features.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       //title: 'Your App Title',
-      home: Home(),
+      home: MainPage(),
       // You can add more MaterialApp configurations here
     );
   }

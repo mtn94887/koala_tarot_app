@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:koala_tarot_app/home.dart'; 
+import 'package:firebase_auth/firebase_auth.dart'; 
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -9,6 +10,24 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+  final _emailController = TextEditingController(); 
+  final _passwordController = TextEditingController(); 
+
+  Future signIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: _emailController.text.trim(), 
+      password: _passwordController.text.trim(), 
+    );
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,6 +89,7 @@ class _LoginPageState extends State<LoginPage> {
 
                       //gmail text field
                       TextField(
+                        controller: _emailController,
                         decoration: InputDecoration(
                           hintText: 'Gmail',
                           border: OutlineInputBorder(
@@ -82,6 +102,8 @@ class _LoginPageState extends State<LoginPage> {
 
                       //password text field 
                       TextField(
+                        obscureText: true,
+                        controller: _passwordController, 
                         decoration: InputDecoration(
                           hintText: 'Password',
                           border: OutlineInputBorder(
@@ -93,15 +115,19 @@ class _LoginPageState extends State<LoginPage> {
                       SizedBox(height: 30),
 
                       //continue button
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => TarotHomePage()),
-                          );
-                        }, 
-                        child: Text('Continue'),
-                      ),
+                      GestureDetector(
+                        onTap: signIn, 
+                        child: ElevatedButton(
+                          onPressed: () {
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(builder: (context) => TarotHomePage()),
+                            // );
+                          }, 
+                          child: Text('Continue'),
+                        ),
+                      )
+                      
 
 
                     ],
