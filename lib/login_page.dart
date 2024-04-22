@@ -23,19 +23,19 @@ class _LoginPageState extends State<LoginPage> {
   final _passwordController = TextEditingController(); 
 
   Future signIn() async {
-    // try{
+    try{
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: _emailController.text.trim(), 
         password: _passwordController.text.trim(), 
       );
-    //   Navigator.pushReplacement(
-    //   context,
-    //   MaterialPageRoute(builder: (context) => BottomNavigationBarExampleApp()),
-    // );
-    // }
-    // catch(e){
-    //   print("Error sigining in: $e");
-    // }
+      Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => BottomNavigationBarExampleApp()),
+    );
+    }
+    catch(e){
+      print("Error sigining in: $e");
+    }
     
   }
 
