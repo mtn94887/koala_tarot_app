@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:koala_tarot_app/ReadingsCategories/education.dart';
+import 'package:koala_tarot_app/ReadingsCategories/health.dart';
 import 'package:koala_tarot_app/ReadingsCategories/relationshipReading.dart';
 import 'package:koala_tarot_app/setting.dart';
 import 'package:koala_tarot_app/tarothistorypage.dart';
@@ -67,7 +68,7 @@ class _TarotHomePageState extends State<TarotHomePage> {
           children: [
             Education(name: "Education", iconData: Icons.school),
             Relationship(name: "Relationship Reading", iconData: Icons.favorite),
-            // CategoryCard(categoryName: "Health", iconData: Icons.local_hospital),
+            Health(name: "Health", iconData: Icons.local_hospital),
             // CategoryCard(categoryName: "Yes/No Question", iconData: Icons.sentiment_satisfied),
             // CategoryCard(categoryName: "Daily Reading", iconData: Icons.today),
             // CategoryCard(categoryName: "Weekly Reading", iconData: Icons.view_week),
@@ -86,7 +87,7 @@ class _TarotHomePageState extends State<TarotHomePage> {
   }
 }
 
-//for education box 
+//for education box ...................................
 class Education extends StatelessWidget{
   final String name; 
   final IconData iconData; 
@@ -127,7 +128,7 @@ class Education extends StatelessWidget{
   }
 }
 
-//for relationship box 
+//for relationship box ...................................
 class Relationship extends StatelessWidget{
   final String name; 
   final IconData iconData; 
@@ -167,6 +168,50 @@ class Relationship extends StatelessWidget{
     );
   }
 }
+
+
+//for health box ...................................
+class Health extends StatelessWidget{
+  final String name; 
+  final IconData iconData; 
+
+  const Health({required this.name, required this.iconData});
+
+  @override 
+  Widget build(BuildContext context){
+    return GestureDetector(
+      onTap: () {
+        // Navigate to the TarotCardPage
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => HealthPage(),
+          ),
+        );
+      },
+      child: Card(
+        elevation: 2,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(iconData),
+            SizedBox(height: 8),
+            Text(
+              name,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
 
 
 // class CategoryCard extends StatelessWidget {
