@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:koala_tarot_app/bottom_navigation_bar.dart';
 import 'package:koala_tarot_app/cards.dart';
@@ -7,11 +8,18 @@ import 'package:koala_tarot_app/setting.dart';
 import 'package:koala_tarot_app/tarothistorypage.dart';
 
 
-//CODE FOR SIGNUP REGISTER START HERE ... 
-class FormPage extends StatelessWidget {
+class SignupPage extends StatefulWidget {
+  const SignupPage({Key? key}):super(key:key); 
+
+  @override
+  State<SignupPage> createState() => _SignupPageState();
+}
+
+class _SignupPageState extends State<SignupPage> {
+
+  //for date selection
   TextEditingController _birthdayController = TextEditingController();
   FocusNode _birthdayFocusNode = FocusNode();
-
   // Function to open date picker dialog
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -28,11 +36,30 @@ class FormPage extends StatelessWidget {
     }
   }
 
+
+  //firebase 
+  final _emailController = TextEditingController(); 
+  final _passwordController = TextEditingController();
+  @override 
+  void dispose() { 
+    _emailController.dispose(); 
+    _passwordController.dispose(); 
+    super.dispose(); 
+  }
+  //for firebase set up 
+  Future signUp() async{
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      email: _emailController.text.trim(), 
+      password: _passwordController.text.trim(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Container(
+
           //purple decoration bar
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -41,11 +68,15 @@ class FormPage extends StatelessWidget {
               colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
             ),
           ),
+
+
           child: SingleChildScrollView( // Wrap your Column with SingleChildScrollView
             child: Column(
               children: [
                 SizedBox(height: 100),
                 Container(
+
+                  //white background box
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
@@ -53,9 +84,13 @@ class FormPage extends StatelessWidget {
                       topRight: Radius.circular(30),
                     ),
                   ),
+
+
                   padding: EdgeInsets.all(20),
                   child: Column(
                     children: [
+
+                      //back key and sign up text 
                       Row(
                         children: [
                           IconButton(
@@ -70,6 +105,8 @@ class FormPage extends StatelessWidget {
                           ),
                         ],
                       ),
+
+                      //full name text field 
                       SizedBox(height: 40),
                       TextField(
                         decoration: InputDecoration(
@@ -79,6 +116,8 @@ class FormPage extends StatelessWidget {
                           ),
                         ),
                       ),
+
+                      //gmail text field 
                       SizedBox(height: 30),
                       TextField(
                         decoration: InputDecoration(
@@ -88,6 +127,8 @@ class FormPage extends StatelessWidget {
                           ),
                         ),
                       ),
+
+                      //password text field 
                       SizedBox(height: 30),
                       TextField(
                         decoration: InputDecoration(
@@ -97,6 +138,8 @@ class FormPage extends StatelessWidget {
                           ),
                         ),
                       ),
+
+                      //confirm passowrd text field 
                       SizedBox(height: 30),
                       TextField(
                         decoration: InputDecoration(
@@ -106,6 +149,9 @@ class FormPage extends StatelessWidget {
                           ),
                         ),
                       ),
+
+
+                      //birday selection text field 
                       SizedBox(height: 30),
                       Row(
                         children: [
@@ -133,14 +179,11 @@ class FormPage extends StatelessWidget {
                           ),
                         ],
                       ),
+
+                      //continue button
                       SizedBox(height: 20),
                       ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => BottomNavigationBarExampleApp()),
-                          );
-                        }, 
+                        onPressed: signUp,
                         style: ButtonStyle(
                           minimumSize: MaterialStateProperty.all(Size(100, 50)),
                           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -150,7 +193,7 @@ class FormPage extends StatelessWidget {
                           ),
                           elevation: MaterialStateProperty.all(4),
                         ),
-                        child: Text('Continue')
+                        child: Text('Sign Up')
                       ),
                     ],
                   ),

@@ -65,7 +65,7 @@ class Home extends StatelessWidget {
                           context,
                           PageRouteBuilder(
                             transitionDuration: Duration(milliseconds: 500),
-                            pageBuilder: (_, __, ___) => FormPage(),
+                            pageBuilder: (_, __, ___) => SignupPage(),
                             transitionsBuilder: (_, animation, __, child) {
                               return SlideTransition(
                                 position: animation.drive(
