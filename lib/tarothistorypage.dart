@@ -1,10 +1,7 @@
-// tarothistorypage.dart
 import 'package:flutter/material.dart';
-import 'package:koala_tarot_app/cards.dart';
 import 'package:koala_tarot_app/home.dart';
+import 'package:koala_tarot_app/meditationpage.dart';
 import 'package:koala_tarot_app/setting.dart';
-import 'package:koala_tarot_app/meditationpage.dart'; 
-import 'package:koala_tarot_app/readingdetailspage.dart';
 
 class tarothistorypage extends StatefulWidget {
   @override
@@ -41,21 +38,11 @@ class _tarothistorypageState extends State<tarothistorypage> {
         // Navigate to SettingScreen if Settings icon is tapped
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Cards()),
+          MaterialPageRoute(builder: (context) => SettingScreen()),
         );
         break;
     }
   }
-
-  final List<Map<String, dynamic>> cardLabels = [
-    {'label': 'Daily Reading', 'index': 0},
-    {'label': 'Yes or No', 'index': 1},
-    {'label': 'Daily Reading', 'index': 2},
-    {'label': 'Daily Reading', 'index': 3},
-    {'label': 'Romance', 'index': 4},
-    {'label': 'Daily Reading', 'index': 5},
-    {'label': 'Education', 'index': 6},
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -63,22 +50,20 @@ class _tarothistorypageState extends State<tarothistorypage> {
       appBar: AppBar(
         backgroundColor: Color(0xFF7D5AAD),
         automaticallyImplyLeading: false,
-        title: Text(
-          "Card Reading History"
-        ),
+        title: Text("Card Reading History"),
         centerTitle: true,
-        actions: <Widget> [
+        actions: <Widget>[
           IconButton(
             onPressed: () {
               Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SettingScreen()),
-                );
-            }, 
+                context,
+                MaterialPageRoute(builder: (context) => SettingScreen()),
+              );
+            },
             icon: Icon(Icons.settings),
             color: Colors.black,
           )
-        ]
+        ],
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -88,76 +73,8 @@ class _tarothistorypageState extends State<tarothistorypage> {
             colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
           ),
         ),
-        child: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            childAspectRatio: 60 / 100,
-          ),
-          itemCount: cardLabels.length,
-          itemBuilder: (context, index) {
-            return GestureDetector(
-              onTap: () {
-                // Navigate to ReadingDetailsPage when a card is clicked
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ReadingDetailsPage(
-                      title: cardLabels[index]['label'],
-                      cardIndex: cardLabels[index]['index'],
-                    ),
-                  ),
-                );
-              },
-              child: Card(
-                child: Column(
-                  children: [
-                    Expanded(
-                      child: Image.asset(
-                        'assets/image_${cardLabels[index]['index']}.png', // Path to your image asset
-                        fit: BoxFit.cover, // Adjust the fit based on your requirement
-                      ),
-                    ),
-                    Container(
-                      width: double.infinity,
-                      padding: EdgeInsets.all(8.0),
-                      color: Color(0xFFD8D2EF),
-                      child: Text(
-                        cardLabels[index]['label'],
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.black),
-                      ),
-                    ),
-                  ],
-                ),
-            ),
-            );
-          },
-        ),
+        // No GridView.builder here, removed the card display
       ),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   selectedItemColor: Colors.black,
-      //   unselectedItemColor: Colors.black,
-      //   currentIndex: _selectedIndex,
-      //   onTap: _onItemTapped,
-      //   items: const <BottomNavigationBarItem>[
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.article_outlined),
-      //       label: 'Spreads',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.history),
-      //       label: 'History',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.self_improvement),
-      //       label: 'Meditation',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.copy_outlined),
-      //       label: 'Cards',
-      //     ),
-      //   ],
-      // ),
     );
   }
 }
