@@ -9,41 +9,6 @@ class tarothistorypage extends StatefulWidget {
 }
 
 class _tarothistorypageState extends State<tarothistorypage> {
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-
-    switch (index) {
-      case 0:
-        // Navigate to TarotHomePage if Spreads icon is tapped
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => TarotHomePage()),
-        );
-        break;
-      case 1:
-        // Navigate to TarotHistoryPage if History icon is tapped (current page)
-        break;
-      case 2:
-        // Navigate to MeditationPage if Meditation icon is tapped
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => MeditationPage()),
-        );
-        break;
-      case 3:
-        // Navigate to SettingScreen if Settings icon is tapped
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => SettingScreen()),
-        );
-        break;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

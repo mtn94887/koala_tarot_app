@@ -4,7 +4,6 @@ import 'package:koala_tarot_app/mainpage.dart';
 import 'home.dart';
 import 'tarothistorypage.dart'; 
 import 'meditationpage.dart';
-import 'tarot_card_page.dart';
 
 
 class BottomNavigationBarExampleApp extends StatelessWidget {
@@ -57,7 +56,7 @@ class _BottomNavigationBarExampleState
               width: 24,
               height: 24,
             ),
-            label: 'Spreads',
+            label: 'Readings',
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
