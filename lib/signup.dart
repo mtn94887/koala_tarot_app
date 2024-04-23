@@ -141,6 +141,15 @@ class FormPage extends StatelessWidget {
                             MaterialPageRoute(builder: (context) => BottomNavigationBarExampleApp()),
                           );
                         }, 
+                        style: ButtonStyle(
+                          minimumSize: MaterialStateProperty.all(Size(100, 50)),
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                          ),
+                          elevation: MaterialStateProperty.all(4),
+                        ),
                         child: Text('Continue')
                       ),
                     ],
