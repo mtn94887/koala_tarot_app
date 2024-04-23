@@ -1,22 +1,13 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-class ThreeCardReadingPage extends StatelessWidget{
-
-  final List<Map<String, String>> tarotCards = List.generate(
-    22,
-    (index) => {"name": "Card ${index + 1}", "image": "assets/card1.png"},
-  );
+class ThreeCardReadingPage extends StatelessWidget {
+  final List<String> cardImages = List.generate(
+      22, (index) => 'assets/DrawCards/card${index + 1}.png'); // List of 20 card images
 
   @override
   Widget build(BuildContext context) {
-    final cardWidth = MediaQuery.of(context).size.width / 4;
-    final cardHeight = MediaQuery.of(context).size.height / 4;
-    tarotCards.shuffle();
-    
-    return Scaffold(  
-
-      //app bar 
+    return Scaffold(
       appBar: AppBar(
         title: Text(
           "Choose one card",
@@ -25,140 +16,130 @@ class ThreeCardReadingPage extends StatelessWidget{
         backgroundColor: Colors.white,
         centerTitle: true,
       ),
-
-      //hidden cards to select 
-      body: GridView.builder(
-        shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 6,
-          crossAxisSpacing: 3,
-          mainAxisSpacing: 3,
-          childAspectRatio: cardWidth / cardHeight,
-        ),
-        itemCount: tarotCards.length,
-        itemBuilder: (context, index) {
-          return CardItem(
-            tarotCard: tarotCards[index],
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => CardReadingPage(
-                    tarotCard: tarotCards[index]["name"]!,
-                    tarotCards: tarotCards,
-                  ),
-                ),
-              );
-            },
+      body: ListView.builder(
+        itemCount: 4, // Number of rows
+        itemBuilder: (BuildContext context, int rowIndex) {
+          return Container(
+            margin: EdgeInsets.symmetric(vertical: 10.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: List.generate(
+                5, // Number of cards per row
+                (int columnIndex) {
+                  int index = rowIndex * 5 + columnIndex;
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DrawCard(
+                            selectedIndex: index,
+                          ),
+                        ),
+                      );
+                    },
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.15,
+                      child: Image.asset('assets/card1.png'),
+                      //child: Image.asset(cardImages[index]),
+                    ),
+                  );
+                },
+              ),
+            ),
           );
         },
       ),
-    ); 
+    );
   }
 }
 
-class CardItem extends StatelessWidget {
- final Map<String, String> tarotCard;
- final VoidCallback onTap;
-
-
- CardItem({required this.tarotCard, required this.onTap});
-
-
- @override
- Widget build(BuildContext context) {
-   return GestureDetector(
-     onTap: onTap,
-     child: Container(
-       child: Image.asset(
-         tarotCard["image"] ?? "assets/placeholder.png",
-         fit: BoxFit.contain,
-       ),
-     ),
-   );
- }
-}
-
-
-class CardReadingPage extends StatelessWidget {
-  final String tarotCard;
-  final List<Map<String, String>> tarotCards;
+class DrawCard extends StatelessWidget {
   final List<String> cardImages = [
-    'assets/the-fool.png',
-    'assets/the-magician.png',
-    'assets/the-high-priestess.png',
-    'assets/the-empress.png',
-    ',assets/the-emperor.png',
-    'assets/the-heirophant.png',
-    'assets/the-lovers.png',
-    'assets/the-chariot.png',
-    'assets/strength.png',
-    'assets/the-hermit.png',
-    'assets/wheel-of-fortune.png',
-    'assets/justice.png',
-    'assets/the-hanged-man.png',
-    'assets/death.png',
-    'assets/temperance.png',
-    'assets/the-devil.png',
-    'assets/the-tower.png',
-    'assets/the-star.png',
-    'assets/the-moon.png',
-    ',assets/the-sun.png',
-    'assets/judgement.png',
-    'assets/the-world.png',
-  ];
+    'assets/DrawCards/card1.png',
+    'assets/DrawCards/card2.png',
+    'assets/DrawCards/card3.png',
+    'assets/DrawCards/card4.png',
+    'assets/DrawCards/card5.png',
+    'assets/DrawCards/card6.png',
+    'assets/DrawCards/card7.png',
+    'assets/DrawCards/card8.png',
+    'assets/DrawCards/card9.png',
+    'assets/DrawCards/card10.png',
+    'assets/DrawCards/card11.png',
+    'assets/DrawCards/card12.png',
+    'assets/DrawCards/card13.png',
+    'assets/DrawCards/card14.png',
+    'assets/DrawCards/card15.png',
+    'assets/DrawCards/card16.png',
+    'assets/DrawCards/card17.png',
+    'assets/DrawCards/card18.png',
+    'assets/DrawCards/card19.png',
+    'assets/DrawCards/card20.png',
+    'assets/DrawCards/card21.png',
+    'assets/DrawCards/card22.png'
+  ]; // List of 22 card images
 
+  final List<String> cardTexts = [
+    'I am the fool',
+    'I am the magician.',
+    'I am the high priestess.',
+    'I am the empress',
+    'I am the emperor',
+    'I am the heirophant ',
+    'I am the the lovers. ',
+    'I am the-chariot ',
+    'I am the strength',
+    'I am the hermit.',
+    'I am the wheel-of-fortune.',
+    'I am the justice.',
+    'I am the the-hanged-man',
+    'I am the death.',
+    'I am the temperance.',
+    'I am the-devil.',
+    'I am the-tower.',
+    'I am the-star.',
+    'I am the-moon.',
+    'I am the the-sun.',
+    'I am the judgement.',
+    'I am the-world.'
+  ]; // List of 22 card texts
 
- CardReadingPage({required this.tarotCard, required this.tarotCards});
+  final int selectedIndex; // Index of the selected card
 
+  DrawCard({required this.selectedIndex});
 
   @override
   Widget build(BuildContext context) {
-    int cardIndex = tarotCards.indexWhere((card) => card['name'] == tarotCard);
+    // Shuffle the indices to get random images and texts
+    List<int> indices = List.generate(22, (index) => index);
+    indices.shuffle();
 
+    // Get the random image and its corresponding text
+    String selectedImage = cardImages[indices[selectedIndex % 22]];
+    String selectedText = cardTexts[indices[selectedIndex % 22]];
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(tarotCard),
-        backgroundColor: Color(0xFF7D5AAD),
+        title: Text("Your reading ..."),
       ),
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
-          ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  cardImages[cardIndex],
-                  width: 400,
-                  height: 300,
-                ),
-                SizedBox(height: 50),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Text(
-                    "The Empress graces your reading with a promise of abundant positivity. This card signifies a strong maternal presence, fostering harmony in relationships and signaling a potential expansion of your family or close social circle. "
-                    "This is a time to embrace the nurturing aspects of life, recognizing the support and love that surround you. Stay open to the harmonious energies that The Empress brings, and allow them to guide you on this positive journey.",
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.yellow,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: 350, // specify width
+              height: 350, // specify height
+              child: Image.asset(selectedImage),
             ),
-          ),
+            Padding(
+              padding: EdgeInsets.all(30.0), // adjust the padding as needed
+              child: Text(
+                selectedText,
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ],
         ),
       ),
     );

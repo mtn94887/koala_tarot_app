@@ -3,7 +3,7 @@ import 'dart:math';
 
 class EducationPage extends StatelessWidget {
   final List<String> cardImages = List.generate(
-      20, (index) => 'assets/DrawCards/card${index + 1}.png'); // List of 20 card images
+      22, (index) => 'assets/DrawCards/card${index + 1}.png'); // List of 20 card images
 
   @override
   Widget build(BuildContext context) {
@@ -121,7 +121,7 @@ class DrawCard extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Another Widget"),
+        title: Text("Your reading ..."),
       ),
       body: Center(
         child: Column(
