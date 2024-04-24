@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:koala_tarot_app/authpage.dart';
 import 'package:koala_tarot_app/cards.dart';
@@ -19,7 +20,12 @@ class SettingScreen extends StatefulWidget {
 }
 
 class _SettingScreenState extends State<SettingScreen> {
+
   String appVersion = '1.0.0';
+
+  void signOut(){
+    FirebaseAuth.instance.signOut(); 
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -95,12 +101,13 @@ class _SettingScreenState extends State<SettingScreen> {
                 ),
                 ListTile(
                   title: Text('Logout'),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => AuthPage()),
-                    );
-                  },
+                  onTap: signOut,
+                  // onTap: () {
+                  //   Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(builder: (context) => AuthPage()),
+                  //   );
+                  // },
                 ),
                 ListTile(
                   title: Text(
