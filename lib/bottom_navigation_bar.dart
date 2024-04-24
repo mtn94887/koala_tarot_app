@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:koala_tarot_app/cards.dart';
-import 'package:koala_tarot_app/mainpage.dart';
+import 'package:koala_tarot_app/Authenti/mainpage.dart';
 import 'home.dart';
 import 'tarothistorypage.dart'; 
 import 'meditationpage.dart';

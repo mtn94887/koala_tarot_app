@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:koala_tarot_app/login_page.dart';
-import 'package:koala_tarot_app/signup.dart';
+import 'package:koala_tarot_app/Authenti/login_page.dart';
+import 'package:koala_tarot_app/Authenti/signup.dart';
 
 class AuthPage extends StatefulWidget{
   const AuthPage({Key? key}): super(key: key); 

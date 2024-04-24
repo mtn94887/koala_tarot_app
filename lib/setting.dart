@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:koala_tarot_app/authpage.dart';
+import 'package:koala_tarot_app/Authenti/authpage.dart';
 import 'package:koala_tarot_app/cards.dart';
-import 'package:koala_tarot_app/login_page.dart';
-import 'package:koala_tarot_app/mainpage.dart';
+import 'package:koala_tarot_app/Authenti/login_page.dart';
+import 'package:koala_tarot_app/Authenti/mainpage.dart';
 import 'package:koala_tarot_app/privacy.dart';
 import 'package:koala_tarot_app/purpose.dart';
 import 'package:koala_tarot_app/terms.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:koala_tarot_app/mainpage.dart';
+import 'package:koala_tarot_app/Authenti/mainpage.dart';
 import 'package:koala_tarot_app/tarothistorypage.dart';
 import 'package:koala_tarot_app/purpose.dart';
 import 'package:koala_tarot_app/features.dart';

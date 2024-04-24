@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:koala_tarot_app/authpage.dart';
+import 'package:koala_tarot_app/Authenti/authpage.dart';
 import 'package:koala_tarot_app/bottom_navigation_bar.dart';
 import 'package:koala_tarot_app/home.dart';
-import 'package:koala_tarot_app/login_page.dart';
+import 'package:koala_tarot_app/Authenti/login_page.dart';
 
 class MainPage extends StatelessWidget{
   const MainPage({Key? key}) : super (key: key);
