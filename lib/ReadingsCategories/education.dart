@@ -133,6 +133,15 @@ class DrawCard extends StatelessWidget {
 
  @override
  Widget build(BuildContext context) {
+
+   // Shuffle the indices to get random images and texts
+    List<int> indices = List.generate(22, (index) => index);
+    indices.shuffle();
+
+    // Get the random image and its corresponding text
+    String selectedImage = cardImages[indices[selectedIndex % 22]];
+    String selectedText = cardTexts[indices[selectedIndex % 22]];
+
    return Scaffold(
      appBar: AppBar(
        title: Text("Your reading ..."),
