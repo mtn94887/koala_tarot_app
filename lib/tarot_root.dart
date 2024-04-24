@@ -14,7 +14,7 @@ class tarot_root extends StatelessWidget {
      home: tarothistorypage(),
      routes: {
        '/meditation': (context) => MeditationPage(),
-       '/music': (context) => music(),
+       '/music': (context) => Music(),
      },
    );
  }
