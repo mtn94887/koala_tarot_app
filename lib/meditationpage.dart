@@ -5,15 +5,10 @@ import 'package:koala_tarot_app/setting.dart';
 import 'dart:convert';
 
 
-
-
 class MeditationPage extends StatefulWidget {
 @override
 _MeditationPageState createState() => _MeditationPageState();
 }
-
-
-
 
 class _MeditationPageState extends State<MeditationPage> {
 bool _isPlaying = false;
