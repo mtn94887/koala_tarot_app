@@ -3,6 +3,12 @@ import 'package:audioplayers/audioplayers.dart';
 
 
 class MeditationPage extends StatefulWidget {
+ final String musicName;
+
+
+ MeditationPage(this.musicName);
+
+
  @override
  _MeditationPageState createState() => _MeditationPageState();
 }
@@ -14,14 +20,21 @@ class _MeditationPageState extends State<MeditationPage> {
  double _volume = 0.5;
 
 
- void _togglePlaying(String musicName) async {
+ @override
+ void dispose() {
+   _audioPlayer.stop(); // Stop the audio player when the page is disposed
+   super.dispose();
+ }
+
+
+ void _togglePlaying() async {
    if (_isPlaying) {
      _audioPlayer.stop();
      setState(() {
        _isPlaying = false;
      });
    } else {
-     _audioPlayer.play(AssetSource(musicName));
+     _audioPlayer.play(AssetSource(widget.musicName));
      setState(() {
        _isPlaying = true;
      });
@@ -82,8 +95,7 @@ class _MeditationPageState extends State<MeditationPage> {
            Center(
              child: GestureDetector(
                onTap: () {
-                 // Play the selected music
-                 _togglePlaying('Download.mp3');
+                 _togglePlaying();
                },
                child: Container(
                  width: 230,
@@ -146,6 +158,9 @@ class _MeditationPageState extends State<MeditationPage> {
 
 
 class Music extends StatelessWidget {
+ final List<String> song = ['intro.mp3', 'Download.mp3', 'deep_relaxation.mp3'];
+
+
  @override
  Widget build(BuildContext context) {
    return Scaffold(
@@ -161,12 +176,11 @@ class Music extends StatelessWidget {
            colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
          ),
        ),
-       child: ListView(
-         children: [
-           _buildMusicTile(context, 'intro.mp3'),
-           _buildMusicTile(context, 'Download.mp3'),
-           _buildMusicTile(context, 'deep_relaxation.mp3'),
-         ],
+       child: ListView.builder(
+         itemCount: song.length,
+         itemBuilder: (context, index) {
+           return _buildMusicTile(context, song[index]);
+         },
        ),
      ),
    );
@@ -197,15 +211,11 @@ class Music extends StatelessWidget {
              musicName,
              style: TextStyle(color: Colors.black),
            ),
-           trailing: IconButton(
-             icon: Icon(Icons.play_circle_fill, color: Color.fromARGB(255, 169, 117, 178)),
-             onPressed: () {
-               // Play the selected music
-               Navigator.pop(context, musicName);
-             },
-           ),
            onTap: () {
-             // Add functionality when music tile is tapped
+             Navigator.push(
+               context,
+               MaterialPageRoute(builder: (context) => MeditationPage(musicName)),
+             );
            },
          ),
        ),
@@ -217,8 +227,6 @@ class Music extends StatelessWidget {
 
 void main() {
  runApp(MaterialApp(
-   home: MeditationPage(),
+   home: MeditationPage("intro.mp3"),
  ));
 }
-
-
