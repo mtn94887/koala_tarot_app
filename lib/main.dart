@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:koala_tarot_app/mainpage.dart';
 import 'package:koala_tarot_app/tarothistorypage.dart';
-import 'package:koala_tarot_app/welcome.dart';
 import 'package:koala_tarot_app/purpose.dart';
 import 'package:koala_tarot_app/features.dart';
 import 'package:koala_tarot_app/background.dart';
@@ -23,7 +22,7 @@ void main() async {
         ),
         home: MainPage(),
         routes: {
-          '/meditation': (context) => MeditationPage(),
+          //'/meditation': (context) => MeditationPage(),
           '/music': (context) => Music(), 
          
         },
@@ -37,9 +36,7 @@ class MyApp extends StatelessWidget {
  @override
  Widget build(BuildContext context) {
    return MaterialApp(
-     //title: 'Your App Title',
-     home: MainPage(),
-     // You can add more MaterialApp configurations here
+    home: MainPage(),
    );
  }
 }
