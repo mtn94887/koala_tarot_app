@@ -130,10 +130,6 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
 
-                      SizedBox(height: 30),
-
-
-
                       //continue button
                       // GestureDetector(
                       //   onTap: signIn, 
@@ -172,6 +168,28 @@ class _LoginPageState extends State<LoginPage> {
                       //   ),
                       // )
 
+                      SizedBox(height: 5,),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children:[
+                          Text(
+                            'A new user? ',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold, 
+                            )
+                          ),
+                          Text(
+                            'Register to use the app',
+                            style: TextStyle(
+                              color: Colors.purple,
+                              fontWeight: FontWeight.bold, 
+                            )
+                          )
+                        ]
+                      ),
+
+                      SizedBox(height: 30,),
+
                       ElevatedButton(
                         onPressed: signIn,
                         style: ButtonStyle(
@@ -192,7 +210,9 @@ class _LoginPageState extends State<LoginPage> {
                         //     fontSize: 18,
                         //   ),
                         // ),
-                      )
+                      ),
+
+                      SizedBox(height: 290),
 
 
 
