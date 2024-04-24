@@ -41,7 +41,12 @@ class _TarotHomePageState extends State<TarotHomePage> {
       appBar: AppBar(
         title: Text(
           "Choose the category",
-          style: TextStyle(color: Colors.black),
+          //style: TextStyle(color: Colors.black),
+          style: TextStyle(
+            fontSize: 23, 
+            fontFamily: 'Pacifico',
+            color: Colors.black,
+          ),
         ),
         backgroundColor: Color(0xFF7D5AAD),
         centerTitle: true,
@@ -60,7 +65,7 @@ class _TarotHomePageState extends State<TarotHomePage> {
         ],
       ),
 
-
+      
       //each category box 
       body: Container(
         decoration: BoxDecoration(
@@ -70,6 +75,7 @@ class _TarotHomePageState extends State<TarotHomePage> {
             colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
           ),
         ),
+        
         child: GridView.count(
           crossAxisCount: 3,
           mainAxisSpacing: 40,

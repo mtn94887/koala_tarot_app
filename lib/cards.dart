@@ -46,21 +46,20 @@ class _cardsState extends State<Cards> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(   
+
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: Color(0xFF7D5AAD),
-        title:Center(
-          child: Text(
+        title:Text(
             'Tarot Cards',
             style: TextStyle(
-            fontSize: 22, 
-              color: Colors.black,
-             
-            ),
+            fontSize: 23, 
+            fontFamily: 'Pacifico',
+            color: Colors.black,
           ),
-          
         ),
+        centerTitle: true,
         
         actions: <Widget> [
           IconButton(

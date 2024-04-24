@@ -49,7 +49,14 @@ class _tarothistorypageState extends State<tarothistorypage> {
      appBar: AppBar(
        backgroundColor: Color(0xFF7D5AAD),
        automaticallyImplyLeading: false,
-       title: Text("Card Reading History"),
+       title: Text(
+        "Card Reading History",
+        style: TextStyle(
+            fontSize: 23, 
+            fontFamily: 'Pacifico',
+            color: Colors.black,
+          ),
+        ),
        centerTitle: true,
        actions: <Widget>[
          IconButton(

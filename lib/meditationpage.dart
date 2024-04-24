@@ -54,7 +54,14 @@ Widget build(BuildContext context) {
     appBar: AppBar(
       backgroundColor: const Color(0xFF7D5AAD),
       automaticallyImplyLeading: true,
-      title: const Text("Meditation"),
+      title: const Text(
+        "Meditation",
+        style: TextStyle(
+            fontSize: 23, 
+            fontFamily: 'Pacifico',
+            color: Colors.black,
+          ),
+      ),
       centerTitle: true,
       actions: <Widget>[
         IconButton(
