@@ -80,21 +80,29 @@ class _LoginPageState extends State<LoginPage> {
                   ),
 
                   padding: EdgeInsets.all(20),
-
-
+                
                   //text boxes 
                   child: Column(
+                    
                     children: [
+                      SizedBox(height: 30,),
+                      Container(
+                        width: 100, 
+                        height: 100,
+                        child: Image.asset('assets/crystal-ball.png'),
+                      ),
 
-                      //back key + text
+                      SizedBox(height: 20,),
+                      //photo + text
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          IconButton(
-                            icon: Icon(Icons.arrow_back),
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                          ),
+                          // IconButton(
+                          //   icon: Icon(Icons.arrow_back),
+                          //   onPressed: () {
+                          //     Navigator.pop(context);
+                          //   },
+                          // ), 
                           Text(
                             'Login',
                             style: TextStyle(fontSize: 20),
@@ -103,7 +111,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
 
 
-                      SizedBox(height: 70),
+                      SizedBox(height: 20),
 
                       //gmail text field
                       TextField(
@@ -212,7 +220,7 @@ class _LoginPageState extends State<LoginPage> {
                         // ),
                       ),
 
-                      SizedBox(height: 290),
+                      //SizedBox(height: 150),
 
 
 
