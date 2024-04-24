@@ -5,10 +5,10 @@ import 'package:koala_tarot_app/ReadingsCategories/education.dart';
 import 'package:koala_tarot_app/ReadingsCategories/health.dart';
 import 'package:koala_tarot_app/ReadingsCategories/moneyCareer.dart';
 import 'package:koala_tarot_app/ReadingsCategories/newLove.dart';
-import 'package:koala_tarot_app/ReadingsCategories/prosperly.dart';
+import 'package:koala_tarot_app/ReadingsCategories/prosperity.dart';
 import 'package:koala_tarot_app/ReadingsCategories/quickReading.dart';
 import 'package:koala_tarot_app/ReadingsCategories/relationshipReading.dart';
-import 'package:koala_tarot_app/ReadingsCategories/threeCardReading.dart';
+import 'package:koala_tarot_app/ReadingsCategories/social&friendship.dart';
 import 'package:koala_tarot_app/ReadingsCategories/weeklyReading.dart';
 import 'package:koala_tarot_app/ReadingsCategories/yes_noReading.dart';
 import 'package:koala_tarot_app/setting.dart';
@@ -88,9 +88,9 @@ class _TarotHomePageState extends State<TarotHomePage> {
             DailyReading(name: "Daily Reading", iconData: Icons.today),
             WeeklyReading(name: "Weekly Reading", iconData: Icons.view_week),
             QuickReading(name: "Quick Reading", iconData: Icons.flash_on),
-            ThreeCardReading(name: "Three-Card Reading", iconData: Icons.format_list_numbered),
+            SocialReading(name: "Socialization & Friendship", iconData: Icons.format_list_numbered),
             NewLove(name: "New Love", iconData: Icons.energy_savings_leaf_sharp),
-            Prosperly(name: "Prosperly", iconData: Icons.diamond),
+            Prosperity(name: "Prosperity", iconData: Icons.diamond),
             MoneyCareer(name: "Money Career", iconData: Icons.account_balance_wallet),
             BgProblemSol(name: "Background Problem Solution", iconData: Icons.blur_on),
           ],
@@ -391,12 +391,12 @@ class QuickReading extends StatelessWidget{
   }
 }
 
-//for three card reading box ...................................
-class ThreeCardReading extends StatelessWidget{
+//for social reading box ...................................
+class SocialReading extends StatelessWidget{
   final String name; 
   final IconData iconData; 
 
-  const ThreeCardReading({required this.name, required this.iconData});
+  const SocialReading({required this.name, required this.iconData});
 
   @override 
   Widget build(BuildContext context){
@@ -406,7 +406,7 @@ class ThreeCardReading extends StatelessWidget{
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => ThreeCardReadingPage(),
+            builder: (context) => SocialReadingPage(),
           ),
         );
       },
@@ -474,11 +474,11 @@ class NewLove extends StatelessWidget{
 }
 
 //for prosperly box ...................................
-class Prosperly extends StatelessWidget{
+class Prosperity extends StatelessWidget{
   final String name; 
   final IconData iconData; 
 
-  const Prosperly({required this.name, required this.iconData});
+  const Prosperity({required this.name, required this.iconData});
 
   @override 
   Widget build(BuildContext context){
@@ -488,7 +488,7 @@ class Prosperly extends StatelessWidget{
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => ProsperlyPage(),
+            builder: (context) => ProsperityPage(),
           ),
         );
       },
