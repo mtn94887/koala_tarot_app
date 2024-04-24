@@ -41,18 +41,32 @@ class _SignupPageState extends State<SignupPage> {
   //firebase 
   final _emailController = TextEditingController(); 
   final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController(); 
   @override 
   void dispose() { 
     _emailController.dispose(); 
     _passwordController.dispose(); 
+    _confirmPasswordController.dispose(); 
     super.dispose(); 
   }
   //for firebase set up 
   Future signUp() async{
-    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+    
+    if (passwordConfirmed()){
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
       email: _emailController.text.trim(), 
       password: _passwordController.text.trim(),
-    );
+      );
+    }
+  }
+
+  bool passwordConfirmed() {
+    if (_passwordController.text.trim() == _confirmPasswordController){
+      return true;
+    }
+    else {
+      return false; 
+    }
   }
 
   @override
@@ -101,6 +115,12 @@ class _SignupPageState extends State<SignupPage> {
                             //   widget.showLoginPage;
                             // },
                           ),
+                          Text(
+                            "Login", 
+                            style: TextStyle(
+                              fontSize: 20,
+                            )
+                          )
                         ],
                       ),
 
@@ -161,6 +181,18 @@ class _SignupPageState extends State<SignupPage> {
                         controller: _passwordController,
                         decoration: InputDecoration(
                           hintText: 'Password',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                      ),
+
+                      //confirm password text field 
+                      SizedBox(height: 30),
+                      TextField(
+                        controller: _confirmPasswordController,
+                        decoration: InputDecoration(
+                          hintText: 'Confirm password',
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
