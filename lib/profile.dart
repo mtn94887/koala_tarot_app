@@ -219,27 +219,6 @@ class _ProfilePageState extends State<ProfilePage> {
 class EditScreen extends StatefulWidget {
  const EditScreen({super.key});
   static const id = 'EditScreen';
-
-
-
-
- // final String email;
- // final String birthday;
- // final String phoneNumber;
- // final String zodiacSign;
- // final Function(String, String, String, String, String) onUpdate;
-
-
- // EditScreen({
- //   required this.name,
- //   required this.email,
- //   required this.birthday,
- //   required this.phoneNumber,
- //   required this.zodiacSign,
- //   required this.onUpdate,
- // });
-
-
   @override
  _EditScreenState createState() => _EditScreenState();
 }
@@ -299,26 +278,6 @@ class _EditScreenState extends State<EditScreen> {
  }
 
 
-
-
- // TextEditingController _nameController = TextEditingController();
- // TextEditingController _emailController = TextEditingController();
- // TextEditingController _birthdayController = TextEditingController();
- // TextEditingController _phoneNumberController = TextEditingController();
- // TextEditingController _zodiacSignController = TextEditingController();
-
-
- // @override
- // void initState() {
- //   super.initState();
- //   _nameController.text = widget.name;
- //   _emailController.text = widget.email;
- //   _birthdayController.text = widget.birthday;
- //   _phoneNumberController.text = widget.phoneNumber;
- //   _zodiacSignController.text = widget.zodiacSign;
- // }
-
-
  @override
  Widget build(BuildContext context) {
    return Scaffold(
@@ -347,20 +306,6 @@ class _EditScreenState extends State<EditScreen> {
 
              //for photo
              Center(
-               // child:Container(
-               //   height: 200.0,
-               //   width: 200.0,
-               //   decoration: BoxDecoration(
-               //     shape: BoxShape.circle,
-               //     color: Colors.grey.shade200,
-               //   ),
-               //   child: Center(
-               //     child: _image == null ? const Text(
-               //       'No image selected',
-               //       style: TextStyle(fontSize: 20),
-               //     ):ProfilePage(),
-               //   ),
-               // )
                child: GestureDetector(
                    behavior: HitTestBehavior.translucent,
                    onTap: () {
@@ -408,111 +353,6 @@ class _EditScreenState extends State<EditScreen> {
                ],
              )
 
-
-             // Text(
-             //   'Name:',
-             //   style: TextStyle(fontSize: 20),
-             // ),
-             // SizedBox(height: 10),
-             // TextFormField(
-             //   controller: _nameController,
-             //   decoration: InputDecoration(
-             //     hintText: 'Enter your new name',
-             //     border: OutlineInputBorder(),
-             //   ),
-             // ),
-             // SizedBox(height: 20),
-             // Text(
-             //   'Email:',
-             //   style: TextStyle(fontSize: 20),
-             // ),
-             // SizedBox(height: 10),
-             // TextFormField(
-             //   controller: _emailController,
-             //   decoration: InputDecoration(
-             //     hintText: 'Enter your new email',
-             //     border: OutlineInputBorder(),
-             //   ),
-             // ),
-             // SizedBox(height: 20),
-             // Text(
-             //   'Birthday:',
-             //   style: TextStyle(fontSize: 20),
-             // ),
-             // SizedBox(height: 10),
-             // Row(
-             //   children: [
-             //     Expanded(
-             //       child: TextFormField(
-             //         controller: _birthdayController,
-             //         keyboardType: TextInputType.datetime,
-             //         decoration: InputDecoration(
-             //           hintText: 'dd/mm/yyyy',
-             //           border: OutlineInputBorder(),
-             //         ),
-             //       ),
-             //     ),
-             //     SizedBox(width: 10),
-             //     IconButton(
-             //       icon: Icon(Icons.calendar_today),
-             //       onPressed: () {
-             //         _selectDate(context);
-             //       },
-             //     ),
-             //   ],
-             // ),
-             // SizedBox(height: 20),
-             // Text(
-             //   'Phone Number:',
-             //   style: TextStyle(fontSize: 20),
-             // ),
-             // SizedBox(height: 10),
-             // TextFormField(
-             //   controller: _phoneNumberController,
-             //   decoration: InputDecoration(
-             //     hintText: 'Enter your new phone number',
-             //     border: OutlineInputBorder(),
-             //   ),
-             // ),
-             // SizedBox(height: 20),
-             // Text(
-             //   'Zodiac Sign:',
-             //   style: TextStyle(fontSize: 20),
-             // ),
-             // SizedBox(height: 10),
-             // DropdownButtonFormField<String>(
-             //   value: widget.zodiacSign,
-             //   onChanged: (newValue) {
-             //     setState(() {
-             //       _zodiacSignController.text = newValue!;
-             //     });
-             //   },
-             //   items: zodiacSigns.map((String sign) {
-             //     return DropdownMenuItem<String>(
-             //       value: sign,
-             //       child: Text(sign),
-             //     );
-             //   }).toList(),
-             //   decoration: InputDecoration(
-             //     border: OutlineInputBorder(),
-             //   ),
-             // ),
-             //SizedBox(height: 20),
-             // Center(
-             //   child: ElevatedButton(
-             //     onPressed: () {
-             //       // widget.onUpdate(
-             //       //   _nameController.text,
-             //       //   _emailController.text,
-             //       //   _birthdayController.text,
-             //       //   _phoneNumberController.text,
-             //       //   _zodiacSignController.text,
-             //       // );
-             //       Navigator.of(context).pop(); // Use Navigator.of(context).pop()
-             //     },
-             //     child: Text('Save Changes'),
-             //   ),
-             // ),
            ],
          ),
        ),
@@ -520,21 +360,6 @@ class _EditScreenState extends State<EditScreen> {
    );
  }
 
-
- // Future<void> _selectDate(BuildContext context) async {
- //   final DateTime? picked = await showDatePicker(
- //     context: context,
- //     initialDate: DateTime.now(),
- //     firstDate: DateTime(1900),
- //     lastDate: DateTime.now(),
- //   );
- //   if (picked != null) {
- //     setState(() {
- //       _birthdayController.text =
- //           '${picked.day.toString().padLeft(2, '0')}/${picked.month.toString().padLeft(2, '0')}/${picked.year}';
- //     });
- //   }
- // }
 }
 
 
