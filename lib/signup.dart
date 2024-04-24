@@ -95,14 +95,39 @@ class _SignupPageState extends State<SignupPage> {
                       Row(
                         children: [
                           IconButton(
+                            onPressed: widget.showLoginPage, 
                             icon: Icon(Icons.arrow_back),
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
+                            // onPressed: () {
+                            //   widget.showLoginPage;
+                            // },
                           ),
+                        ],
+                      ),
+
+                      SizedBox(height: 30,),
+                      Container(
+                        width: 100, 
+                        height: 100,
+                        child: Image.asset('assets/magic.png'),
+                      ),
+
+                      SizedBox(height: 20,),
+                      //photo + text
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          // IconButton(
+                          //   icon: Icon(Icons.arrow_back),
+                          //   onPressed: () {
+                          //     Navigator.pop(context);
+                          //   },
+                          // ), 
                           Text(
                             'Signup',
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(
+                              fontSize: 30, 
+                              fontFamily: 'Pacifico',
+                            ),
                           ),
                         ],
                       ),
