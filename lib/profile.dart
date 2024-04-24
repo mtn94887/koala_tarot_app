@@ -1,27 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:koala_tarot_app/setting.dart';
-
-void main() {
-  runApp(ProfileApp());
-}
-
-class ProfileApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('Profile Screen'),
-      //   leading: IconButton(
-      //     icon: Icon(Icons.arrow_back),
-      //     onPressed: () {
-      //        Navigator.pop(context);
-      //     },
-      //   ),
-      // ),
-      body: ProfilePage(),
-    );
-  }
-}
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -35,9 +17,28 @@ class _ProfilePageState extends State<ProfilePage> {
   String _phoneNumber = '+1(908) 500-0473';
   String _zodiacSign = 'Sagittarius';
 
+  //for image picker 
+  File? _image; 
+  Future _pickImage(ImageSource source) async{
+    try{
+      final image = await ImagePicker().pickImage(source: source); 
+      if (image == null) return; 
+      File? img = File(image.path);
+      setState(() {
+        _image = img; 
+        Navigator.of(context).pop(); 
+      });
+    } on PlatformException catch (e) { 
+      print(e);
+      Navigator.of(context).pop(); 
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      //appbar with back key and edit button ////////////////////////////////
       appBar: AppBar(
         title: Text('Personal Profile'),
         leading: IconButton(
@@ -75,32 +76,42 @@ class _ProfilePageState extends State<ProfilePage> {
               );
             },
           ),
-          // IconButton(
-          //   icon: Icon(Icons.settings),
-          //   onPressed: () {
-          //     Navigator.push(
-          //       context,
-          //       MaterialPageRoute(builder: (context) => SettingScreen()),
-          //     );
-          //   },
-          // ),
         ],
       ),
+      ////////////////////////////////////////////////////////////////
+
+
+      //information on the personal profile page ////////////////////////////////
       body: SingleChildScrollView(
         scrollDirection: Axis.horizontal, // Scroll horizontally
         child: Padding(
           padding: const EdgeInsets.all(20.0),
+
           child: Row(
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+
+                  //for photo 
                   Center(
-                    child: CircleAvatar(
-                      radius: 70.0,
-                      backgroundImage: AssetImage('assets/pp.png'),
-                    ),
+                    child:Container(
+                      height: 200.0, 
+                      width: 200.0,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle, 
+                        color: Colors.grey.shade200,
+                      ),
+                      child: Center(
+                        child: _image == null ? const Text(
+                          'No image selected', 
+                          style: TextStyle(fontSize: 20),
+                        ):ProfilePage(), 
+                      ),
+                    )
                   ),
+
+
                   SizedBox(height: 20),
                   Row(
                     children: [
@@ -190,6 +201,8 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 }
 
+
+//EDIT SCREEN PAGE ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 class EditScreen extends StatefulWidget {
   final String name;
   final String email;
