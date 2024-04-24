@@ -11,12 +11,15 @@ import 'package:koala_tarot_app/tarothistorypage.dart';
 
 //LOGIN CODE START HERE ....
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  final VoidCallback showRegisterPage; 
+  const LoginPage({Key? key, required this.showRegisterPage}) : super(key: key);
 
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
+
+//other class 
 class _LoginPageState extends State<LoginPage> {
 
   final _emailController = TextEditingController(); 
@@ -179,6 +182,7 @@ class _LoginPageState extends State<LoginPage> {
                       //   ),
                       // )
 
+                      //the text for transition to the other page
                       SizedBox(height: 5,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -189,18 +193,23 @@ class _LoginPageState extends State<LoginPage> {
                               fontWeight: FontWeight.bold, 
                             )
                           ),
-                          Text(
-                            'Register to use the app',
-                            style: TextStyle(
-                              color: Colors.purple,
-                              fontWeight: FontWeight.bold, 
-                            )
+                          GestureDetector(
+                            onTap: widget.showRegisterPage ,
+                            child: Text(
+                              'Register to use the app',
+                              style: TextStyle(
+                                color: Colors.purple,
+                                fontWeight: FontWeight.bold, 
+                              )
                           )
+                          )
+                          
                         ]
                       ),
 
                       SizedBox(height: 30,),
 
+                      //button 
                       ElevatedButton(
                         onPressed: signIn,
                         style: ButtonStyle(

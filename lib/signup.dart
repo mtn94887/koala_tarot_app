@@ -9,7 +9,8 @@ import 'package:koala_tarot_app/tarothistorypage.dart';
 
 
 class SignupPage extends StatefulWidget {
-  const SignupPage({Key? key}):super(key:key); 
+  final VoidCallback showLoginPage; 
+  const SignupPage({Key? key, required this.showLoginPage}):super(key:key); 
 
   @override
   State<SignupPage> createState() => _SignupPageState();
@@ -17,24 +18,24 @@ class SignupPage extends StatefulWidget {
 
 class _SignupPageState extends State<SignupPage> {
 
-  //for date selection
-  TextEditingController _birthdayController = TextEditingController();
-  FocusNode _birthdayFocusNode = FocusNode();
-  // Function to open date picker dialog
-  Future<void> _selectDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(1900),
-      lastDate: DateTime.now(),
-    );
-    if (picked != null) {
-      // Format the picked date as dd/mm/yyyy
-      String formattedDate = "${picked.day}/${picked.month}/${picked.year}";
-      // Update the text field with the selected date
-      _birthdayController.text = formattedDate;
-    }
-  }
+  // //for date selection
+  // TextEditingController _birthdayController = TextEditingController();
+  // FocusNode _birthdayFocusNode = FocusNode();
+  // // Function to open date picker dialog
+  // Future<void> _selectDate(BuildContext context) async {
+  //   final DateTime? picked = await showDatePicker(
+  //     context: context,
+  //     initialDate: DateTime.now(),
+  //     firstDate: DateTime(1900),
+  //     lastDate: DateTime.now(),
+  //   );
+  //   if (picked != null) {
+  //     // Format the picked date as dd/mm/yyyy
+  //     String formattedDate = "${picked.day}/${picked.month}/${picked.year}";
+  //     // Update the text field with the selected date
+  //     _birthdayController.text = formattedDate;
+  //   }
+  // }
 
 
   //firebase 
@@ -106,16 +107,16 @@ class _SignupPageState extends State<SignupPage> {
                         ],
                       ),
 
-                      //full name text field 
-                      SizedBox(height: 40),
-                      TextField(
-                        decoration: InputDecoration(
-                          hintText: 'Full Name',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                        ),
-                      ),
+                      // //full name text field 
+                      // SizedBox(height: 40),
+                      // TextField(
+                      //   decoration: InputDecoration(
+                      //     hintText: 'Full Name',
+                      //     border: OutlineInputBorder(
+                      //       borderRadius: BorderRadius.circular(20),
+                      //     ),
+                      //   ),
+                      // ),
 
                       //gmail text field 
                       SizedBox(height: 30),
@@ -139,46 +140,72 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                       ),
 
-                      //confirm passowrd text field 
-                      SizedBox(height: 30),
-                      TextField(
-                        decoration: InputDecoration(
-                          hintText: 'Confirm password',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                        ),
-                      ),
-
-
-                      //birday selection text field 
-                      SizedBox(height: 30),
+                      //the text for transition to the other page
+                      SizedBox(height: 5,),
                       Row(
-                        children: [
-                          SizedBox(
-                            width: 200,
-                            child: TextFormField(
-                              controller: _birthdayController,
-                              focusNode: _birthdayFocusNode,
-                              keyboardType: TextInputType.datetime,
-                              decoration: InputDecoration(
-                                hintText: 'dd/mm/yyyy',
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                              ),
-                            ),
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children:[
+                          Text(
+                            'A new user? ',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold, 
+                            )
                           ),
-                          SizedBox(width: 40),
-                          // Calendar icon button to open date picker dialog
-                          IconButton(
-                            onPressed: () => _selectDate(context),
-                            icon: Icon(Icons.calendar_today),
-                            iconSize: 30,
-                            tooltip: 'Select Date',
-                          ),
-                        ],
+                          GestureDetector(
+                            onTap: widget.showLoginPage ,
+                            child: Text(
+                              'Register to use the app',
+                              style: TextStyle(
+                                color: Colors.purple,
+                                fontWeight: FontWeight.bold, 
+                              )
+                          )
+                          )
+                          
+                        ]
                       ),
+
+
+                      // //confirm passowrd text field 
+                      // SizedBox(height: 30),
+                      // TextField(
+                      //   decoration: InputDecoration(
+                      //     hintText: 'Confirm password',
+                      //     border: OutlineInputBorder(
+                      //       borderRadius: BorderRadius.circular(20),
+                      //     ),
+                      //   ),
+                      // ),
+
+
+                      // //birday selection text field 
+                      // SizedBox(height: 30),
+                      // Row(
+                      //   children: [
+                      //     SizedBox(
+                      //       width: 200,
+                      //       child: TextFormField(
+                      //         controller: _birthdayController,
+                      //         focusNode: _birthdayFocusNode,
+                      //         keyboardType: TextInputType.datetime,
+                      //         decoration: InputDecoration(
+                      //           hintText: 'dd/mm/yyyy',
+                      //           border: OutlineInputBorder(
+                      //             borderRadius: BorderRadius.circular(20),
+                      //           ),
+                      //         ),
+                      //       ),
+                      //     ),
+                      //     SizedBox(width: 40),
+                      //     // Calendar icon button to open date picker dialog
+                      //     IconButton(
+                      //       onPressed: () => _selectDate(context),
+                      //       icon: Icon(Icons.calendar_today),
+                      //       iconSize: 30,
+                      //       tooltip: 'Select Date',
+                      //     ),
+                      //   ],
+                      // ),
 
                       //continue button
                       SizedBox(height: 20),

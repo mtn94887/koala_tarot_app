@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:koala_tarot_app/authpage.dart';
 import 'package:koala_tarot_app/cards.dart';
 import 'package:koala_tarot_app/login_page.dart';
 import 'package:koala_tarot_app/mainpage.dart';
@@ -97,7 +98,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => LoginPage()),
+                      MaterialPageRoute(builder: (context) => AuthPage()),
                     );
                   },
                 ),
@@ -145,7 +146,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 // Navigate to the home screen
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LoginPage()),
+                  MaterialPageRoute(builder: (context) => AuthPage()),
                 );
               },
             ),
