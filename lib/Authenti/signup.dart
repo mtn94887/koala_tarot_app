@@ -146,6 +146,7 @@ class _SignupPageState extends State<SignupPage> {
                       //gmail text field 
                       SizedBox(height: 30),
                       TextField(
+                        controller: _emailController,
                         decoration: InputDecoration(
                           hintText: 'Gmail',
                           border: OutlineInputBorder(
@@ -157,6 +158,7 @@ class _SignupPageState extends State<SignupPage> {
                       //password text field 
                       SizedBox(height: 30),
                       TextField(
+                        controller: _passwordController,
                         decoration: InputDecoration(
                           hintText: 'Password',
                           border: OutlineInputBorder(
