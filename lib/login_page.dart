@@ -105,7 +105,10 @@ class _LoginPageState extends State<LoginPage> {
                           // ), 
                           Text(
                             'Login',
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(
+                              fontSize: 30, 
+                              fontFamily: 'Pacifico',
+                            ),
                           ),
                         ],
                       ),
