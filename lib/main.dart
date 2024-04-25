@@ -24,7 +24,7 @@ void main() async {
         ),
         //please change to MainPage() in the place of BottomNavigationBarExampleApp()
         //home: MainPage(),
-        home: MainPage(),
+        home: BottomNavigationBarExampleApp(),
         routes: {
           //'/meditation': (context) => MeditationPage(),
           '/music': (context) => Music(), 
