@@ -1,6 +1,8 @@
 import 'dart:io';
 
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_cropper/image_cropper.dart';
@@ -12,17 +14,36 @@ import 'package:koala_tarot_app/setting.dart';
 
 //PERSONAL PROFILE INFORMATION SHOWING PAGE ///////////////////////
 class ProfilePage extends StatefulWidget {
- @override
- _ProfilePageState createState() => _ProfilePageState();
+  const ProfilePage({Key? key}): super(key:key); 
+  @override
+  _ProfilePageState createState() => _ProfilePageState();
 }
 
-
 class _ProfilePageState extends State<ProfilePage> {
- String _name = 'Taylor Swift';
- String _email = 'taylorswiftweb.net@hotmail.com';
- String _birthday = 'December 13, 1989';
- String _phoneNumber = '+1(908) 500-0473';
- String _zodiacSign = 'Sagittarius';
+  final user = FirebaseAuth.instance.currentUser!; 
+
+  List<String> docIDs = []; 
+
+  Future getDocID() async{
+    await FirebaseFirestore.instance.collection('users').get().then(
+      (snapshot)=>snapshot.docs.forEach((document) {
+        print(document.reference); 
+        docIDs.add(document.reference.id); 
+      }));
+  }
+
+  @override 
+  void initState(){
+    getDocID(); 
+    super.initState(); 
+  }
+
+  //to delete 
+  // String _name = 'Taylor Swift';
+  // String _email = 'taylorswiftweb.net@hotmail.com';
+  // String _birthday = 'December 13, 1989';
+  // String _phoneNumber = '+1(908) 500-0473';
+  String _zodiacSign = 'Sagittarius';
 
 
  //for image picker
@@ -43,174 +64,205 @@ class _ProfilePageState extends State<ProfilePage> {
  // }
 
 
- @override
- Widget build(BuildContext context) {
-   return Scaffold(
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
 
 
      //appbar with back key and edit button ////////////////////////////////
-     appBar: AppBar(
-       title: Text('Personal Profile'),
-       leading: IconButton(
-         icon: Icon(Icons.arrow_back),
-         onPressed: () {
-            Navigator.pop(context);
-         },
-       ),
-
-
-       actions: [
-         IconButton(
-           icon: Icon(Icons.edit),
-           onPressed: () {
-             Navigator.push(
-               context,
-               MaterialPageRoute(
-                 builder: (context) => EditScreen(
-                   // name: _name,
-                   // email: _email,
-                   // birthday: _birthday,
-                   // phoneNumber: _phoneNumber,
-                   // zodiacSign: _zodiacSign,
-                   // onUpdate: (String name, String email, String birthday,
-                   //     String phoneNumber, String zodiacSign) {
-                   //   setState(() {
-                   //     _name = name;
-                   //     _email = email;
-                   //     _birthday = birthday;
-                   //     _phoneNumber = phoneNumber;
-                   //     _zodiacSign = zodiacSign;
-                   //   });
-                   //},
-                 ),
-               ),
-             );
-           },
-         ),
-       ],
-     ),
-     ////////////////////////////////////////////////////////////////
-
-
-
-
-     //information on the personal profile page ////////////////////////////////
-     body: SingleChildScrollView(
-       scrollDirection: Axis.horizontal, // Scroll horizontally
-       child: Padding(
-         padding: const EdgeInsets.all(20.0),
-
-
-         child: Row(
-           children: [
-             Column(
-               crossAxisAlignment: CrossAxisAlignment.start,
-               children: [
-
-
-                 // //for photo
-                 Center(
-                   child:Container(
-                     height: 200.0,
-                     width: 200.0,
-                     decoration: BoxDecoration(
-                       shape: BoxShape.circle,
-                       color: Colors.grey.shade200,
-                     ),
-                   )
-                 ),
+      appBar: AppBar(
+        title: Text('Personal Profile'),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+              Navigator.pop(context);
+          },
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.edit),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => EditScreen(
+                    // name: _name,
+                    // email: _email,
+                    // birthday: _birthday,
+                    // phoneNumber: _phoneNumber,
+                    // zodiacSign: _zodiacSign,
+                    // onUpdate: (String name, String email, String birthday,
+                    //     String phoneNumber, String zodiacSign) {
+                    //   setState(() {
+                    //     _name = name;
+                    //     _email = email;
+                    //     _birthday = birthday;
+                    //     _phoneNumber = phoneNumber;
+                    //     _zodiacSign = zodiacSign;
+                    //   });
+                    //},
+                  ),
+                ),
+              );
+            },
+          ),
+        ],
+      ),
+      ////////////////////////////////////////////////////////////////
 
 
 
 
-                 SizedBox(height: 20),
-                 Row(
-                   children: [
-                     Column(
-                       crossAxisAlignment: CrossAxisAlignment.start,
-                       children: [
-                         Row(
-                           children: [
-                             Icon(Icons.person, size: 24),
-                             SizedBox(width: 10),
-                             Text(
-                               _name,
-                               style: TextStyle(fontSize: 20),
-                             ),
-                           ],
-                         ),
-                         SizedBox(height: 10),
-                         Row(
-                           children: [
-                             Icon(Icons.email, size: 24),
-                             SizedBox(width: 10),
-                             Text(
-                               _email,
-                               style: TextStyle(fontSize: 20),
-                             ),
-                           ],
-                         ),
-                         SizedBox(height: 10),
-                         Row(
-                           children: [
-                             Icon(Icons.cake, size: 24),
-                             SizedBox(width: 10),
-                             Text(
-                               _birthday,
-                               style: TextStyle(fontSize: 20),
-                             ),
-                           ],
-                         ),
-                         SizedBox(height: 10),
-                         Row(
-                           children: [
-                             Icon(Icons.phone, size: 24),
-                             SizedBox(width: 10),
-                             Text(
-                               _phoneNumber,
-                               style: TextStyle(fontSize: 20),
-                             ),
-                           ],
-                         ),
-                         SizedBox(height: 10),
-                         Row(
-                           children: [
-                             Icon(Icons.star, size: 24),
-                             SizedBox(width: 10),
-                             Text(
-                               _zodiacSign,
-                               style: TextStyle(fontSize: 20),
-                             ),
-                           ],
-                         ),
-                         SizedBox(height: 20),
-                         Container(
-                           padding: EdgeInsets.all(10),
-                           constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width), // Limit container width to screen width
-                           decoration: BoxDecoration(
-                             border: Border.all(color: Colors.grey),
-                             borderRadius: BorderRadius.circular(10),
-                           ),
-                           child: SingleChildScrollView(
-                             child: Text(
-                               getZodiacSignDescription(_zodiacSign),
-                               style: TextStyle(fontSize: 16),
-                             ),
-                           ),
-                         ),
-                       ],
-                     ),
-                   ],
-                 ),
-               ],
-             ),
-           ],
-         ),
-       ),
-     ),
-   );
- }
+      //information on the personal profile page ////////////////////////////////
+      body: SingleChildScrollView(
+        scrollDirection: Axis.horizontal, // Scroll horizontally
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+
+          child: Row(
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+
+                  // //for photo
+                  Center(
+                    child:Container(
+                      height: 200.0,
+                      width: 200.0,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.grey.shade200,
+                      ),
+                    )
+                  ),
+
+                  //for texts 
+                  SizedBox(height: 20),
+                  Row(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+
+                        //each personal details 
+                        children: [
+                          //name 
+                          Row(
+                            children: [
+                              Icon(Icons.person, size: 24),
+                              SizedBox(width: 10),
+                              Text(
+                                // _name,
+                                // style: TextStyle(fontSize: 20),
+                                //user.name!, 
+                                '',
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 10),
+
+                          //email 
+                          Row(
+                            children: [
+                              Icon(Icons.email, size: 24),
+                              SizedBox(width: 10),
+                              Text(
+                                // _email,
+                                // style: TextStyle(fontSize: 20),
+                                user.email!, 
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 10),
+
+                          //birthday
+                          Row(
+                            children: [
+                              Icon(Icons.cake, size: 24),
+                              SizedBox(width: 10),
+                              Text(
+                                // _birthday,
+                                // style: TextStyle(fontSize: 20),
+                                ''
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 10),
+
+                          //phone number 
+                          Row(
+                            children: [
+                              Icon(Icons.phone, size: 24),
+                              SizedBox(width: 10),
+                              Text(
+                                // _phoneNumber,
+                                // style: TextStyle(fontSize: 20),
+                                ''
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 10),
+
+                          //zodiac sign 
+                          Row(
+                            children: [
+                              Icon(Icons.star, size: 24),
+                              SizedBox(width: 10),
+                              Text(
+                                // _zodiacSign,
+                                // style: TextStyle(fontSize: 20),
+                                ''
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 20),
+
+                          //zodiac sign information 
+                          Container(
+                            padding: EdgeInsets.all(10),
+                            constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width), // Limit container width to screen width
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: SingleChildScrollView(
+                              child: Text(
+                                getZodiacSignDescription(_zodiacSign),
+                                style: TextStyle(fontSize: 16),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

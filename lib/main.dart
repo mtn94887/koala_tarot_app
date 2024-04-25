@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:koala_tarot_app/Authenti/mainpage.dart';
+import 'package:koala_tarot_app/bottom_navigation_bar.dart';
+import 'package:koala_tarot_app/home.dart';
 import 'package:koala_tarot_app/tarothistorypage.dart';
 import 'package:koala_tarot_app/purpose.dart';
 import 'package:koala_tarot_app/features.dart';
@@ -20,7 +22,8 @@ void main() async {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: MainPage(),
+        //please change to MainPage() in the place of BottomNavigationBarExampleApp()
+        home: BottomNavigationBarExampleApp(),
         routes: {
           //'/meditation': (context) => MeditationPage(),
           '/music': (context) => Music(), 
