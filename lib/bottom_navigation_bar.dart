@@ -52,7 +52,7 @@ class _BottomNavigationBarExampleState
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Image.asset(
-              'assets/crystal-ball.png', // Path to your image for the first tab
+              'assets/Navibar/magic-ball.png', // Path to your image for the first tab
               width: 24,
               height: 24,
             ),
@@ -68,7 +68,7 @@ class _BottomNavigationBarExampleState
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
-              'assets/yoga.png', // Path to your image for the third tab
+              'assets/Navibar/yoga.png', // Path to your image for the third tab
               width: 24,
               height: 24,
             ),
@@ -76,7 +76,7 @@ class _BottomNavigationBarExampleState
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
-              'assets/magic.png', // Path to your image for the fourth tab
+              'assets/Navibar/tarot.png', // Path to your image for the fourth tab
               width: 24,
               height: 24,
             ),
