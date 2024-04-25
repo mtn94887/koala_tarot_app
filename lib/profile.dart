@@ -10,57 +10,44 @@ import 'package:koala_tarot_app/ImagePicking/select_photo_options_screen.dart';
 import 'package:koala_tarot_app/setting.dart';
 
 
-//PERSONAL PROFILE INFORMATION SHOWING PAGE ///////////////////////
 class ProfilePage extends StatefulWidget {
-  final String userId; 
-  const ProfilePage({Key? key,required this.userId }): super(key:key); 
-
+  const ProfilePage({Key?key}): super(key: key);
   @override
   _ProfilePageState createState() => _ProfilePageState();
 }
 
 class _ProfilePageState extends State<ProfilePage> {
 
-  late String name; 
-  late String email;
-  late String birthday; 
+  //temp code 
+   String? userName;
 
-  void initState(){
-    super.initState();
-    fetchUserInfo(); 
+
+  final user = FirebaseAuth.instance.currentUser!;
+
+  List<String> docIDs = []; 
+
+  Future getDocId() async { 
+    await FirebaseFirestore.instance.collection('users').get().then((snapshot)=> snapshot.docs.forEach((document){
+      print(document.reference); 
+      docIDs.add(document.reference.id); 
+    }));
   }
 
-  Future <void> fetchUserInfo() async{
-    try {
-      DocumentSnapshot<Map<String,dynamic>> snapshot = await FirebaseFirestore.instance.collection('users').doc(widget.userId).get(); 
-      if (snapshot.exists){
-        Map<String, dynamic> data = snapshot.data()!;
-        setState(() {
-          name = data['name'];
-          email = data ['email'];
-          birthday = data['birthday'];
-        });
-      }
-      else {
-        print('User not found in Firestore'); 
-      }
-    } catch(e){
-      print('Error fetching user information: $e');
-    }
+  @override 
+  void initState() { 
+    getDocId(); 
+    super.initState(); 
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-
-     //appbar with back key and edit button ////////////////////////////////
       appBar: AppBar(
         title: Text('Personal Profile'),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-              Navigator.pop(context);
+            Navigator.pop(context);
           },
         ),
         actions: [
@@ -70,117 +57,81 @@ class _ProfilePageState extends State<ProfilePage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => EditScreen(
-                  ),
+                  builder: (context) => EditScreen(),
                 ),
               );
             },
           ),
         ],
       ),
-      ////////////////////////////////////////////////////////////////
-
-
-
-
-      //information on the personal profile page ////////////////////////////////
       body: SingleChildScrollView(
-        scrollDirection: Axis.horizontal, // Scroll horizontally
+        scrollDirection: Axis.horizontal,
         child: Padding(
           padding: const EdgeInsets.all(20.0),
-
           child: Row(
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-
-                  // //for photo
                   Center(
-                    child:Container(
+                    child: Container(
                       height: 200.0,
                       width: 200.0,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.grey.shade200,
                       ),
-                    )
+                    ),
                   ),
-
-                  //for texts 
                   SizedBox(height: 20),
                   Row(
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-
-                        //each personal details 
                         children: [
-                          //name 
                           Row(
                             children: [
                               Icon(Icons.person, size: 24),
                               SizedBox(width: 10),
                               Text(
-                                'Name: $name',
-                                style: TextStyle(fontSize: 16)
+                                'Name: ',
+                                style: TextStyle(fontSize: 16),
+                              ),
+                              // Display the user's name
+                              Text(
+                                // 
+                                '',
+                                style: TextStyle(fontSize: 16),
                               ),
                             ],
                           ),
                           SizedBox(height: 10),
-
-                          //email 
                           Row(
                             children: [
                               Icon(Icons.email, size: 24),
                               SizedBox(width: 10),
-                              Text( 
-                                'Email: $email',
-                                style: TextStyle(fontSize: 16)
+                              Text(
+                                'Email: ' + user.email!,
+                                style: TextStyle(fontSize: 16),
                               ),
                             ],
                           ),
                           SizedBox(height: 10),
 
-                          //birthday
-                          Row(
-                            children: [
-                              Icon(Icons.cake, size: 24),
-                              SizedBox(width: 10),
-                              Text(
-                               ''
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: 10),
-
-                          //phone number 
-                          Row(
-                            children: [
-                              Icon(Icons.phone, size: 24),
-                              SizedBox(width: 10),
-                              Text(
-                                
-                                ''
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: 10),
-
-                          //zodiac sign 
-                          Row(
-                            children: [
-                              Icon(Icons.star, size: 24),
-                              SizedBox(width: 10),
-                              Text(
-                                
-                                ''
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: 20),
-
-                          
+                          Expanded(
+                            child: FutureBuilder(
+                              future: getDocId(),
+                              builder: (context, snapshot) {
+                                return ListView.builder(
+                                  itemCount: docIDs.length,
+                                  itemBuilder: (context, index){
+                                  return ListTile(
+                                    title: Text('name'),
+                                  );
+                                });
+                              },
+                            ),
+                          )
                         ],
                       ),
                     ],
@@ -194,7 +145,6 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 }
-
 
 
 

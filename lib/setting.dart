@@ -25,11 +25,20 @@ class _SettingScreenState extends State<SettingScreen> {
 
   void signOut(){
     FirebaseAuth.instance.signOut(); 
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => AuthPage()),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     int currentYear = DateTime.now().year;
+    // Get the current user ID from Firebase Authentication
+    String currentUserId = FirebaseAuth.instance.currentUser?.uid ?? '';
+
+    // Assuming the user document ID is the same as the user ID in Firebase Authentication
+    String userDocumentId = currentUserId;
 
     return Scaffold(
       appBar: AppBar(
@@ -52,7 +61,7 @@ class _SettingScreenState extends State<SettingScreen> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ProfilePage(userId: '',)),
+                MaterialPageRoute(builder: (context) => ProfilePage()),
               );
             },
             child: CircleAvatar(
