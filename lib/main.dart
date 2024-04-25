@@ -24,7 +24,7 @@ void main() async {
         ),
         //please change to MainPage() in the place of BottomNavigationBarExampleApp()
         //home: MainPage(),
-        home: BottomNavigationBarExampleApp(),
+        home: MainPage(),
         routes: {
           //'/meditation': (context) => MeditationPage(),
           '/music': (context) => Music(), 
@@ -34,7 +34,6 @@ void main() async {
     ),
   );
 }
-
 
 class MyApp extends StatelessWidget {
  @override
