@@ -15,6 +15,13 @@ class tarotfavoritepage extends StatefulWidget {
 
 class _tarotfavoritepageState extends State<tarotfavoritepage> {
   @override
+  void initState() {
+    // Fetch favorites from Firestore when the widget is initialized
+    Provider.of<FavoriteReadings>(context, listen: false).fetchFavoritesFromFirestore();
+    super.initState();
+  }
+  
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
