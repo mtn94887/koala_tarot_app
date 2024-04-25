@@ -66,17 +66,17 @@ class _SignupPageState extends State<SignupPage> {
       addUserDetails(
         _nameController.text.trim(),
         _emailController.text.trim(),
-        int.parse(_birthdayController.text.trim()),
+        DateTime.parse(_birthdayController.text.trim()),
       );
 
     }
   }
 
-  Future addUserDetails(String name, String gmail, int birthday) async {
+  Future addUserDetails(String name, String email, DateTime birthday) async {
     await FirebaseFirestore.instance.collection('users').add({
-      'name': '', 
-      'gmail': '',
-      'birthday': '',
+      'name': name, 
+      'email': email,
+      'birthday': birthday,
     });
   }
 
