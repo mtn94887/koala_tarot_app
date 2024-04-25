@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
+import 'package:koala_tarot_app/FavoriteReadings.dart';
+import 'package:provider/provider.dart';
+
 class ProsperityPage extends StatelessWidget {
   final List<String> cardImages = List.generate(
       22, (index) => 'assets/DrawCards/card${index + 1}.png'); // List of 20 card images
@@ -122,6 +125,17 @@ class DrawCard extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Your reading ..."),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.favorite_border),
+            onPressed: () {
+              // Handle favorite button press here
+              // You can implement functionality to add/remove from favorites
+              Provider.of<FavoriteReadings>(context, listen: false)
+                  .addToFavorites(selectedText);
+            },
+          ),
+        ],
       ),
       body: Center(
         child: Column(

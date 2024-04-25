@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:koala_tarot_app/cards.dart';
 import 'package:koala_tarot_app/Authenti/mainpage.dart';
 import 'home.dart';
-import 'tarothistorypage.dart'; 
+import 'tarot_favorite_page.dart'; 
 import 'meditationpage.dart';
 
 
@@ -31,7 +31,7 @@ class _BottomNavigationBarExampleState
 
   static List<Widget> _widgetOptions = <Widget>[
     TarotHomePage(),
-    tarothistorypage(),
+    tarotfavoritepage(),
     MeditationPage(),
     Cards(),
   ];

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:koala_tarot_app/Authenti/mainpage.dart';
+import 'package:koala_tarot_app/FavoriteReadings.dart';
 import 'package:koala_tarot_app/bottom_navigation_bar.dart';
 import 'package:koala_tarot_app/home.dart';
-import 'package:koala_tarot_app/tarothistorypage.dart';
+import 'package:koala_tarot_app/tarot_favorite_page.dart';
 import 'package:koala_tarot_app/purpose.dart';
 import 'package:koala_tarot_app/features.dart';
 import 'package:koala_tarot_app/background.dart';
@@ -16,21 +17,8 @@ void main() async {
   await Firebase.initializeApp();
   runApp(
     ChangeNotifierProvider(
-      create: (context) => TarotHistoryModel(),
-      child: MaterialApp(
-        title: 'Your App Title', // Set your app title
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        //please change to MainPage() in the place of BottomNavigationBarExampleApp()
-        //home: MainPage(),
-        home: BottomNavigationBarExampleApp(),
-        routes: {
-          //'/meditation': (context) => MeditationPage(),
-          '/music': (context) => Music(), 
-         
-        },
-      ),
+      create: (context) => FavoriteReadings(),
+      child: MyApp(), 
     ),
   );
 }
@@ -39,7 +27,18 @@ class MyApp extends StatelessWidget {
  @override
  Widget build(BuildContext context) {
    return MaterialApp(
-    home: MainPage(),
+    title: 'Your App Title', // Set your app title
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      //please change to MainPage() in the place of BottomNavigationBarExampleApp()
+      //home: MainPage(),
+      home: BottomNavigationBarExampleApp(),
+      routes: {
+        //'/meditation': (context) => MeditationPage(),
+        '/music': (context) => Music(), 
+        
+      },
    );
  }
 }

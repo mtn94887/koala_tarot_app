@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:koala_tarot_app/home.dart';
 import 'package:koala_tarot_app/meditationpage.dart';
-import 'package:koala_tarot_app/tarothistorypage.dart';
+import 'package:koala_tarot_app/tarot_favorite_page.dart';
 import 'package:koala_tarot_app/setting.dart'; // Import your SettingScreen file
 
 class Cards extends StatefulWidget {
@@ -29,7 +29,7 @@ class _cardsState extends State<Cards> {
         // Navigate to TarotHistoryPage if History icon is tapped
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => tarothistorypage()),
+          MaterialPageRoute(builder: (context) => tarotfavoritepage()),
         );
         break;
       case 2:

@@ -10,7 +10,7 @@ import 'package:koala_tarot_app/terms.dart';
 import 'package:koala_tarot_app/profile.dart';
 import 'package:koala_tarot_app/home.dart';
 import 'package:koala_tarot_app/meditationpage.dart';
-import 'package:koala_tarot_app/tarothistorypage.dart';
+import 'package:koala_tarot_app/tarot_favorite_page.dart';
 
 
 //SETTING CODE

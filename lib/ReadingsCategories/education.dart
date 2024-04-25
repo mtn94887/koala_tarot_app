@@ -1,96 +1,84 @@
 import 'package:flutter/material.dart';
-import 'package:koala_tarot_app/tarothistorypage.dart'; // Import the tarothistorypage.dart file
 import 'dart:math';
-import 'package:provider/provider.dart';
-
 
 class EducationPage extends StatelessWidget {
- final List<String> cardImages = List.generate(
-     22, (index) => 'assets/DrawCards/card${index + 1}.png'); // List of 20 card images
+  final List<String> cardImages = List.generate(
+      22, (index) => 'assets/DrawCards/card${index + 1}.png'); // List of 20 card images
 
-
- @override
- Widget build(BuildContext context) {
-   return Scaffold(
-     appBar: AppBar(
-       title: Text(
-         "Choose one card",
-         style: TextStyle(color: Colors.black),
-       ),
-       backgroundColor: Colors.white,
-       centerTitle: true,
-     ),
-     body: ListView.builder(
-       itemCount: 4, // Number of rows
-       itemBuilder: (BuildContext context, int rowIndex) {
-         return Container(
-           margin: EdgeInsets.symmetric(vertical: 10.0),
-           child: Row(
-             mainAxisAlignment: MainAxisAlignment.spaceAround,
-             children: List.generate(
-               5, // Number of cards per row
-               (int columnIndex) {
-                 int index = rowIndex * 5 + columnIndex;
-                 return GestureDetector(
-                   onTap: () {
-                     TarotCard selectedCard = TarotCard(
-                       image: cardImages[index], text: '',
-                        // Access cardTexts from tarothistorypage.dart
-                     );
-                     Provider.of<TarotHistoryModel>(context, listen: false).addCard(selectedCard); // Use addCard method
-                     Navigator.push(
-                       context,
-                       MaterialPageRoute(
-                         builder: (context) => DrawCard(
-                           selectedIndex: index,
-                           selectedImage: cardImages[index],
-                         ),
-                       ),
-                     );
-                   },
-                   child: SizedBox(
-                     width: MediaQuery.of(context).size.width * 0.15,
-                     child: Image.asset('assets/card1.png'),
-                     //child: Image.asset(cardImages[index]),
-                   ),
-                 );
-               },
-             ),
-           ),
-         );
-       },
-     ),
-   );
- }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Choose one card",
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.white,
+        centerTitle: true,
+      ),
+      body: ListView.builder(
+        itemCount: 4, // Number of rows
+        itemBuilder: (BuildContext context, int rowIndex) {
+          return Container(
+            margin: EdgeInsets.symmetric(vertical: 10.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: List.generate(
+                5, // Number of cards per row
+                (int columnIndex) {
+                  int index = rowIndex * 5 + columnIndex;
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DrawCard(
+                            selectedIndex: index,
+                          ),
+                        ),
+                      );
+                    },
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.15,
+                      child: Image.asset('assets/card1.png'),
+                      //child: Image.asset(cardImages[index]),
+                    ),
+                  );
+                },
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
 }
 
-
 class DrawCard extends StatelessWidget {
- final List<String> cardImages = [
-   'assets/DrawCards/card1.png',
-   'assets/DrawCards/card2.png',
-   'assets/DrawCards/card3.png',
-   'assets/DrawCards/card4.png',
-   'assets/DrawCards/card5.png',
-   'assets/DrawCards/card6.png',
-   'assets/DrawCards/card7.png',
-   'assets/DrawCards/card8.png',
-   'assets/DrawCards/card9.png',
-   'assets/DrawCards/card10.png',
-   'assets/DrawCards/card11.png',
-   'assets/DrawCards/card12.png',
-   'assets/DrawCards/card13.png',
-   'assets/DrawCards/card14.png',
-   'assets/DrawCards/card15.png',
-   'assets/DrawCards/card16.png',
-   'assets/DrawCards/card17.png',
-   'assets/DrawCards/card18.png',
-   'assets/DrawCards/card19.png',
-   'assets/DrawCards/card20.png',
-   'assets/DrawCards/card21.png',
-   'assets/DrawCards/card22.png'
- ]; // List of 22 card images
-
+  final List<String> cardImages = [
+    'assets/DrawCards/card1.png',
+    'assets/DrawCards/card2.png',
+    'assets/DrawCards/card3.png',
+    'assets/DrawCards/card4.png',
+    'assets/DrawCards/card5.png',
+    'assets/DrawCards/card6.png',
+    'assets/DrawCards/card7.png',
+    'assets/DrawCards/card8.png',
+    'assets/DrawCards/card9.png',
+    'assets/DrawCards/card10.png',
+    'assets/DrawCards/card11.png',
+    'assets/DrawCards/card12.png',
+    'assets/DrawCards/card13.png',
+    'assets/DrawCards/card14.png',
+    'assets/DrawCards/card15.png',
+    'assets/DrawCards/card16.png',
+    'assets/DrawCards/card17.png',
+    'assets/DrawCards/card18.png',
+    'assets/DrawCards/card19.png',
+    'assets/DrawCards/card20.png',
+    'assets/DrawCards/card21.png',
+    'assets/DrawCards/card22.png'
+  ]; // List of 22 card images
 
   final List<String> cardTexts = [
   'In education, The Fool signifies a journey of exploration and discovery. It suggests that you may be embarking on a new path or learning experience without preconceived notions or expectations. Embrace a curious and open-minded approach to your studies. Be willing to take risks, try new things, and learn from your mistakes. Remember to stay present in the moment and enjoy the process of learning for its own sake.',
@@ -116,25 +104,13 @@ class DrawCard extends StatelessWidget {
   'In education, the Judgment card symbolizes a period of awakening, renewal, and self-reflection. This card suggests that you may be undergoing a significant transformation in your educational journey. It could indicate a calling to reassess your academic path or to pursue new opportunities for learning and growth. Embrace this period of awakening as an opportunity to reflect on your goals, values, and aspirations in education. Trust in your inner wisdom and intuition to guide you towards the right path of study and exploration. Remember to be open to new perspectives and opportunities for growth, and to trust in the process of self-discovery and evolution in your educational pursuits.',
   'In education, The World card symbolizes completion, fulfillment, and mastery. This card suggests that you are reaching a significant milestone in your educational journey. It could indicate the successful completion of a course of study, attainment of a degree, or mastery of a particular subject or skill. Embrace this period of fulfillment as an opportunity to celebrate your achievements and acknowledge your growth and development. Trust in your abilities and knowledge to guide you towards future success and opportunities for continued learning and exploration. Remember to remain open to new experiences and challenges, and to approach your educational journey with curiosity and enthusiasm.'
 ];
+  final int selectedIndex; // Index of the selected card
 
+  DrawCard({required this.selectedIndex});
 
- final String selectedImage;
-
-
- final int selectedIndex; // Index of the selected card
-
-
-  DrawCard({
-   required this.selectedIndex,
-   required this.selectedImage,
-   Key? key,
- }) : super(key: key);
-
-
- @override
- Widget build(BuildContext context) {
-
-   // Shuffle the indices to get random images and texts
+  @override
+  Widget build(BuildContext context) {
+    // Shuffle the indices to get random images and texts
     List<int> indices = List.generate(22, (index) => index);
     indices.shuffle();
 
@@ -142,30 +118,29 @@ class DrawCard extends StatelessWidget {
     String selectedImage = cardImages[indices[selectedIndex % 22]];
     String selectedText = cardTexts[indices[selectedIndex % 22]];
 
-   return Scaffold(
-     appBar: AppBar(
-       title: Text("Your reading ..."),
-     ),
-     body: Center(
-       child: Column(
-         mainAxisAlignment: MainAxisAlignment.center,
-         children: [
-           SizedBox(
-             width: 150,
-             height: 220,
-             child: Image.asset(selectedImage), // Use the selected image
-           ),
-           Padding(
-             padding: EdgeInsets.all(30.0),
-             child: Text(
-               // Fetch corresponding text based on the selectedImage
-               cardTexts[cardImages.indexOf(selectedImage)],
-               textAlign: TextAlign.center,
-             ),
-           ),
-         ],
-       ),
-     ),
-   );
- }
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Your reading ..."),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: 350, // specify width
+              height: 350, // specify height
+              child: Image.asset(selectedImage),
+            ),
+            Padding(
+              padding: EdgeInsets.all(30.0), // adjust the padding as needed
+              child: Text(
+                selectedText,
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }

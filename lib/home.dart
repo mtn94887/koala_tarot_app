@@ -12,7 +12,7 @@ import 'package:koala_tarot_app/ReadingsCategories/social&friendship.dart';
 import 'package:koala_tarot_app/ReadingsCategories/weeklyReading.dart';
 import 'package:koala_tarot_app/ReadingsCategories/yes_noReading.dart';
 import 'package:koala_tarot_app/setting.dart';
-import 'package:koala_tarot_app/tarothistorypage.dart';
+import 'package:koala_tarot_app/tarot_favorite_page.dart';
 import 'package:koala_tarot_app/meditationpage.dart';
 import 'package:koala_tarot_app/cards.dart';
 

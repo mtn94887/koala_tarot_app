@@ -5,7 +5,7 @@ import 'package:koala_tarot_app/cards.dart';
 import 'package:koala_tarot_app/home.dart';
 import 'package:koala_tarot_app/meditationpage.dart';
 import 'package:koala_tarot_app/setting.dart';
-import 'package:koala_tarot_app/tarothistorypage.dart';
+import 'package:koala_tarot_app/tarot_favorite_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart'; 
 import 'package:intl/intl.dart';
 
