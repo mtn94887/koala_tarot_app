@@ -21,7 +21,7 @@ class _tarotfavoritepageState extends State<tarotfavoritepage> {
         backgroundColor: Color(0xFF7D5AAD),
         automaticallyImplyLeading: false,
         title: Text(
-          "Card Reading History",
+          "Favorite Readings",
           style: TextStyle(
               fontSize: 23, 
               fontFamily: 'Pacifico',
