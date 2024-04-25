@@ -52,7 +52,7 @@ class _SettingScreenState extends State<SettingScreen> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ProfilePage()),
+                MaterialPageRoute(builder: (context) => ProfilePage(userId: '',)),
               );
             },
             child: CircleAvatar(

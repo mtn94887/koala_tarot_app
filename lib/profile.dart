@@ -1,6 +1,4 @@
 import 'dart:io';
-
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -14,29 +12,59 @@ import 'package:koala_tarot_app/setting.dart';
 
 //PERSONAL PROFILE INFORMATION SHOWING PAGE ///////////////////////
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({Key? key}): super(key:key); 
+  final String userId; 
+  const ProfilePage({Key? key,required this.userId }): super(key:key); 
+
   @override
   _ProfilePageState createState() => _ProfilePageState();
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  final user = FirebaseAuth.instance.currentUser!; 
 
-  List<String> docIDs = []; 
+  late String name; 
+  late String email;
+  late String birthday; 
 
-  Future getDocID() async{
-    await FirebaseFirestore.instance.collection('users').get().then(
-      (snapshot)=>snapshot.docs.forEach((document) {
-        print(document.reference); 
-        docIDs.add(document.reference.id); 
-      }));
-  }
-
-  @override 
   void initState(){
-    getDocID(); 
-    super.initState(); 
+    super.initState();
+    fetchUserInfo(); 
   }
+
+  Future <void> fetchUserInfo() async{
+    try {
+      DocumentSnapshot<Map<String,dynamic>> snapshot = await FirebaseFirestore.instance.collection('users').doc(widget.userId).get(); 
+      if (snapshot.exists){
+        Map<String, dynamic> data = snapshot.data()!;
+        setState(() {
+          name = data['name'];
+          email = data ['email'];
+          birthday = data['birthday'];
+        });
+      }
+      else {
+        print('User not found in Firestore'); 
+      }
+    } catch(e){
+      print('Error fetching user information: $e');
+    }
+  }
+  // final user = FirebaseAuth.instance.currentUser!; 
+
+  // List<String> docIDs = []; 
+
+  // Future getDocID() async{
+  //   await FirebaseFirestore.instance.collection('users').get().then(
+  //     (snapshot)=>snapshot.docs.forEach((document) {
+  //       print(document.reference); 
+  //       docIDs.add(document.reference.id); 
+  //     }));
+  // }
+
+  // @override 
+  // void initState(){
+  //   getDocID(); 
+  //   super.initState(); 
+  // }
 
   //to delete 
   // String _name = 'Taylor Swift';
@@ -155,7 +183,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                 // _name,
                                 // style: TextStyle(fontSize: 20),
                                 //user.name!, 
-                                '',
+                                'Name: $name',
+                                style: TextStyle(fontSize: 16)
                               ),
                             ],
                           ),
@@ -169,7 +198,9 @@ class _ProfilePageState extends State<ProfilePage> {
                               Text(
                                 // _email,
                                 // style: TextStyle(fontSize: 20),
-                                user.email!, 
+                                //user.email!, 
+                                'Email: $email',
+                                style: TextStyle(fontSize: 16)
                               ),
                             ],
                           ),
@@ -183,7 +214,8 @@ class _ProfilePageState extends State<ProfilePage> {
                               Text(
                                 // _birthday,
                                 // style: TextStyle(fontSize: 20),
-                                ''
+                                'Birthday: $birthday',
+                                style: TextStyle(fontSize: 16)
                               ),
                             ],
                           ),
