@@ -56,8 +56,21 @@ class _tarotfavoritepageState extends State<tarotfavoritepage> {
             return ListView.builder(
               itemCount: favoriteReadings.favorites.length,
               itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(favoriteReadings.favorites[index]),
+                return Container(
+                  margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0), // Adjust margin as needed
+                  padding: EdgeInsets.all(12.0), // Adjust padding as needed
+                  decoration: BoxDecoration(
+                    color: Colors.white, // White background color
+                    borderRadius: BorderRadius.circular(30.0), // Rounded corners
+                  ),
+                  child: ListTile(
+                    title: Text(
+                      favoriteReadings.favorites[index],
+                      style: TextStyle(
+                        color: Colors.black, // Text color
+                      ),
+                    ),
+                  ),
                 );
               },
             );
