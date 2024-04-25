@@ -7,6 +7,8 @@ import 'package:koala_tarot_app/meditationpage.dart';
 import 'package:koala_tarot_app/setting.dart';
 import 'package:koala_tarot_app/tarothistorypage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart'; 
+import 'package:intl/intl.dart';
+
 
 
 class SignupPage extends StatefulWidget {
@@ -19,24 +21,42 @@ class SignupPage extends StatefulWidget {
 
 class _SignupPageState extends State<SignupPage> {
 
-  //for date selection
-  TextEditingController _birthdayController = TextEditingController();
-  FocusNode _birthdayFocusNode = FocusNode();
-  // Function to open date picker dialog
-  Future<void> _selectDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(1900),
-      lastDate: DateTime.now(),
-    );
-    if (picked != null) {
-      // Format the picked date as dd/mm/yyyy
-      String formattedDate = "${picked.day}/${picked.month}/${picked.year}";
-      // Update the text field with the selected date
-      _birthdayController.text = formattedDate;
-    }
-  }
+  // //for date selection
+  // TextEditingController _birthdayController = TextEditingController();
+  // FocusNode _birthdayFocusNode = FocusNode();
+  // // Function to open date picker dialog
+  // Future<void> _selectDate(BuildContext context) async {
+  //   final DateTime? picked = await showDatePicker(
+  //     context: context,
+  //     initialDate: DateTime.now(),
+  //     firstDate: DateTime(1900),
+  //     lastDate: DateTime.now(),
+  //   );
+  //   if (picked != null) {
+  //     // Format the picked date as dd/mm/yyyy
+  //     String formattedDate = "${picked.year}/${picked.month}/${picked.day}";
+  //     // Update the text field with the selected date
+  //     _birthdayController.text = formattedDate;
+  //   }
+  // }
+
+  // TextEditingController _birthdayController = TextEditingController();
+  // FocusNode _birthdayFocusNode = FocusNode();
+
+  // Future<void> _selectDate(BuildContext context) async {
+  //   final DateTime? picked = await showDatePicker(
+  //     context: context,
+  //     initialDate: DateTime.now(),
+  //     firstDate: DateTime(1900),
+  //     lastDate: DateTime.now(),
+  //   );
+    
+  //   if (picked != null) {
+  //     // Format the picked date as "dd/MM/yyyy" using DateFormat
+  //     String formattedDate = DateFormat('dd/MM/yyyy').format(picked);
+  //     _birthdayController.text = formattedDate;
+  //   }
+  // }
 
 
   //firebase 
@@ -51,7 +71,7 @@ class _SignupPageState extends State<SignupPage> {
     _emailController.dispose(); 
     _passwordController.dispose(); 
     _confirmPasswordController.dispose(); 
-    _birthdayController.dispose(); 
+    //_birthdayController.dispose(); 
     super.dispose(); 
   }
   //for firebase set up 
@@ -66,22 +86,22 @@ class _SignupPageState extends State<SignupPage> {
       addUserDetails(
         _nameController.text.trim(),
         _emailController.text.trim(),
-        DateTime.parse(_birthdayController.text.trim()),
+        //DateTime.parse(_birthdayController.text.trim()),
       );
 
     }
   }
 
-  Future addUserDetails(String name, String email, DateTime birthday) async {
+  Future addUserDetails(String name, String email /*DateTime birthday*/) async {
     await FirebaseFirestore.instance.collection('users').add({
       'name': name, 
       'email': email,
-      'birthday': birthday,
+      //'birthday': birthday,
     });
   }
 
   bool passwordConfirmed() {
-    if (_passwordController.text.trim() == _confirmPasswordController){
+    if (_passwordController.text.trim() == _confirmPasswordController.text.trim()){
       return true;
     }
     else {
@@ -220,34 +240,34 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                       ),
 
-                      //birday selection text field 
-                      SizedBox(height: 30),
-                      Row(
-                        children: [
-                          SizedBox(
-                            width: 200,
-                            child: TextFormField(
-                              controller: _birthdayController,
-                              focusNode: _birthdayFocusNode,
-                              keyboardType: TextInputType.datetime,
-                              decoration: InputDecoration(
-                                hintText: 'dd/mm/yyyy',
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(width: 80),
-                          // Calendar icon button to open date picker dialog
-                          IconButton(
-                            onPressed: () => _selectDate(context),
-                            icon: Icon(Icons.calendar_today),
-                            iconSize: 30,
-                            tooltip: 'Select Date',
-                          ),
-                        ],
-                      ),
+                      // //birday selection text field 
+                      // SizedBox(height: 30),
+                      // Row(
+                      //   children: [
+                      //     SizedBox(
+                      //       width: 200,
+                      //       child: TextFormField(
+                      //         controller: _birthdayController,
+                      //         focusNode: _birthdayFocusNode,
+                      //         keyboardType: TextInputType.datetime,
+                      //         decoration: InputDecoration(
+                      //           hintText: 'dd/mm/yyyy',
+                      //           border: OutlineInputBorder(
+                      //             borderRadius: BorderRadius.circular(20),
+                      //           ),
+                      //         ),
+                      //       ),
+                      //     ),
+                      //     SizedBox(width: 80),
+                      //     // Calendar icon button to open date picker dialog
+                      //     IconButton(
+                      //       onPressed: () => _selectDate(context),
+                      //       icon: Icon(Icons.calendar_today),
+                      //       iconSize: 30,
+                      //       tooltip: 'Select Date',
+                      //     ),
+                      //   ],
+                      // ),
 
 
                       //the text for transition to the other page

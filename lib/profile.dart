@@ -48,49 +48,6 @@ class _ProfilePageState extends State<ProfilePage> {
       print('Error fetching user information: $e');
     }
   }
-  // final user = FirebaseAuth.instance.currentUser!; 
-
-  // List<String> docIDs = []; 
-
-  // Future getDocID() async{
-  //   await FirebaseFirestore.instance.collection('users').get().then(
-  //     (snapshot)=>snapshot.docs.forEach((document) {
-  //       print(document.reference); 
-  //       docIDs.add(document.reference.id); 
-  //     }));
-  // }
-
-  // @override 
-  // void initState(){
-  //   getDocID(); 
-  //   super.initState(); 
-  // }
-
-  //to delete 
-  // String _name = 'Taylor Swift';
-  // String _email = 'taylorswiftweb.net@hotmail.com';
-  // String _birthday = 'December 13, 1989';
-  // String _phoneNumber = '+1(908) 500-0473';
-  String _zodiacSign = 'Sagittarius';
-
-
- //for image picker
- // File? _image;
- // Future _pickImage(ImageSource source) async{
- //   try{
- //     final image = await ImagePicker().pickImage(source: source);
- //     if (image == null) return;
- //     File? img = File(image.path);
- //     setState(() {
- //       _image = img;
- //       Navigator.of(context).pop();
- //     });
- //   } on PlatformException catch (e) {
- //     print(e);
- //     Navigator.of(context).pop();
- //   }
- // }
-
 
   @override
   Widget build(BuildContext context) {
@@ -114,21 +71,6 @@ class _ProfilePageState extends State<ProfilePage> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => EditScreen(
-                    // name: _name,
-                    // email: _email,
-                    // birthday: _birthday,
-                    // phoneNumber: _phoneNumber,
-                    // zodiacSign: _zodiacSign,
-                    // onUpdate: (String name, String email, String birthday,
-                    //     String phoneNumber, String zodiacSign) {
-                    //   setState(() {
-                    //     _name = name;
-                    //     _email = email;
-                    //     _birthday = birthday;
-                    //     _phoneNumber = phoneNumber;
-                    //     _zodiacSign = zodiacSign;
-                    //   });
-                    //},
                   ),
                 ),
               );
@@ -180,9 +122,6 @@ class _ProfilePageState extends State<ProfilePage> {
                               Icon(Icons.person, size: 24),
                               SizedBox(width: 10),
                               Text(
-                                // _name,
-                                // style: TextStyle(fontSize: 20),
-                                //user.name!, 
                                 'Name: $name',
                                 style: TextStyle(fontSize: 16)
                               ),
@@ -195,10 +134,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             children: [
                               Icon(Icons.email, size: 24),
                               SizedBox(width: 10),
-                              Text(
-                                // _email,
-                                // style: TextStyle(fontSize: 20),
-                                //user.email!, 
+                              Text( 
                                 'Email: $email',
                                 style: TextStyle(fontSize: 16)
                               ),
@@ -212,10 +148,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               Icon(Icons.cake, size: 24),
                               SizedBox(width: 10),
                               Text(
-                                // _birthday,
-                                // style: TextStyle(fontSize: 20),
-                                'Birthday: $birthday',
-                                style: TextStyle(fontSize: 16)
+                               ''
                               ),
                             ],
                           ),
@@ -227,8 +160,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               Icon(Icons.phone, size: 24),
                               SizedBox(width: 10),
                               Text(
-                                // _phoneNumber,
-                                // style: TextStyle(fontSize: 20),
+                                
                                 ''
                               ),
                             ],
@@ -241,29 +173,14 @@ class _ProfilePageState extends State<ProfilePage> {
                               Icon(Icons.star, size: 24),
                               SizedBox(width: 10),
                               Text(
-                                // _zodiacSign,
-                                // style: TextStyle(fontSize: 20),
+                                
                                 ''
                               ),
                             ],
                           ),
                           SizedBox(height: 20),
 
-                          //zodiac sign information 
-                          Container(
-                            padding: EdgeInsets.all(10),
-                            constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width), // Limit container width to screen width
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: SingleChildScrollView(
-                              child: Text(
-                                getZodiacSignDescription(_zodiacSign),
-                                style: TextStyle(fontSize: 16),
-                              ),
-                            ),
-                          ),
+                          
                         ],
                       ),
                     ],
