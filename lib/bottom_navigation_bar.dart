@@ -60,11 +60,11 @@ class _BottomNavigationBarExampleState
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
-              'assets/history-book.png', // Path to your image for the second tab
+              'assets/like.png', // Path to your image for the second tab
               width: 24,
               height: 24,
             ),
-            label: 'History',
+            label: 'Favourites',
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
