@@ -76,7 +76,8 @@ class _SignupPageState extends State<SignupPage> {
   }
   //for firebase set up 
   Future signUp() async{
-    if (passwordConfirmed()){
+    try { 
+      if (passwordConfirmed()){
       //create user 
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
       email: _emailController.text.trim(), 
@@ -88,7 +89,14 @@ class _SignupPageState extends State<SignupPage> {
         _emailController.text.trim(),
         //DateTime.parse(_birthdayController.text.trim()),
       );
+      Navigator.pushReplacement(
+        context, 
+        MaterialPageRoute(builder: (context)=> BottomNavigationBarExampleApp()),
+      );
 
+    }
+    } catch (e) { 
+      print ("Error signing up in: "); 
     }
   }
 
