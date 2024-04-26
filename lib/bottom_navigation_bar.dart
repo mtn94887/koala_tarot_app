@@ -60,7 +60,7 @@ class _BottomNavigationBarExampleState
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
-              'assets/like.png', // Path to your image for the second tab
+              'assets/Navibar/like.png', // Path to your image for the second tab
               width: 24,
               height: 24,
             ),
