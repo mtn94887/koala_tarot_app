@@ -70,8 +70,7 @@ class _SignupPageState extends State<SignupPage> {
     await FirebaseFirestore.instance.collection('users').doc(documentId).collection('favorites').add({
     // You can initialize any default values for the favorites collection here
     // For example:
-    'favoriteTarotCard': '',
-    'favoriteMeditation': '',
+    
   });
   }
 
