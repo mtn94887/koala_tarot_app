@@ -70,29 +70,43 @@ class _tarotfavoritepageState extends State<tarotfavoritepage> {
           ),
         ),
 
-        child: FutureBuilder(
-          future: getDocId(),
-          builder: ((context, snapshot) {
-            return ListView.builder(
-              itemCount: docIDs.length, 
-              itemBuilder: (context, index){
-                return Container(
-                  margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0), // Adjust margin as needed
-                  padding: EdgeInsets.all(5.0), // Adjust padding as needed
-                  decoration: BoxDecoration(
-                    color: Colors.white, // White background color
-                    borderRadius: BorderRadius.circular(20.0), // Rounded corners
-                  ),
-                  child: ListTile(
-                    //title: Text(favoriteReadings.favorites[index]),
-                    title: GetFavoriteReading(documentId: docIDs[index])
-                  ),
-                ); 
-              },
-            );
-          }  
-          )
+        child: Column(
+          children: [
+            Expanded(
+              child: FutureBuilder(
+                future: getDocId(),
+                builder: ((context, snapshot) {
+                  return ListView.builder(
+                    itemCount: docIDs.length, 
+                    itemBuilder: (context, index){
+                      return Container(
+                        margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0), // Adjust margin as needed
+                        padding: EdgeInsets.all(5.0), // Adjust padding as needed
+                        decoration: BoxDecoration(
+                          color: Colors.white, // White background color
+                          borderRadius: BorderRadius.circular(20.0), // Rounded corners
+                        ),
+                        child: ListTile(
+                          //title: Text(favoriteReadings.favorites[index]),
+                          title: GetFavoriteReading(documentId: docIDs[index])
+                        ),
+                      ); 
+                    },
+                  );
+                }  
+                )
+              )
+            ),
+            ElevatedButton(
+              onPressed: () {
+                
+              }, 
+              child: Text('Delete all favorite readings')
+            )
+          ],
         )
+
+        
       ),
     );
   }
