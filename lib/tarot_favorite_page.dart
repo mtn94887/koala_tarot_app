@@ -97,12 +97,40 @@ class _tarotfavoritepageState extends State<tarotfavoritepage> {
                 )
               )
             ),
-            ElevatedButton(
-              onPressed: () {
+            // ElevatedButton(
+            //   onPressed: () {
                 
+            //   }, 
+            //   child: Text('Delete all favorite readings')
+            // )
+            ElevatedButton(
+              onPressed: () async {
+                String documentId = FirebaseAuth.instance.currentUser?.uid ?? '';
+                QuerySnapshot snapshot = await FirebaseFirestore.instance.collection('users').doc(documentId).collection('favorites').get();
+
+                WriteBatch batch = FirebaseFirestore.instance.batch();
+                snapshot.docs.forEach((doc) {
+                  batch.delete(doc.reference);
+                });
+
+                // Commit the batch
+                await batch.commit();
+
+                // After deletion, update the UI or perform any necessary actions
+                setState(() {
+                  docIDs.clear(); // Clear the list of document IDs
+                });
+
+                // Show a snackbar or toast to indicate successful deletion
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('All favorite readings deleted'),
+                  ),
+                );
               }, 
               child: Text('Delete all favorite readings')
             )
+
           ],
         )
 
