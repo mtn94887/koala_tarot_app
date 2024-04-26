@@ -10,6 +10,7 @@ class ProsperityPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -130,7 +131,6 @@ class DrawCard extends StatelessWidget {
             icon: Icon(Icons.favorite_border),
             onPressed: () {
               // Handle favorite button press here
-              // You can implement functionality to add/remove from favorites
               Provider.of<FavoriteReadings>(context, listen: false)
                   .addToFavorites(selectedText);
             },
@@ -159,3 +159,4 @@ class DrawCard extends StatelessWidget {
     );
   }
 }
+

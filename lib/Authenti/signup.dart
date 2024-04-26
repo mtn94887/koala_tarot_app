@@ -10,7 +10,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
 
 
-
 class SignupPage extends StatefulWidget {
   final VoidCallback showLoginPage; 
   const SignupPage({Key? key, required this.showLoginPage}):super(key:key); 
@@ -21,21 +20,17 @@ class SignupPage extends StatefulWidget {
 
 class _SignupPageState extends State<SignupPage> {
 
-  
-
   //firebase 
   final _nameController = TextEditingController(); 
   final _emailController = TextEditingController(); 
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController(); 
-  //final _birthdayController = TextEditingController(); 
   @override 
   void dispose() { 
     _nameController.dispose(); 
     _emailController.dispose(); 
     _passwordController.dispose(); 
     _confirmPasswordController.dispose(); 
-    //_birthdayController.dispose(); 
     super.dispose(); 
   }
   //for firebase set up 
@@ -44,14 +39,13 @@ class _SignupPageState extends State<SignupPage> {
       if (passwordConfirmed()){
       //create user 
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
-      email: _emailController.text.trim(), 
-      password: _passwordController.text.trim(),
+        email: _emailController.text.trim(), 
+        password: _passwordController.text.trim(),
       );
       //add user details 
       addUserDetails(
         _nameController.text.trim(),
         _emailController.text.trim(),
-        //DateTime.parse(_birthdayController.text.trim()),
       );
       Navigator.pushReplacement(
         context, 
@@ -64,13 +58,23 @@ class _SignupPageState extends State<SignupPage> {
     }
   }
 
-  Future addUserDetails(String name, String email /*DateTime birthday*/) async {
-    await FirebaseFirestore.instance.collection('users').add({
+  Future addUserDetails(String name, String email) async {
+
+    String documentId = FirebaseAuth.instance.currentUser?.uid?? ''; 
+    FirebaseFirestore.instance.collection('users').doc(documentId).set({
       'name': name, 
       'email': email,
-      //'birthday': birthday,
     });
+
+    // Create a 'favorites' subcollection for the user
+    await FirebaseFirestore.instance.collection('users').doc(documentId).collection('favorites').add({
+    // You can initialize any default values for the favorites collection here
+    // For example:
+    'favoriteTarotCard': '',
+    'favoriteMeditation': '',
+  });
   }
+
 
   bool passwordConfirmed() {
     if (_passwordController.text.trim() == _confirmPasswordController.text.trim()){
@@ -96,7 +100,6 @@ class _SignupPageState extends State<SignupPage> {
             ),
           ),
 
-
           child: SingleChildScrollView( // Wrap your Column with SingleChildScrollView
             child: Column(
               children: [
@@ -111,7 +114,6 @@ class _SignupPageState extends State<SignupPage> {
                       topRight: Radius.circular(30),
                     ),
                   ),
-
 
                   padding: EdgeInsets.all(20),
                   child: Column(
@@ -209,7 +211,6 @@ class _SignupPageState extends State<SignupPage> {
 
                      
 
-
                       //the text for transition to the other page
                       SizedBox(height: 5,),
                       
@@ -241,6 +242,7 @@ class _SignupPageState extends State<SignupPage> {
     );
   }
 }
+
 
 
 
