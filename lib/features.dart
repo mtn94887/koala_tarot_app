@@ -10,7 +10,7 @@ class FeaturesPage extends StatelessWidget {
         preferredSize: Size.fromHeight(50.0),
         child: Container(
           decoration: BoxDecoration(
-            color: Color(0xFF9D88BA),
+            color: Color(0xFF7D5AAD),
           ),
           child: AppBar(
             backgroundColor: Colors.transparent,
@@ -24,10 +24,10 @@ class FeaturesPage extends StatelessWidget {
             title: Text(
               'Features',
               style: TextStyle(
-                fontSize: 35,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
+            fontSize: 26, 
+            fontFamily: 'Pacifico',
+            color: Colors.black,
+          ),
             ),
             centerTitle: true,
           ),
@@ -38,7 +38,7 @@ class FeaturesPage extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Color(0xFF7D5AAD), Color(0xFF303E87)],
+            colors: [Color.fromRGBO(131, 93, 184, 1), Color(0xFF303E87)],
           ),
         ),
         child: Center(
@@ -46,10 +46,11 @@ class FeaturesPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 99),
+              SizedBox(height: MediaQuery.of(context).padding.top + kToolbarHeight),
+              SizedBox(height: 0),
               Container(
                 width: double.infinity,
-                height: 250,
+                height: 380,
                 child: Image.asset(
                   'assets/NEW Print Sale 8x10the Fireflies - Etsy.jpg',
                   fit: BoxFit.cover,
@@ -60,11 +61,11 @@ class FeaturesPage extends StatelessWidget {
                 'Explore Our Features',
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 32,
+                  fontSize:  28,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 26),
+              SizedBox(height: 10),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
