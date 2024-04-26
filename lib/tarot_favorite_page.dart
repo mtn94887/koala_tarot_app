@@ -1,5 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
  import 'package:koala_tarot_app/FavoriteReadings.dart';
+import 'package:koala_tarot_app/get_favorite_reading.dart';
  import 'package:provider/provider.dart';
  import 'package:koala_tarot_app/home.dart';
  import 'package:koala_tarot_app/meditationpage.dart';
@@ -12,6 +15,20 @@ class tarotfavoritepage extends StatefulWidget {
 }
 
 class _tarotfavoritepageState extends State<tarotfavoritepage> {
+  
+  //displaying ids 
+  List<String> docIDs = []; 
+
+  Future getDocId() async{
+    String documentId = FirebaseAuth.instance.currentUser?.uid??'';
+    await FirebaseFirestore.instance.collection('users').doc(documentId).collection('favorites').get().then(
+      (snapshot)=> snapshot.docs.forEach((document) {
+        print(document.reference);
+        docIDs.add(document.reference.id); 
+      })
+    ); 
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,19 +70,45 @@ class _tarotfavoritepageState extends State<tarotfavoritepage> {
           ),
         ),
 
-        //
-        child: Consumer<FavoriteReadings>(
-          builder: (context, favoriteReadings, child) {
+        child: FutureBuilder(
+          future: getDocId(),
+          builder: ((context, snapshot) {
             return ListView.builder(
-              itemCount: favoriteReadings.favorites.length,
-              itemBuilder: (context, index) {
+              itemCount: docIDs.length, 
+              itemBuilder: (context, index){
+                // return ListTile (
+                //   //title:Text(docIDs[index])
+                //   //title: GetFavoriteReading(documentId: docIDs[index])
+                //   if (ocIDs[index] != null){
+                //     title: GetFavoriteReading(documentId: docIDs[index]),
+                //   } else { 
+                //     title: '', 
+                //   }
+                // );
                 return ListTile(
-                  //title: Text(favoriteReadings.favorites[index]),
+                  title: docIDs[index] != null
+                      ? GetFavoriteReading(documentId: docIDs[index])
+                      : SizedBox(), // or Text('') if you prefer
                 );
+
               },
             );
-          },
-        ),
+          }  
+          )
+        )
+        //
+        // child: Consumer<FavoriteReadings>(
+        //   builder: (context, favoriteReadings, child) {
+        //     return ListView.builder(
+        //       itemCount: favoriteReadings.favorites.length,
+        //       itemBuilder: (context, index) {
+        //         return ListTile(
+        //           //title: Text(favoriteReadings.favorites[index]),
+        //         );
+        //       },
+        //     );
+        //   },
+        // ),
       ),
     );
   }

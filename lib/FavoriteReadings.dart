@@ -27,6 +27,7 @@ class FavoriteReadings extends ChangeNotifier {
     await _addFavoriteToFirestore(reading); // Call the static method
   }
 
+
   // Function to retrieve favorites from Firestore
   Future<void> fetchFavoritesFromFirestore() async {
     try {
