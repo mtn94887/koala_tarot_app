@@ -21,43 +21,7 @@ class SignupPage extends StatefulWidget {
 
 class _SignupPageState extends State<SignupPage> {
 
-  // //for date selection
-  // TextEditingController _birthdayController = TextEditingController();
-  // FocusNode _birthdayFocusNode = FocusNode();
-  // // Function to open date picker dialog
-  // Future<void> _selectDate(BuildContext context) async {
-  //   final DateTime? picked = await showDatePicker(
-  //     context: context,
-  //     initialDate: DateTime.now(),
-  //     firstDate: DateTime(1900),
-  //     lastDate: DateTime.now(),
-  //   );
-  //   if (picked != null) {
-  //     // Format the picked date as dd/mm/yyyy
-  //     String formattedDate = "${picked.year}/${picked.month}/${picked.day}";
-  //     // Update the text field with the selected date
-  //     _birthdayController.text = formattedDate;
-  //   }
-  // }
-
-  // TextEditingController _birthdayController = TextEditingController();
-  // FocusNode _birthdayFocusNode = FocusNode();
-
-  // Future<void> _selectDate(BuildContext context) async {
-  //   final DateTime? picked = await showDatePicker(
-  //     context: context,
-  //     initialDate: DateTime.now(),
-  //     firstDate: DateTime(1900),
-  //     lastDate: DateTime.now(),
-  //   );
-    
-  //   if (picked != null) {
-  //     // Format the picked date as "dd/MM/yyyy" using DateFormat
-  //     String formattedDate = DateFormat('dd/MM/yyyy').format(picked);
-  //     _birthdayController.text = formattedDate;
-  //   }
-  // }
-
+  
 
   //firebase 
   final _nameController = TextEditingController(); 
@@ -184,12 +148,7 @@ class _SignupPageState extends State<SignupPage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          // IconButton(
-                          //   icon: Icon(Icons.arrow_back),
-                          //   onPressed: () {
-                          //     Navigator.pop(context);
-                          //   },
-                          // ), 
+                          
                           Text(
                             'Signup',
                             style: TextStyle(
@@ -248,61 +207,12 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                       ),
 
-                      // //birday selection text field 
-                      // SizedBox(height: 30),
-                      // Row(
-                      //   children: [
-                      //     SizedBox(
-                      //       width: 200,
-                      //       child: TextFormField(
-                      //         controller: _birthdayController,
-                      //         focusNode: _birthdayFocusNode,
-                      //         keyboardType: TextInputType.datetime,
-                      //         decoration: InputDecoration(
-                      //           hintText: 'dd/mm/yyyy',
-                      //           border: OutlineInputBorder(
-                      //             borderRadius: BorderRadius.circular(20),
-                      //           ),
-                      //         ),
-                      //       ),
-                      //     ),
-                      //     SizedBox(width: 80),
-                      //     // Calendar icon button to open date picker dialog
-                      //     IconButton(
-                      //       onPressed: () => _selectDate(context),
-                      //       icon: Icon(Icons.calendar_today),
-                      //       iconSize: 30,
-                      //       tooltip: 'Select Date',
-                      //     ),
-                      //   ],
-                      // ),
+                     
 
 
                       //the text for transition to the other page
                       SizedBox(height: 5,),
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.center,
-                      //   children:[
-                      //     Text(
-                      //       'A new user? ',
-                      //       style: TextStyle(
-                      //         fontWeight: FontWeight.bold, 
-                      //       )
-                      //     ),
-                      //     GestureDetector(
-                      //       onTap: widget.showLoginPage ,
-                      //       child: Text(
-                      //         'Register to use the app',
-                      //         style: TextStyle(
-                      //           color: Colors.purple,
-                      //           fontWeight: FontWeight.bold, 
-                      //         )
-                      //     )
-                      //     )
-                          
-                      //   ]
-                      // ),  
-
+                      
                       //continue button
                       SizedBox(height: 20),
                       ElevatedButton(
@@ -332,10 +242,5 @@ class _SignupPageState extends State<SignupPage> {
   }
 }
 
-// void main() {
-//   runApp(MaterialApp(
-//     home: FormPage(),
-//   ));
-// }
 
 
