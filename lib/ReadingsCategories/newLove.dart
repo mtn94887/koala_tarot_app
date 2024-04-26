@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
+import 'package:koala_tarot_app/FavoriteReadings.dart';
+import 'package:provider/provider.dart';
+
 class NewLovePage extends StatelessWidget {
   final List<String> cardImages = List.generate(
       22, (index) => 'assets/DrawCards/card${index + 1}.png'); // List of 20 card images
@@ -15,6 +18,7 @@ class NewLovePage extends StatelessWidget {
         ),
         backgroundColor: Colors.white,
         centerTitle: true,
+       
       ),
       body: ListView.builder(
         itemCount: 4, // Number of rows
@@ -54,8 +58,18 @@ class NewLovePage extends StatelessWidget {
   }
 }
 
-class DrawCard extends StatelessWidget {
-  final List<String> cardImages = [
+  class DrawCard extends StatefulWidget {
+  final int selectedIndex; // Index of the selected card
+
+  DrawCard({required this.selectedIndex});
+
+  @override
+  _DrawCardState createState() => _DrawCardState(selectedIndex: 0);
+}
+
+class _DrawCardState extends State<DrawCard>{
+
+final List<String> cardImages = [
     'assets/DrawCards/card1.png',
     'assets/DrawCards/card2.png',
     'assets/DrawCards/card3.png',
@@ -103,11 +117,11 @@ class DrawCard extends StatelessWidget {
     'When it comes to new love, The Sun card indicates a period of happiness, excitement, and fulfillment. This card suggests that you may be entering into a relationship that is filled with joy and positivity. Embrace this time as an opportunity to explore new connections and experiences with an open heart and mind. Trust in the power of love to bring about growth and transformation in your life. Remember to approach new love with authenticity and enthusiasm, and to celebrate the beauty and magic of connection. Trust that the light of love will continue to shine brightly in your life, illuminating your path towards greater happiness and fulfillment.',
     'When it comes to new love, the Judgment card indicates a period of awakening, transformation, and new beginnings. This card suggests that you may be entering into a relationship that has the potential to bring about profound growth and change in your life. Embrace this period of awakening as an opportunity to explore new connections and experiences with an open heart and mind. Trust in the power of love to inspire and uplift you, and to guide you towards greater fulfillment and happiness. Remember to be true to yourself and your values, and to approach new love with authenticity and vulnerability. Trust that the universe is guiding you towards a love that is aligned with your highest good and journey of soul.',
     ' When it comes to new love, The World card indicates a sense of completion and fulfillment in your romantic life. This card suggests that you may be entering into a relationship that feels deeply fulfilling and satisfying. It could indicate a sense of harmony and unity with a new partner, where you feel a strong connection and sense of completeness. Embrace this period of fulfillment as an opportunity to explore new depths of love and intimacy with your partner. Trust in the power of love to bring about growth and transformation in your life. Remember to approach new love with an open heart and mind, and to be grateful for the joy and fulfillment it brings into your life.'
-  ]; // List of 22 card texts
+  ];
 
-  final int selectedIndex; // Index of the selected card
-
-  DrawCard({required this.selectedIndex});
+  int selectedIndex = 0; // Index of the selected card
+  bool isFavorite = false;
+  _DrawCardState({required this.selectedIndex});
 
   @override
   Widget build(BuildContext context) {
@@ -118,10 +132,17 @@ class DrawCard extends StatelessWidget {
     // Get the random image and its corresponding text
     String selectedImage = cardImages[indices[selectedIndex % 22]];
     String selectedText = cardTexts[indices[selectedIndex % 22]];
-
+    
     return Scaffold(
+      
       appBar: AppBar(
         title: Text("Your reading ..."),
+        actions: <Widget>[
+
+          FavoriteIconWidget(selectedText : selectedText),
+          
+        ],
+        
       ),
       body: Center(
         child: Column(
@@ -144,4 +165,40 @@ class DrawCard extends StatelessWidget {
       ),
     );
   }
+  
+}
+
+class FavoriteIconWidget extends StatefulWidget {
+
+  final String selectedText;
+
+  FavoriteIconWidget({required this.selectedText});
+
+  @override
+  _FavoriteIconWidgetState createState() => _FavoriteIconWidgetState(selectedText);
+}
+
+class _FavoriteIconWidgetState extends State<FavoriteIconWidget> {
+  bool _isFavorite = false;
+  final String _selectedText;
+
+  _FavoriteIconWidgetState(this._selectedText);
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: () {
+        
+        setState(() {
+          _isFavorite = !_isFavorite;
+        });
+        Provider.of<FavoriteReadings>(context , listen: false).addToFavorites(_selectedText);
+      },
+      icon: Icon(
+        _isFavorite ? Icons.favorite : Icons.favorite_border,
+        color: _isFavorite ? Colors.red : Colors.black,
+      ),
+    );
+  }
+
 }

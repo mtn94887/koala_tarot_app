@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
+import 'package:koala_tarot_app/FavoriteReadings.dart';
+import 'package:provider/provider.dart';
+
 class RelationshipPage extends StatelessWidget {
   final List<String> cardImages = List.generate(
       22, (index) => 'assets/DrawCards/card${index + 1}.png'); // List of 20 card images
@@ -15,6 +18,7 @@ class RelationshipPage extends StatelessWidget {
         ),
         backgroundColor: Colors.white,
         centerTitle: true,
+       
       ),
       body: ListView.builder(
         itemCount: 4, // Number of rows
@@ -54,8 +58,18 @@ class RelationshipPage extends StatelessWidget {
   }
 }
 
-class DrawCard extends StatelessWidget {
-  final List<String> cardImages = [
+  class DrawCard extends StatefulWidget {
+  final int selectedIndex; // Index of the selected card
+
+  DrawCard({required this.selectedIndex});
+
+  @override
+  _DrawCardState createState() => _DrawCardState(selectedIndex: 0);
+}
+
+class _DrawCardState extends State<DrawCard>{
+
+final List<String> cardImages = [
     'assets/DrawCards/card1.png',
     'assets/DrawCards/card2.png',
     'assets/DrawCards/card3.png',
@@ -80,7 +94,7 @@ class DrawCard extends StatelessWidget {
     'assets/DrawCards/card22.png'
   ]; // List of 22 card images
 
-  final List<String> cardTexts = [
+   final List<String> cardTexts = [
     ' In relationships, The Fool symbolizes spontaneity, freedom, and new beginnings. If you are in a committed relationship, this card may indicate a need to inject some spontaneity and adventure into your partnership. Embrace new experiences together and do not be afraid to step outside of your comfort zone. If you are single, The Fool suggests that you may meet someone who embodies these qualities soon. Stay open to unexpected connections and embrace the journey ahead with an open heart',
     ' In relationships, The Magician signifies the power of communication, manifestation, and connection. This card suggests that you have the ability to create the type of relationship you desire through clear communication, intention setting, and action. Use your skills of persuasion and charisma to foster a deeper connection with your partner or potential partners. Be mindful of the energy you are putting into your relationships and focus on manifesting positive outcomes through your words and actions.',
     ' In relationships, The High Priestess symbolizes depth, intuition, and psychic connection. This card suggests that you may be entering a phase of introspection and spiritual growth within your relationships. Trust your intuition to guide you in understanding the deeper dynamics at play and listen to your inner wisdom when navigating issues with your partner or loved ones. Pay attention to subtle cues and non-verbal communication, as there may be important messages waiting to be revealed beneath the surface..',
@@ -103,11 +117,11 @@ class DrawCard extends StatelessWidget {
     ' In relationships, The Sun represents happiness, harmony, and fulfillment. This card suggests that you are experiencing a period of joy and abundance within your relationships. Embrace this time as an opportunity to bask in the warmth of love and connection with your partner or loved ones. Trust in the power of positivity and authenticity to strengthen your bonds and bring about greater harmony and understanding. Remember to express gratitude for the blessings of love and companionship in your life, and to nurture your relationships with care and attention. Trust that the light of love will continue to shine brightly in your life, bringing warmth and joy to your heart.',
     ' In relationships, the Judgment card represents a period of evaluation, forgiveness, and redemption. This card suggests that you may be experiencing a time of reflection and reconciliation within your relationships. It could indicate a need to evaluate past actions and decisions in order to heal and move forward. Embrace this period of reflection as an opportunity to release old resentments, forgive yourself and others, and create a fresh start in your relationships. Trust in the power of forgiveness and compassion to bring about greater understanding and connection with your partner or loved ones. Remember to communicate openly and honestly, and to approach your relationships with humility and grace.',
     ' In relationships, The World represents harmony, unity, and fulfillment. This card suggests that you are experiencing a deep sense of connection and completion within your relationships. It could indicate a period of harmony and balance with your partner or loved ones, where you feel fully supported and understood. Embrace this time as an opportunity to celebrate the love and connection you share with others. Trust in the power of mutual respect and understanding to strengthen your bonds and bring about greater fulfillment and happiness in your relationships. Remember to express gratitude for the blessings of love and companionship in your life, and to nurture your relationships with care and attention.'
-  ]; // List of 22 card texts
+  ]; 
 
-  final int selectedIndex; // Index of the selected card
-
-  DrawCard({required this.selectedIndex});
+  int selectedIndex = 0; // Index of the selected card
+  bool isFavorite = false;
+  _DrawCardState({required this.selectedIndex});
 
   @override
   Widget build(BuildContext context) {
@@ -118,10 +132,17 @@ class DrawCard extends StatelessWidget {
     // Get the random image and its corresponding text
     String selectedImage = cardImages[indices[selectedIndex % 22]];
     String selectedText = cardTexts[indices[selectedIndex % 22]];
-
+    
     return Scaffold(
+      
       appBar: AppBar(
         title: Text("Your reading ..."),
+        actions: <Widget>[
+
+          FavoriteIconWidget(selectedText : selectedText),
+          
+        ],
+        
       ),
       body: Center(
         child: Column(
@@ -144,4 +165,40 @@ class DrawCard extends StatelessWidget {
       ),
     );
   }
+  
+}
+
+class FavoriteIconWidget extends StatefulWidget {
+
+  final String selectedText;
+
+  FavoriteIconWidget({required this.selectedText});
+
+  @override
+  _FavoriteIconWidgetState createState() => _FavoriteIconWidgetState(selectedText);
+}
+
+class _FavoriteIconWidgetState extends State<FavoriteIconWidget> {
+  bool _isFavorite = false;
+  final String _selectedText;
+
+  _FavoriteIconWidgetState(this._selectedText);
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: () {
+        
+        setState(() {
+          _isFavorite = !_isFavorite;
+        });
+        Provider.of<FavoriteReadings>(context , listen: false).addToFavorites(_selectedText);
+      },
+      icon: Icon(
+        _isFavorite ? Icons.favorite : Icons.favorite_border,
+        color: _isFavorite ? Colors.red : Colors.black,
+      ),
+    );
+  }
+
 }

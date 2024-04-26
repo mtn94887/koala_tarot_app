@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
+import 'package:koala_tarot_app/FavoriteReadings.dart';
+import 'package:provider/provider.dart';
+
 class DailyReadingPage extends StatelessWidget {
   final List<String> cardImages = List.generate(
       22, (index) => 'assets/DrawCards/card${index + 1}.png'); // List of 20 card images
@@ -15,6 +18,7 @@ class DailyReadingPage extends StatelessWidget {
         ),
         backgroundColor: Colors.white,
         centerTitle: true,
+       
       ),
       body: ListView.builder(
         itemCount: 4, // Number of rows
@@ -54,8 +58,18 @@ class DailyReadingPage extends StatelessWidget {
   }
 }
 
-class DrawCard extends StatelessWidget {
-  final List<String> cardImages = [
+  class DrawCard extends StatefulWidget {
+  final int selectedIndex; // Index of the selected card
+
+  DrawCard({required this.selectedIndex});
+
+  @override
+  _DrawCardState createState() => _DrawCardState(selectedIndex: 0);
+}
+
+class _DrawCardState extends State<DrawCard>{
+
+final List<String> cardImages = [
     'assets/DrawCards/card1.png',
     'assets/DrawCards/card2.png',
     'assets/DrawCards/card3.png',
@@ -103,11 +117,12 @@ class DrawCard extends StatelessWidget {
     'Embrace joy, vitality, and success today. Bask in the warmth of happiness and allow your inner light to shine brightly.',
     'Embrace self-reflection and personal growth today. Trust in divine guidance as you make decisions that align with your highest good.',
     'Celebrate completion and fulfillment today. Recognize your achievements and embrace a sense of wholeness and unity with the universe.'
-  ]; // List of 22 card texts
+  ];
 
-  final int selectedIndex; // Index of the selected card
 
-  DrawCard({required this.selectedIndex});
+  int selectedIndex = 0; // Index of the selected card
+  bool isFavorite = false;
+  _DrawCardState({required this.selectedIndex});
 
   @override
   Widget build(BuildContext context) {
@@ -118,10 +133,17 @@ class DrawCard extends StatelessWidget {
     // Get the random image and its corresponding text
     String selectedImage = cardImages[indices[selectedIndex % 22]];
     String selectedText = cardTexts[indices[selectedIndex % 22]];
-
+    
     return Scaffold(
+      
       appBar: AppBar(
         title: Text("Your reading ..."),
+        actions: <Widget>[
+
+          FavoriteIconWidget(selectedText : selectedText),
+          
+        ],
+        
       ),
       body: Center(
         child: Column(
@@ -144,4 +166,40 @@ class DrawCard extends StatelessWidget {
       ),
     );
   }
+  
+}
+
+class FavoriteIconWidget extends StatefulWidget {
+
+  final String selectedText;
+
+  FavoriteIconWidget({required this.selectedText});
+
+  @override
+  _FavoriteIconWidgetState createState() => _FavoriteIconWidgetState(selectedText);
+}
+
+class _FavoriteIconWidgetState extends State<FavoriteIconWidget> {
+  bool _isFavorite = false;
+  final String _selectedText;
+
+  _FavoriteIconWidgetState(this._selectedText);
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: () {
+        
+        setState(() {
+          _isFavorite = !_isFavorite;
+        });
+        Provider.of<FavoriteReadings>(context , listen: false).addToFavorites(_selectedText);
+      },
+      icon: Icon(
+        _isFavorite ? Icons.favorite : Icons.favorite_border,
+        color: _isFavorite ? Colors.red : Colors.black,
+      ),
+    );
+  }
+
 }

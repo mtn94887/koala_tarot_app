@@ -10,7 +10,6 @@ class ProsperityPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -19,6 +18,7 @@ class ProsperityPage extends StatelessWidget {
         ),
         backgroundColor: Colors.white,
         centerTitle: true,
+       
       ),
       body: ListView.builder(
         itemCount: 4, // Number of rows
@@ -117,7 +117,9 @@ final List<String> cardImages = [
     'Bask in the abundance and prosperity that comes from aligning with your highest purpose. Embrace joy and gratitude for your financial blessings.',
     'Reflect on past financial decisions and learn from your experiences. Embrace a sense of accountability and empowerment as you move towards greater prosperity.',
     'Celebrate your financial achievements and success. Embrace a sense of fulfillment and completion as you continue to expand your prosperity consciousness.'
-  ];
+  ]; 
+
+  
   int selectedIndex = 0; // Index of the selected card
   bool isFavorite = false;
   _DrawCardState({required this.selectedIndex});
@@ -201,4 +203,3 @@ class _FavoriteIconWidgetState extends State<FavoriteIconWidget> {
   }
 
 }
-

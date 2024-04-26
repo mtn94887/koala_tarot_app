@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
+import 'package:koala_tarot_app/FavoriteReadings.dart';
+import 'package:provider/provider.dart';
+
 class HealthPage extends StatelessWidget {
   final List<String> cardImages = List.generate(
-      22,
-      (index) =>
-          'assets/DrawCards/card${index + 1}.png'); // List of 20 card images
+      22, (index) => 'assets/DrawCards/card${index + 1}.png'); // List of 20 card images
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +18,7 @@ class HealthPage extends StatelessWidget {
         ),
         backgroundColor: Colors.white,
         centerTitle: true,
+       
       ),
       body: ListView.builder(
         itemCount: 4, // Number of rows
@@ -56,7 +58,7 @@ class HealthPage extends StatelessWidget {
   }
 }
 
-class DrawCard extends StatefulWidget {
+  class DrawCard extends StatefulWidget {
   final int selectedIndex; // Index of the selected card
 
   DrawCard({required this.selectedIndex});
@@ -115,7 +117,7 @@ final List<String> cardImages = [
     'In terms of health, The Sun card represents vitality, well-being, and energy. This card suggests that you are experiencing a period of good health and vitality. Embrace this time as an opportunity to prioritize self-care and wellness practices that nourish your body, mind, and spirit. Trust in the power of positivity and optimism to support your overall well-being and vitality. Remember to stay active, eat nutritious foods, and engage in activities that bring you joy and fulfillment. Trust that the light of health and vitality will continue to shine brightly in your life, bringing energy and vitality to every aspect of your being.',
     'In terms of health, the Judgment card signifies a period of renewal, rejuvenation, and healing. This card suggests that you may be experiencing a time of awakening and transformation in your health and well-being. It could indicate a need to let go of old habits or patterns that are no longer serving your health, and to embrace new practices and perspectives that promote healing and vitality. Embrace this period of renewal as an opportunity to prioritize self-care, nourishment, and holistic well-being. Trust in your body innate wisdom and resilience to guide you towards greater health and vitality. Remember to listen to your body signals and honor its needs with love and compassion.',
     'In terms of health, The World card represents vitality, wholeness, and well-being. This card suggests that you are experiencing a period of physical, emotional, and spiritual balance and harmony. It could indicate a sense of completeness and fulfillment in your overall health and well-being. Embrace this time as an opportunity to prioritize self-care, nourishment, and holistic wellness practices that support your vitality and vitality. Trust in the power of balance and harmony to bring about greater health and vitality in your life. Remember to listen to your body needs and honor its wisdom with love and compassion.'
-  ]; // List of 22 card texts
+  ];
 
   int selectedIndex = 0; // Index of the selected card
   bool isFavorite = false;
@@ -132,13 +134,15 @@ final List<String> cardImages = [
     String selectedText = cardTexts[indices[selectedIndex % 22]];
     
     return Scaffold(
+      
       appBar: AppBar(
         title: Text("Your reading ..."),
         actions: <Widget>[
 
-          FavoriteIconWidget()
-         
+          FavoriteIconWidget(selectedText : selectedText),
+          
         ],
+        
       ),
       body: Center(
         child: Column(
@@ -165,20 +169,30 @@ final List<String> cardImages = [
 }
 
 class FavoriteIconWidget extends StatefulWidget {
+
+  final String selectedText;
+
+  FavoriteIconWidget({required this.selectedText});
+
   @override
-  _FavoriteIconWidgetState createState() => _FavoriteIconWidgetState();
+  _FavoriteIconWidgetState createState() => _FavoriteIconWidgetState(selectedText);
 }
 
 class _FavoriteIconWidgetState extends State<FavoriteIconWidget> {
   bool _isFavorite = false;
+  final String _selectedText;
+
+  _FavoriteIconWidgetState(this._selectedText);
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {
+        
         setState(() {
           _isFavorite = !_isFavorite;
         });
+        Provider.of<FavoriteReadings>(context , listen: false).addToFavorites(_selectedText);
       },
       icon: Icon(
         _isFavorite ? Icons.favorite : Icons.favorite_border,
