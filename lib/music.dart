@@ -22,7 +22,7 @@ class _MeditationPageState extends State<MeditationPage> {
 
  @override
  void dispose() {
-   _audioPlayer.stop(); // Stop the audio player when the page is disposed
+   _audioPlayer.stop();
    super.dispose();
  }
 
@@ -155,7 +155,6 @@ class _MeditationPageState extends State<MeditationPage> {
    );
  }
 }
-
 
 class Music extends StatelessWidget {
  final List<String> song = ['intro.mp3', 'Download.mp3', 'deep_relaxation.mp3'];
