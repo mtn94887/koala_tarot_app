@@ -12,7 +12,6 @@ import 'package:koala_tarot_app/home.dart';
 import 'package:koala_tarot_app/meditationpage.dart';
 import 'package:koala_tarot_app/tarot_favorite_page.dart';
 
-
 //SETTING CODE
 class SettingScreen extends StatefulWidget {
   @override
@@ -20,11 +19,10 @@ class SettingScreen extends StatefulWidget {
 }
 
 class _SettingScreenState extends State<SettingScreen> {
-
   String appVersion = '1.0.0';
 
-  void signOut(){
-    FirebaseAuth.instance.signOut(); 
+  void signOut() {
+    FirebaseAuth.instance.signOut();
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => AuthPage()),
@@ -79,9 +77,12 @@ class _SettingScreenState extends State<SettingScreen> {
               padding: EdgeInsets.all(20.0),
               children: [
                 ListTile(
-                  title: Text('Help Center'),
+                  title: Text('About Tarot'),
                   onTap: () {
-                    _showHelpCenterDialog(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => PurposePage()),
+                    );
                   },
                 ),
                 ListTile(
@@ -111,12 +112,6 @@ class _SettingScreenState extends State<SettingScreen> {
                 ListTile(
                   title: Text('Logout'),
                   onTap: signOut,
-                  // onTap: () {
-                  //   Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(builder: (context) => AuthPage()),
-                  //   );
-                  // },
                 ),
                 ListTile(
                   title: Text(
@@ -249,6 +244,7 @@ class _SettingScreenState extends State<SettingScreen> {
                                 stars[i] = true;
                               } else {
                                 stars[i] = false;
+                            
                               }
                             }
                           });
@@ -261,82 +257,37 @@ class _SettingScreenState extends State<SettingScreen> {
                         onPressed: () {
                           setState(() {
                             for (int i = 0; i < 5; i++) {
-                              stars[i] = true;
-                            }
-                          });
-                        },
+                                stars[i] = true;
+                                }
+                              });
+                            },
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                ],
-              ),
-              actions: <Widget>[
-                TextButton(
-                  child: Text('Submit'),
-                  onPressed: () {
-                    // Handle submission
-                    _showRatingThanks(context);
-                    Navigator.of(context).pop();
+                  actions: <Widget>[
+                  TextButton(
+child: Text('Submit'),
+onPressed: () {
+// Handle submission
+_showRatingThanks(context);
+Navigator.of(context).pop();
+},
+),
+                      ],
+                    );
                   },
-                ),
-              ],
+                );
+              },
             );
-          },
-        );
-      },
-    );
-  }
-
-  void _showHelpCenterDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text("Help Center"),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  // Handle 'About Tarot'
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => PurposePage()),
-                  );
-                },
-                child: Text('About Tarot'),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  // Handle 'Send Feedback'
-                },
-                child: Text('Send Feedback'),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  // Handle 'Report a Bug'
-                },
-                child: Text('Report a Bug'),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: Text('Close'),
-              ),
-            ],
-          ),
-        );
-      },
-    );
-  }
-
+          }
   void _showRatingThanks(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('Thanks for Rating Us!'),
-        duration: Duration(seconds: 3),
-      ),
-    );
+    SnackBar(
+    content: Text('Thanks for Rating Us!'),
+    duration: Duration(seconds: 3),
+        ),
+      );
+    }
   }
-}

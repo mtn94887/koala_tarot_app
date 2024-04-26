@@ -9,7 +9,7 @@ class BackgroundPage extends StatelessWidget {
           preferredSize: Size.fromHeight(50.0),
           child: Container(
             decoration: BoxDecoration(
-              color: Color(0xFF9D88BA),
+              color: Color(0xFF7D5AAD),
             ),
             child: AppBar(
               backgroundColor: Colors.transparent,
@@ -23,10 +23,10 @@ class BackgroundPage extends StatelessWidget {
               title: Text(
                 'Background of the Tarot',
                 style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
+            fontSize: 23, 
+            fontFamily: 'Pacifico',
+            color: Colors.black,
+          ),
               ),
               centerTitle: true,
             ),
