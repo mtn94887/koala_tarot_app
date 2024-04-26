@@ -56,8 +56,18 @@ class HealthPage extends StatelessWidget {
   }
 }
 
-class DrawCard extends StatelessWidget {
-  final List<String> cardImages = [
+class DrawCard extends StatefulWidget {
+  final int selectedIndex; // Index of the selected card
+
+  DrawCard({required this.selectedIndex});
+
+  @override
+  _DrawCardState createState() => _DrawCardState(selectedIndex: 0);
+}
+
+class _DrawCardState extends State<DrawCard>{
+
+final List<String> cardImages = [
     'assets/DrawCards/card1.png',
     'assets/DrawCards/card2.png',
     'assets/DrawCards/card3.png',
@@ -107,9 +117,9 @@ class DrawCard extends StatelessWidget {
     'In terms of health, The World card represents vitality, wholeness, and well-being. This card suggests that you are experiencing a period of physical, emotional, and spiritual balance and harmony. It could indicate a sense of completeness and fulfillment in your overall health and well-being. Embrace this time as an opportunity to prioritize self-care, nourishment, and holistic wellness practices that support your vitality and vitality. Trust in the power of balance and harmony to bring about greater health and vitality in your life. Remember to listen to your body needs and honor its wisdom with love and compassion.'
   ]; // List of 22 card texts
 
-  final int selectedIndex; // Index of the selected card
-
-  DrawCard({required this.selectedIndex});
+  int selectedIndex = 0; // Index of the selected card
+  bool isFavorite = false;
+  _DrawCardState({required this.selectedIndex});
 
   @override
   Widget build(BuildContext context) {
@@ -120,10 +130,15 @@ class DrawCard extends StatelessWidget {
     // Get the random image and its corresponding text
     String selectedImage = cardImages[indices[selectedIndex % 22]];
     String selectedText = cardTexts[indices[selectedIndex % 22]];
-
+    
     return Scaffold(
       appBar: AppBar(
         title: Text("Your reading ..."),
+        actions: <Widget>[
+
+          FavoriteIconWidget()
+         
+        ],
       ),
       body: Center(
         child: Column(
@@ -146,4 +161,30 @@ class DrawCard extends StatelessWidget {
       ),
     );
   }
+  
+}
+
+class FavoriteIconWidget extends StatefulWidget {
+  @override
+  _FavoriteIconWidgetState createState() => _FavoriteIconWidgetState();
+}
+
+class _FavoriteIconWidgetState extends State<FavoriteIconWidget> {
+  bool _isFavorite = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: () {
+        setState(() {
+          _isFavorite = !_isFavorite;
+        });
+      },
+      icon: Icon(
+        _isFavorite ? Icons.favorite : Icons.favorite_border,
+        color: _isFavorite ? Colors.red : Colors.black,
+      ),
+    );
+  }
+
 }

@@ -15,6 +15,7 @@ class EducationPage extends StatelessWidget {
         ),
         backgroundColor: Colors.white,
         centerTitle: true,
+       
       ),
       body: ListView.builder(
         itemCount: 4, // Number of rows
@@ -54,8 +55,18 @@ class EducationPage extends StatelessWidget {
   }
 }
 
-class DrawCard extends StatelessWidget {
-  final List<String> cardImages = [
+  class DrawCard extends StatefulWidget {
+  final int selectedIndex; // Index of the selected card
+
+  DrawCard({required this.selectedIndex});
+
+  @override
+  _DrawCardState createState() => _DrawCardState(selectedIndex: 0);
+}
+
+class _DrawCardState extends State<DrawCard>{
+
+final List<String> cardImages = [
     'assets/DrawCards/card1.png',
     'assets/DrawCards/card2.png',
     'assets/DrawCards/card3.png',
@@ -104,9 +115,9 @@ class DrawCard extends StatelessWidget {
   'In education, the Judgment card symbolizes a period of awakening, renewal, and self-reflection. This card suggests that you may be undergoing a significant transformation in your educational journey. It could indicate a calling to reassess your academic path or to pursue new opportunities for learning and growth. Embrace this period of awakening as an opportunity to reflect on your goals, values, and aspirations in education. Trust in your inner wisdom and intuition to guide you towards the right path of study and exploration. Remember to be open to new perspectives and opportunities for growth, and to trust in the process of self-discovery and evolution in your educational pursuits.',
   'In education, The World card symbolizes completion, fulfillment, and mastery. This card suggests that you are reaching a significant milestone in your educational journey. It could indicate the successful completion of a course of study, attainment of a degree, or mastery of a particular subject or skill. Embrace this period of fulfillment as an opportunity to celebrate your achievements and acknowledge your growth and development. Trust in your abilities and knowledge to guide you towards future success and opportunities for continued learning and exploration. Remember to remain open to new experiences and challenges, and to approach your educational journey with curiosity and enthusiasm.'
 ];
-  final int selectedIndex; // Index of the selected card
-
-  DrawCard({required this.selectedIndex});
+  int selectedIndex = 0; // Index of the selected card
+  bool isFavorite = false;
+  _DrawCardState({required this.selectedIndex});
 
   @override
   Widget build(BuildContext context) {
@@ -117,10 +128,15 @@ class DrawCard extends StatelessWidget {
     // Get the random image and its corresponding text
     String selectedImage = cardImages[indices[selectedIndex % 22]];
     String selectedText = cardTexts[indices[selectedIndex % 22]];
-
+    
     return Scaffold(
       appBar: AppBar(
         title: Text("Your reading ..."),
+        actions: <Widget>[
+
+          FavoriteIconWidget()
+         
+        ],
       ),
       body: Center(
         child: Column(
@@ -143,4 +159,30 @@ class DrawCard extends StatelessWidget {
       ),
     );
   }
+  
+}
+
+class FavoriteIconWidget extends StatefulWidget {
+  @override
+  _FavoriteIconWidgetState createState() => _FavoriteIconWidgetState();
+}
+
+class _FavoriteIconWidgetState extends State<FavoriteIconWidget> {
+  bool _isFavorite = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: () {
+        setState(() {
+          _isFavorite = !_isFavorite;
+        });
+      },
+      icon: Icon(
+        _isFavorite ? Icons.favorite : Icons.favorite_border,
+        color: _isFavorite ? Colors.red : Colors.black,
+      ),
+    );
+  }
+  
 }
