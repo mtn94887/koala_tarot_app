@@ -3,7 +3,9 @@ import 'dart:math';
 
 class HealthPage extends StatelessWidget {
   final List<String> cardImages = List.generate(
-      22, (index) => 'assets/DrawCards/card${index + 1}.png'); // List of 20 card images
+      22,
+      (index) =>
+          'assets/DrawCards/card${index + 1}.png'); // List of 20 card images
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +42,7 @@ class HealthPage extends StatelessWidget {
                     },
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width * 0.15,
-                      child: Image.asset('assets/card1.png'),
+                      child: Image.asset('assets/pinkcover.png'),
                       //child: Image.asset(cardImages[index]),
                     ),
                   );

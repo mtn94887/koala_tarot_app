@@ -40,7 +40,7 @@ class EducationPage extends StatelessWidget {
                     },
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width * 0.15,
-                      child: Image.asset('assets/card1.png'),
+                      child: Image.asset('assets/pinkcover.png'),
                       //child: Image.asset(cardImages[index]),
                     ),
                   );
