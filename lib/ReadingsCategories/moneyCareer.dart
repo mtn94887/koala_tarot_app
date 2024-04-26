@@ -54,8 +54,17 @@ class MoneyCareerPage extends StatelessWidget {
   }
 }
 
-class DrawCard extends StatelessWidget {
-  final List<String> cardImages = [
+  class DrawCard extends StatefulWidget {
+  final int selectedIndex; // Index of the selected card
+
+  DrawCard({required this.selectedIndex});
+
+  @override
+  _DrawCardState createState() => _DrawCardState(selectedIndex: 0);
+}
+
+class _DrawCardState extends State<DrawCard>{
+final List<String> cardImages = [
     'assets/DrawCards/card1.png',
     'assets/DrawCards/card2.png',
     'assets/DrawCards/card3.png',
@@ -103,11 +112,11 @@ class DrawCard extends StatelessWidget {
     'In the realm of finances, The Sun card signifies abundance, prosperity, and success. This card suggests that you are experiencing a period of financial stability and growth. Embrace this time as an opportunity to celebrate your achievements and to continue building a solid foundation for financial success. Trust in the power of abundance and prosperity to flow into your life effortlessly. Remember to stay positive and optimistic about your financial goals and aspirations, and to trust in your ability to attract wealth and success. Trust that the light of financial abundance will continue to shine brightly in your life, bringing prosperity and success to your endeavors.',
     'In the realm of finances, the Judgment card signifies a period of financial awakening, clarity, and empowerment. This card suggests that you may be experiencing a time of evaluation and reassessment in your financial situation. It could indicate a need to let go of old beliefs or patterns that are limiting your financial success, and to embrace new opportunities for abundance and prosperity. Embrace this period of awakening as an opportunity to take stock of your financial goals and aspirations, and to make empowered choices that align with your values and priorities. Trust in your ability to attract wealth and success, and to create a solid foundation for financial abundance and security. Remember to approach your finances with clarity, confidence, and integrity, and to trust in the process of financial evolution and growth.',
     'In the realm of finances, The World card signifies success, abundance, and prosperity. This card suggests that you are experiencing a period of financial fulfillment and achievement. It could indicate the successful completion of a financial goal or the attainment of a level of financial security and stability. Embrace this time as an opportunity to celebrate your achievements and acknowledge your abundance and prosperity. Trust in the power of abundance and prosperity to flow into your life effortlessly. Remember to continue making wise financial decisions and to trust in your ability to attract wealth and success in the future.'
-  ]; // List of 22 card texts
+  ];
 
-  final int selectedIndex; // Index of the selected card
-
-  DrawCard({required this.selectedIndex});
+  int selectedIndex = 0; // Index of the selected card
+  bool isFavorite = false;
+  _DrawCardState({required this.selectedIndex});
 
   @override
   Widget build(BuildContext context) {
@@ -118,10 +127,15 @@ class DrawCard extends StatelessWidget {
     // Get the random image and its corresponding text
     String selectedImage = cardImages[indices[selectedIndex % 22]];
     String selectedText = cardTexts[indices[selectedIndex % 22]];
-
+    
     return Scaffold(
       appBar: AppBar(
         title: Text("Your reading ..."),
+        actions: <Widget>[
+
+          FavoriteIconWidget()
+         
+        ],
       ),
       body: Center(
         child: Column(
@@ -141,6 +155,31 @@ class DrawCard extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+  
+}
+
+class FavoriteIconWidget extends StatefulWidget {
+  @override
+  _FavoriteIconWidgetState createState() => _FavoriteIconWidgetState();
+}
+
+class _FavoriteIconWidgetState extends State<FavoriteIconWidget> {
+  bool _isFavorite = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: () {
+        setState(() {
+          _isFavorite = !_isFavorite;
+        });
+      },
+      icon: Icon(
+        _isFavorite ? Icons.favorite : Icons.favorite_border,
+        color: _isFavorite ? Colors.red : Colors.black,
       ),
     );
   }
