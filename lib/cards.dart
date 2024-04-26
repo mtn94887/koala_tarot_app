@@ -176,7 +176,7 @@ body: SingleChildScrollView(
             child: Container(
               height: 200,
               width: 130,
-              child: Image.asset('assets/the-heirophant.png'),
+              child: Image.asset('assets/the-hierophant.png'),
             ),
           ),
         ],
