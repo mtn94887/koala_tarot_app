@@ -27,21 +27,20 @@ class FavoriteReadings extends ChangeNotifier {
     await _addFavoriteToFirestore(reading); // Call the static method
   }
 
-
-  // Function to retrieve favorites from Firestore
-  Future<void> fetchFavoritesFromFirestore() async {
-    try {
-      final favoritesSnapshot =
-          await FirebaseFirestore.instance.collection('users').get();
-      _favorites.clear();
-      for (var doc in favoritesSnapshot.docs) {
-        _favorites.add(doc['text']);
-      }
-      notifyListeners();
-    } catch (e) {
-      print('Error fetching favorites: $e');
-    }
-  }
+  // // Function to retrieve favorites from Firestore
+  // Future<void> fetchFavoritesFromFirestore() async {
+  //   try {
+  //     final favoritesSnapshot =
+  //         await FirebaseFirestore.instance.collection('users').get();
+  //     _favorites.clear();
+  //     for (var doc in favoritesSnapshot.docs) {
+  //       _favorites.add(doc['text']);
+  //     }
+  //     notifyListeners();
+  //   } catch (e) {
+  //     print('Error fetching favorites: $e');
+  //   }
+  // }
 
   // Static method to add a favorite to Firestore
   static Future<void> _addFavoriteToFirestore(String text) async {

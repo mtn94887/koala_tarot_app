@@ -67,11 +67,10 @@ class _SignupPageState extends State<SignupPage> {
     });
 
     // Create a 'favorites' subcollection for the user
-    await FirebaseFirestore.instance.collection('users').doc(documentId).collection('favorites').add({
+    await FirebaseFirestore.instance.collection('users').doc(documentId).collection('favorites').doc().set({
     // You can initialize any default values for the favorites collection here
     // For example:
-    
-  });
+    });
   }
 
 
