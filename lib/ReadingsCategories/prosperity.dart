@@ -58,8 +58,18 @@ class ProsperityPage extends StatelessWidget {
   }
 }
 
-class DrawCard extends StatelessWidget {
-  final List<String> cardImages = [
+  class DrawCard extends StatefulWidget {
+  final int selectedIndex; // Index of the selected card
+
+  DrawCard({required this.selectedIndex});
+
+  @override
+  _DrawCardState createState() => _DrawCardState(selectedIndex: 0);
+}
+
+class _DrawCardState extends State<DrawCard>{
+
+final List<String> cardImages = [
     'assets/DrawCards/card1.png',
     'assets/DrawCards/card2.png',
     'assets/DrawCards/card3.png',
@@ -107,11 +117,10 @@ class DrawCard extends StatelessWidget {
     'Bask in the abundance and prosperity that comes from aligning with your highest purpose. Embrace joy and gratitude for your financial blessings.',
     'Reflect on past financial decisions and learn from your experiences. Embrace a sense of accountability and empowerment as you move towards greater prosperity.',
     'Celebrate your financial achievements and success. Embrace a sense of fulfillment and completion as you continue to expand your prosperity consciousness.'
-  ]; // List of 22 card texts
-
-  final int selectedIndex; // Index of the selected card
-
-  DrawCard({required this.selectedIndex});
+  ];
+  int selectedIndex = 0; // Index of the selected card
+  bool isFavorite = false;
+  _DrawCardState({required this.selectedIndex});
 
   @override
   Widget build(BuildContext context) {
@@ -122,20 +131,17 @@ class DrawCard extends StatelessWidget {
     // Get the random image and its corresponding text
     String selectedImage = cardImages[indices[selectedIndex % 22]];
     String selectedText = cardTexts[indices[selectedIndex % 22]];
-
+    
     return Scaffold(
+      
       appBar: AppBar(
         title: Text("Your reading ..."),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.favorite_border),
-            onPressed: () {
-              // Handle favorite button press here
-              Provider.of<FavoriteReadings>(context, listen: false)
-                  .addToFavorites(selectedText);
-            },
-          ),
+        actions: <Widget>[
+
+          FavoriteIconWidget(selectedText : selectedText),
+          
         ],
+        
       ),
       body: Center(
         child: Column(
@@ -158,5 +164,41 @@ class DrawCard extends StatelessWidget {
       ),
     );
   }
+  
+}
+
+class FavoriteIconWidget extends StatefulWidget {
+
+  final String selectedText;
+
+  FavoriteIconWidget({required this.selectedText});
+
+  @override
+  _FavoriteIconWidgetState createState() => _FavoriteIconWidgetState(selectedText);
+}
+
+class _FavoriteIconWidgetState extends State<FavoriteIconWidget> {
+  bool _isFavorite = false;
+  final String _selectedText;
+
+  _FavoriteIconWidgetState(this._selectedText);
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: () {
+        
+        setState(() {
+          _isFavorite = !_isFavorite;
+        });
+        Provider.of<FavoriteReadings>(context , listen: false).addToFavorites(_selectedText);
+      },
+      icon: Icon(
+        _isFavorite ? Icons.favorite : Icons.favorite_border,
+        color: _isFavorite ? Colors.red : Colors.black,
+      ),
+    );
+  }
+
 }
 

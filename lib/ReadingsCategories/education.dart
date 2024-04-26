@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
+import 'package:koala_tarot_app/FavoriteReadings.dart';
+import 'package:provider/provider.dart';
+
 class EducationPage extends StatelessWidget {
   final List<String> cardImages = List.generate(
       22, (index) => 'assets/DrawCards/card${index + 1}.png'); // List of 20 card images
@@ -130,13 +133,15 @@ final List<String> cardImages = [
     String selectedText = cardTexts[indices[selectedIndex % 22]];
     
     return Scaffold(
+      
       appBar: AppBar(
         title: Text("Your reading ..."),
         actions: <Widget>[
 
-          FavoriteIconWidget()
-         
+          FavoriteIconWidget(selectedText : selectedText),
+          
         ],
+        
       ),
       body: Center(
         child: Column(
@@ -163,20 +168,30 @@ final List<String> cardImages = [
 }
 
 class FavoriteIconWidget extends StatefulWidget {
+
+  final String selectedText;
+
+  FavoriteIconWidget({required this.selectedText});
+
   @override
-  _FavoriteIconWidgetState createState() => _FavoriteIconWidgetState();
+  _FavoriteIconWidgetState createState() => _FavoriteIconWidgetState(selectedText);
 }
 
 class _FavoriteIconWidgetState extends State<FavoriteIconWidget> {
   bool _isFavorite = false;
+  final String _selectedText;
+
+  _FavoriteIconWidgetState(this._selectedText);
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {
+        
         setState(() {
           _isFavorite = !_isFavorite;
         });
+        Provider.of<FavoriteReadings>(context , listen: false).addToFavorites(_selectedText);
       },
       icon: Icon(
         _isFavorite ? Icons.favorite : Icons.favorite_border,
@@ -184,5 +199,5 @@ class _FavoriteIconWidgetState extends State<FavoriteIconWidget> {
       ),
     );
   }
-  
+
 }
