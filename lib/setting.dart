@@ -30,7 +30,6 @@ class _SettingScreenState extends State<SettingScreen> {
   // }
 
   void signOut() {
-    FirebaseAuth.instance.signOut();
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -47,6 +46,7 @@ class _SettingScreenState extends State<SettingScreen> {
             TextButton(
               child: Text("Yes"),
               onPressed: () {
+                FirebaseAuth.instance.signOut();
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => AuthPage()),
