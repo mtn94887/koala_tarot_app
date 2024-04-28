@@ -113,48 +113,89 @@ class _SettingScreenState extends State<SettingScreen> {
             child: ListView(
               padding: EdgeInsets.all(20.0),
               children: [
-                ListTile(
-                  title: Text('Signed in as ' + user.email!),
-                ),
-                ListTile(
-                  title: Text('About Tarot'),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => PurposePage()),
-                    );
-                  },
-                ),
-                ListTile(
-                  title: Text('Terms of Service'),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => TermsScreen()),
-                    );
-                  },
-                ),
-                ListTile(
-                  title: Text('Privacy Policy'),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => PrivacyScreen()),
-                    );
-                  },
-                ),
-                ListTile(
-                  title: Text('Logout'),
-                  onTap: signOut,
-                ),
-                ListTile(
-                  title: Text(
-                    'Delete Account',
-                    style: TextStyle(color: Colors.red),
+                Container(
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 189, 152, 241),
+                    borderRadius: BorderRadius.circular(20.0),
                   ),
-                  onTap: () {
-                    _deleteAccount();
-                  },
+                  child: ListTile(
+                    title: Text('Signed in as ' + user.email!),
+                  ),
+                ),
+                SizedBox(height: 10),
+                Container(
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 189, 152, 241),
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  child: ListTile(
+                    title: Text('About Tarot'),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => PurposePage()),
+                      );
+                    },
+                  ),
+                ),
+                SizedBox(height: 10),
+                Container(
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 189, 152, 241),
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  child: ListTile(
+                    title: Text('Terms of Service'),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => TermsScreen()),
+                      );
+                    },
+                  ),
+                ),
+                SizedBox(height: 10),
+                Container(
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 189, 152, 241),
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  child: ListTile(
+                    title: Text('Privacy Policy'),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => PrivacyScreen()),
+                      );
+                    },
+                  ),
+                ),
+                SizedBox(height: 10),
+                Container(
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 189, 152, 241),
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  child: ListTile(
+                    title: Text('Logout'),
+                    onTap: signOut,
+                  ),
+                ),
+                SizedBox(height: 10),
+                Container(
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 189, 152, 241),
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  child: ListTile(
+                    title: Text(
+                      'Delete Account',
+                      style: TextStyle(color: Color.fromARGB(255, 255, 57, 57)),
+                    ),
+                    onTap: () {
+                      _deleteAccount();
+                    },
+                  ),
                 ),
               ],
             ),
@@ -168,6 +209,7 @@ class _SettingScreenState extends State<SettingScreen> {
           ),
         ],
       ),
+
     );
   }
 }
