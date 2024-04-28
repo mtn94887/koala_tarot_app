@@ -10,7 +10,7 @@ class GetFavoriteReading extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
 
-    //get the collection 
+    
     String docId = FirebaseAuth.instance.currentUser?.uid??'';
     CollectionReference users = FirebaseFirestore.instance.collection('users').doc(docId).collection('favorites'); 
 

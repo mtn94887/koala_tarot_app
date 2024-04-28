@@ -80,7 +80,7 @@ class BackgroundPage extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                            height: 8), // Adjust spacing between paragraphs
+                            height: 8),
                         Text(
                           '• The basic knowledge of Tarot: There are'
                           '78 traditional tarot cards, which are divided into two parts.'
@@ -92,7 +92,7 @@ class BackgroundPage extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                            height: 8), // Adjust spacing between paragraphs
+                            height: 8),  
                         Text(
                           '• The second part is a deck of 56 cards'
                           'called Minor Arcana, which means “little secret”. The minor cards'

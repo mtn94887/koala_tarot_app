@@ -19,7 +19,7 @@ class _MeditationPageState extends State<MeditationPage> {
 
   @override
   void dispose() {
-    _audioPlayer.stop(); // Stop the audio player when the page is disposed
+    _audioPlayer.stop();  
     super.dispose();
   }
 
@@ -64,7 +64,7 @@ class _MeditationPageState extends State<MeditationPage> {
         actions: <Widget>[
           IconButton(
             onPressed: () {
-              _stopMusic(); // Stop music when settings button is pressed
+              _stopMusic(); 
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => SettingScreen()),
@@ -151,7 +151,7 @@ class _MeditationPageState extends State<MeditationPage> {
             const SizedBox(height: 20),
             GestureDetector(
               onTap: () {
-                _stopMusic(); // Stop music when "Choose relaxation music" button is pressed
+                _stopMusic(); 
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => Music()),
@@ -196,8 +196,4 @@ class _MeditationPageState extends State<MeditationPage> {
   }
 }
 
-void main() {
-  runApp(MaterialApp(
-    home: MeditationPage(),
-  ));
-}
+

@@ -11,7 +11,7 @@ import 'package:koala_tarot_app/home.dart';
 import 'package:koala_tarot_app/meditationpage.dart';
 import 'package:koala_tarot_app/tarot_favorite_page.dart';
 
-//SETTING CODE
+ 
 class SettingScreen extends StatefulWidget {
   @override
   _SettingScreenState createState() => _SettingScreenState();
@@ -20,14 +20,6 @@ class SettingScreen extends StatefulWidget {
 class _SettingScreenState extends State<SettingScreen> {
   final user = FirebaseAuth.instance.currentUser!;
   String appVersion = '1.0.0';
-
-  // void signOut() {
-  //   FirebaseAuth.instance.signOut();
-  //   Navigator.push(
-  //     context,
-  //     MaterialPageRoute(builder: (context) => AuthPage()),
-  //   );
-  // }
 
   void signOut() {
     showDialog(
@@ -70,7 +62,7 @@ class _SettingScreenState extends State<SettingScreen> {
             TextButton(
               child: Text("No"),
               onPressed: () {
-                Navigator.of(context).pop(); // Close the dialog
+                Navigator.of(context).pop();  
               },
             ),
             TextButton(

@@ -87,8 +87,4 @@ class PrivacyScreen extends StatelessWidget {
   }
 }
 
-void main() {
-  runApp(MaterialApp(
-    home: PrivacyScreen(),
-  ));
-}
+

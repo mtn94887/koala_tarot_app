@@ -25,7 +25,7 @@ class TarotApp extends StatelessWidget {
   }
 }
 
-//TAROT RADING PAGE STARTS HERE....
+ 
 class TarotHomePage extends StatefulWidget {
   @override
   _TarotHomePageState createState() => _TarotHomePageState();
@@ -41,7 +41,7 @@ class _TarotHomePageState extends State<TarotHomePage> {
       appBar: AppBar(
         title: Text(
           "Choose the category",
-          //style: TextStyle(color: Colors.black),
+           
           style: TextStyle(
             fontSize: 23, 
             fontFamily: 'Pacifico',
@@ -50,7 +50,7 @@ class _TarotHomePageState extends State<TarotHomePage> {
         ),
         backgroundColor: Color(0xFF7D5AAD),
         centerTitle: true,
-        automaticallyImplyLeading: false, // Remove back arrow button
+        automaticallyImplyLeading: false, 
         actions: <Widget>[
           IconButton(
             onPressed: () {
@@ -66,7 +66,7 @@ class _TarotHomePageState extends State<TarotHomePage> {
       ),
 
       
-      //each category box 
+       
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -102,7 +102,7 @@ class _TarotHomePageState extends State<TarotHomePage> {
   }
 }
 
-//for education box ...................................
+ 
 class Education extends StatelessWidget{
   final String name; 
   final IconData iconData; 
@@ -113,7 +113,7 @@ class Education extends StatelessWidget{
   Widget build(BuildContext context){
     return GestureDetector(
       onTap: () {
-        // Navigate to the TarotCardPage
+         
         Navigator.push(
           context,
           MaterialPageRoute(
@@ -143,7 +143,6 @@ class Education extends StatelessWidget{
   }
 }
 
-//for relationship box ...................................
 class Relationship extends StatelessWidget{
   final String name; 
   final IconData iconData; 
@@ -154,8 +153,7 @@ class Relationship extends StatelessWidget{
   Widget build(BuildContext context){
     return GestureDetector(
       onTap: () {
-        // Navigate to the TarotCardPage
-        Navigator.push(
+         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => RelationshipPage(),
@@ -185,7 +183,6 @@ class Relationship extends StatelessWidget{
 }
 
 
-//for health box ...................................
 class Health extends StatelessWidget{
   final String name; 
   final IconData iconData; 
@@ -196,8 +193,7 @@ class Health extends StatelessWidget{
   Widget build(BuildContext context){
     return GestureDetector(
       onTap: () {
-        // Navigate to the TarotCardPage
-        Navigator.push(
+         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => HealthPage(),
@@ -227,7 +223,6 @@ class Health extends StatelessWidget{
 }
 
 
-//for yes no box ...................................
 class YesNo extends StatelessWidget{
   final String name; 
   final IconData iconData; 
@@ -238,8 +233,7 @@ class YesNo extends StatelessWidget{
   Widget build(BuildContext context){
     return GestureDetector(
       onTap: () {
-        // Navigate to the TarotCardPage
-        Navigator.push(
+         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => YesNoPage(),
@@ -268,7 +262,6 @@ class YesNo extends StatelessWidget{
   }
 }
 
-//for daily reading box ...................................
 class DailyReading extends StatelessWidget{
   final String name; 
   final IconData iconData; 
@@ -279,8 +272,7 @@ class DailyReading extends StatelessWidget{
   Widget build(BuildContext context){
     return GestureDetector(
       onTap: () {
-        // Navigate to the TarotCardPage
-        Navigator.push(
+         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => DailyReadingPage(),
@@ -309,7 +301,6 @@ class DailyReading extends StatelessWidget{
   }
 }
 
-//for weekly reading box ...................................
 class WeeklyReading extends StatelessWidget{
   final String name; 
   final IconData iconData; 
@@ -320,8 +311,7 @@ class WeeklyReading extends StatelessWidget{
   Widget build(BuildContext context){
     return GestureDetector(
       onTap: () {
-        // Navigate to the TarotCardPage
-        Navigator.push(
+         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => WeeklyReadingPage(),
@@ -350,7 +340,6 @@ class WeeklyReading extends StatelessWidget{
   }
 }
 
-//for quick reading box ...................................
 class QuickReading extends StatelessWidget{
   final String name; 
   final IconData iconData; 
@@ -361,8 +350,7 @@ class QuickReading extends StatelessWidget{
   Widget build(BuildContext context){
     return GestureDetector(
       onTap: () {
-        // Navigate to the TarotCardPage
-        Navigator.push(
+         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => QuickReadingPage(),
@@ -391,7 +379,6 @@ class QuickReading extends StatelessWidget{
   }
 }
 
-//for social reading box ...................................
 class SocialReading extends StatelessWidget{
   final String name; 
   final IconData iconData; 
@@ -402,8 +389,7 @@ class SocialReading extends StatelessWidget{
   Widget build(BuildContext context){
     return GestureDetector(
       onTap: () {
-        // Navigate to the TarotCardPage
-        Navigator.push(
+         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => SocialReadingPage(),
@@ -432,7 +418,6 @@ class SocialReading extends StatelessWidget{
   }
 }
 
-//for new love box ...................................
 class NewLove extends StatelessWidget{
   final String name; 
   final IconData iconData; 
@@ -443,8 +428,7 @@ class NewLove extends StatelessWidget{
   Widget build(BuildContext context){
     return GestureDetector(
       onTap: () {
-        // Navigate to the TarotCardPage
-        Navigator.push(
+         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => NewLovePage(),
@@ -473,7 +457,6 @@ class NewLove extends StatelessWidget{
   }
 }
 
-//for prosperly box ...................................
 class Prosperity extends StatelessWidget{
   final String name; 
   final IconData iconData; 
@@ -484,8 +467,7 @@ class Prosperity extends StatelessWidget{
   Widget build(BuildContext context){
     return GestureDetector(
       onTap: () {
-        // Navigate to the TarotCardPage
-        Navigator.push(
+         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => ProsperityPage(),
@@ -514,7 +496,6 @@ class Prosperity extends StatelessWidget{
   }
 }
 
-//for money career box ...................................
 class MoneyCareer extends StatelessWidget{
   final String name; 
   final IconData iconData; 
@@ -525,8 +506,7 @@ class MoneyCareer extends StatelessWidget{
   Widget build(BuildContext context){
     return GestureDetector(
       onTap: () {
-        // Navigate to the TarotCardPage
-        Navigator.push(
+         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => MoneyCareerPage(),
@@ -555,7 +535,6 @@ class MoneyCareer extends StatelessWidget{
   }
 }
 
-//for background problem solution box ...................................
 class BgProblemSol extends StatelessWidget{
   final String name; 
   final IconData iconData; 
@@ -566,8 +545,7 @@ class BgProblemSol extends StatelessWidget{
   Widget build(BuildContext context){
     return GestureDetector(
       onTap: () {
-        // Navigate to the TarotCardPage
-        Navigator.push(
+         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => BgProblemSolPage(),

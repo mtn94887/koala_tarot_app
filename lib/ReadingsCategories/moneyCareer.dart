@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 
 class MoneyCareerPage extends StatelessWidget {
   final List<String> cardImages = List.generate(
-      22, (index) => 'assets/DrawCards/card${index + 1}.png'); // List of 20 card images
+      22, (index) => 'assets/DrawCards/card${index + 1}.png');  
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +21,14 @@ class MoneyCareerPage extends StatelessWidget {
        
       ),
       body: ListView.builder(
-        itemCount: 4, // Number of rows
+        itemCount: 4,  
         itemBuilder: (BuildContext context, int rowIndex) {
           return Container(
             margin: EdgeInsets.symmetric(vertical: 10.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: List.generate(
-                5, // Number of cards per row
+                5,  
                 (int columnIndex) {
                   int index = rowIndex * 5 + columnIndex;
                   return GestureDetector(
@@ -45,7 +45,7 @@ class MoneyCareerPage extends StatelessWidget {
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width * 0.15,
                       child: Image.asset('assets/pinkcover.png'),
-                      //child: Image.asset(cardImages[index]),
+                      
                     ),
                   );
                 },
@@ -59,7 +59,7 @@ class MoneyCareerPage extends StatelessWidget {
 }
 
   class DrawCard extends StatefulWidget {
-  final int selectedIndex; // Index of the selected card
+  final int selectedIndex;  
 
   DrawCard({required this.selectedIndex});
 
@@ -92,7 +92,7 @@ final List<String> cardImages = [
     'assets/DrawCards/card20.png',
     'assets/DrawCards/card21.png',
     'assets/DrawCards/card22.png'
-  ]; // List of 22 card images
+  ];  
 
   final List<String> cardTexts = [
     'In the realm of finances, The Fool indicates a need to take a leap of faith and trust in the universe to provide for your financial needs. This card suggests that you may be at the beginning of a new financial journey, one that requires you to embrace a sense of adventure and spontaneity when it comes to your finances. Be open to new opportunities for earning and investing money, but also be mindful of the risks involved. Trust your instincts and do not be afraid to take calculated risks in pursuit of financial freedom and abundance.',
@@ -119,18 +119,17 @@ final List<String> cardImages = [
     'In the realm of finances, The World card signifies success, abundance, and prosperity. This card suggests that you are experiencing a period of financial fulfilment and achievement. It could indicate the successful completion of a financial goal or the attainment of a level of financial security and stability. Embrace this time as an opportunity to celebrate your achievements and acknowledge your abundance and prosperity. Trust in the power of abundance and prosperity to flow into your life effortlessly. Remember to continue making wise financial decisions and to trust in your ability to attract wealth and success in the future.'
   ];
 
- int selectedIndex = 0; // Index of the selected card
+ int selectedIndex = 0;  
   bool isFavorite = false;
   _DrawCardState({required this.selectedIndex});
 
   @override
   Widget build(BuildContext context) {
-    // Shuffle the indices to get random images and texts
+     
     List<int> indices = List.generate(22, (index) => index);
     indices.shuffle();
 
-    // Get the random image and its corresponding text
-    String selectedImage = cardImages[indices[selectedIndex % 22]];
+     String selectedImage = cardImages[indices[selectedIndex % 22]];
     String selectedText = cardTexts[indices[selectedIndex % 22]];
     
     return Scaffold(
@@ -150,12 +149,12 @@ final List<String> cardImages = [
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                width: 350, // specify width
-                height: 350, // specify height
+                width: 350,  
+                height: 350,  
                 child: Image.asset(selectedImage),
               ),
               Padding(
-                padding: EdgeInsets.all(30.0), // adjust the padding as needed
+                padding: EdgeInsets.all(30.0),  
                 child: Text(
                   selectedText,
                   textAlign: TextAlign.center,

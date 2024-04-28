@@ -19,21 +19,21 @@ class _cardsState extends State<Cards> {
 
     switch (index) {
       case 0:
-        // Navigate to TarotHomePage if Spreads icon is tapped
+         
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => TarotHomePage()),
         );
         break;
       case 1:
-        // Navigate to TarotHistoryPage if History icon is tapped
+         
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => tarotfavoritepage()),
         );
         break;
       case 2:
-        // Navigate to MeditationPage if Meditation icon is tapped
+         
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => MeditationPage()),
@@ -92,7 +92,6 @@ body: SingleChildScrollView(
         children: [
           GestureDetector(
             onTap: () {
-              // Navigate to the second page
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => TheFool()),
@@ -106,7 +105,6 @@ body: SingleChildScrollView(
           ),
           GestureDetector(
             onTap: () {
-              // Navigate to the second page
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => TheMagician()),
@@ -120,7 +118,6 @@ body: SingleChildScrollView(
           ),
           GestureDetector(
             onTap: () {
-              // Navigate to the second page
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => TheHighPriestess()),
@@ -139,7 +136,6 @@ body: SingleChildScrollView(
         children: [
           GestureDetector(
             onTap: () {
-              // Navigate to the second page
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => TheEmpress()),
@@ -153,7 +149,6 @@ body: SingleChildScrollView(
           ),
           GestureDetector(
             onTap: () {
-              // Navigate to the second page
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => TheEmperor()),
@@ -167,7 +162,6 @@ body: SingleChildScrollView(
           ),
           GestureDetector(
             onTap: () {
-              // Navigate to the second page
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => TheHierophant()),
@@ -186,7 +180,6 @@ body: SingleChildScrollView(
         children: [
           GestureDetector(
             onTap: () {
-              // Navigate to the second page
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => TheLovers()),
@@ -200,7 +193,6 @@ body: SingleChildScrollView(
           ),
           GestureDetector(
             onTap: () {
-              // Navigate to the second page
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => TheChariot()),
@@ -214,7 +206,6 @@ body: SingleChildScrollView(
           ),
           GestureDetector(
             onTap: () {
-              // Navigate to the second page
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Strength()),
@@ -232,8 +223,7 @@ body: SingleChildScrollView(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           GestureDetector(
-            onTap: () {
-              // Navigate to the second page
+            onTap: () {  
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => TheHermit()),
@@ -247,7 +237,6 @@ body: SingleChildScrollView(
           ),
           GestureDetector(
             onTap: () {
-              // Navigate to the second page
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => WheelOfFortune()),
@@ -261,7 +250,6 @@ body: SingleChildScrollView(
           ),
           GestureDetector(
             onTap: () {
-              // Navigate to the second page
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Justice()),
@@ -280,7 +268,6 @@ body: SingleChildScrollView(
         children: [
           GestureDetector(
             onTap: () {
-              // Navigate to the second page
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => TheHangedMan()),
@@ -294,7 +281,6 @@ body: SingleChildScrollView(
           ),
           GestureDetector(
             onTap: () {
-              // Navigate to the second page
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Death()),
@@ -308,7 +294,6 @@ body: SingleChildScrollView(
           ),
           GestureDetector(
             onTap: () {
-              // Navigate to the second page
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Temperance()),
@@ -327,7 +312,6 @@ body: SingleChildScrollView(
         children: [
           GestureDetector(
             onTap: () {
-              // Navigate to the second page
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => TheDevil()),
@@ -341,7 +325,6 @@ body: SingleChildScrollView(
           ),
           GestureDetector(
             onTap: () {
-              // Navigate to the second page
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => TheTower()),
@@ -355,7 +338,6 @@ body: SingleChildScrollView(
           ),
           GestureDetector(
             onTap: () {
-              // Navigate to the second page
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => TheStar()),
@@ -374,7 +356,6 @@ body: SingleChildScrollView(
         children: [
           GestureDetector(
             onTap: () {
-              // Navigate to the second page
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => TheMoon()),
@@ -388,7 +369,6 @@ body: SingleChildScrollView(
           ),
           GestureDetector(
             onTap: () {
-              // Navigate to the second page
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => TheSun()),
@@ -402,7 +382,6 @@ body: SingleChildScrollView(
           ),
           GestureDetector(
             onTap: () {
-              // Navigate to the second page
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Judgement()),
@@ -421,7 +400,6 @@ body: SingleChildScrollView(
         children: [
           GestureDetector(
             onTap: () {
-              // Navigate to the second page
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => TheWorld()),
@@ -432,7 +410,7 @@ body: SingleChildScrollView(
               width: 130,
               child: Image.asset('assets/the-world.png'),
             ),
-          ),                   
+          ),
         ],
       ),
      

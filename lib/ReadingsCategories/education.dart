@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 
 class EducationPage extends StatelessWidget {
   final List<String> cardImages = List.generate(
-      22, (index) => 'assets/DrawCards/card${index + 1}.png'); // List of 20 card images
+      22, (index) => 'assets/DrawCards/card${index + 1}.png'); 
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +21,14 @@ class EducationPage extends StatelessWidget {
        
       ),
       body: ListView.builder(
-        itemCount: 4, // Number of rows
+        itemCount: 4, 
         itemBuilder: (BuildContext context, int rowIndex) {
           return Container(
             margin: EdgeInsets.symmetric(vertical: 10.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: List.generate(
-                5, // Number of cards per row
+                5, 
                 (int columnIndex) {
                   int index = rowIndex * 5 + columnIndex;
                   return GestureDetector(
@@ -45,7 +45,7 @@ class EducationPage extends StatelessWidget {
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width * 0.15,
                       child: Image.asset('assets/pinkcover.png'),
-                      //child: Image.asset(cardImages[index]),
+                     
                     ),
                   );
                 },
@@ -59,7 +59,7 @@ class EducationPage extends StatelessWidget {
 }
 
   class DrawCard extends StatefulWidget {
-  final int selectedIndex; // Index of the selected card
+  final int selectedIndex; 
 
   DrawCard({required this.selectedIndex});
 
@@ -92,7 +92,7 @@ final List<String> cardImages = [
     'assets/DrawCards/card20.png',
     'assets/DrawCards/card21.png',
     'assets/DrawCards/card22.png'
-  ]; // List of 22 card images
+  ]; 
 
   final List<String> cardTexts = [
   'In education, The Fool signifies a journey of exploration and discovery. It suggests that you may be embarking on a new path or learning experience without preconceived notions or expectations. Embrace a curious and open-minded approach to your studies. Be willing to take risks, try new things, and learn from your mistakes. Remember to stay present in the moment and enjoy the process of learning for its own sake.',
@@ -118,17 +118,17 @@ final List<String> cardImages = [
   'In education, the Judgment card symbolizes a period of awakening, renewal, and self-reflection. This card suggests that you may be undergoing a significant transformation in your educational journey. It could indicate a calling to reassess your academic path or to pursue new opportunities for learning and growth. Embrace this period of awakening as an opportunity to reflect on your goals, values, and aspirations in education. Trust in your inner wisdom and intuition to guide you towards the right path of study and exploration. Remember to be open to new perspectives and opportunities for growth, and to trust in the process of self-discovery and evolution in your educational pursuits.',
   'In education, The World card symbolizes completion, fulfillment, and mastery. This card suggests that you are reaching a significant milestone in your educational journey. It could indicate the successful completion of a course of study, attainment of a degree, or mastery of a particular subject or skill. Embrace this period of fulfillment as an opportunity to celebrate your achievements and acknowledge your growth and development. Trust in your abilities and knowledge to guide you towards future success and opportunities for continued learning and exploration. Remember to remain open to new experiences and challenges, and to approach your educational journey with curiosity and enthusiasm.'
 ];
-  int selectedIndex = 0; // Index of the selected card
+  int selectedIndex = 0; 
   bool isFavorite = false;
   _DrawCardState({required this.selectedIndex});
 
   @override
   Widget build(BuildContext context) {
-    // Shuffle the indices to get random images and texts
+    
     List<int> indices = List.generate(22, (index) => index);
     indices.shuffle();
 
-    // Get the random image and its corresponding text
+    
     String selectedImage = cardImages[indices[selectedIndex % 22]];
     String selectedText = cardTexts[indices[selectedIndex % 22]];
     
@@ -149,12 +149,12 @@ final List<String> cardImages = [
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                width: 350, // specify width
-                height: 350, // specify height
+                width: 350, 
+                height: 350, 
                 child: Image.asset(selectedImage),
               ),
               Padding(
-                padding: EdgeInsets.all(30.0), // adjust the padding as needed
+                padding: EdgeInsets.all(30.0), 
                 child: Text(
                   selectedText,
                   textAlign: TextAlign.center,

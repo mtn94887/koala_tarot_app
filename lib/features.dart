@@ -78,7 +78,7 @@ class FeaturesPage extends StatelessWidget {
                       fontWeight: FontWeight.normal,
                     ),
                     onPressed: () {
-                      // Show popup message for History
+                       
                       showDialog(
                         context: context,
                         builder: (BuildContext context) {
@@ -116,7 +116,7 @@ class FeaturesPage extends StatelessWidget {
                       );
                     },
                   ),
-                  SizedBox(height: 20), // Add space between buttons
+                  SizedBox(height: 20), 
                   FeatureButton(
                     text: 'Meditation',
                     textStyle: TextStyle(
@@ -124,7 +124,7 @@ class FeaturesPage extends StatelessWidget {
                       fontWeight: FontWeight.normal,
                     ),
                     onPressed: () {
-                      // Show popup message for Meditation
+                      
                       showDialog(
                         context: context,
                         builder: (BuildContext context) {
@@ -162,7 +162,7 @@ class FeaturesPage extends StatelessWidget {
                       );
                     },
                   ),
-                  SizedBox(height: 20), // Add space between buttons
+                  SizedBox(height: 20), 
                   FeatureButton(
                     text: 'Cards',
                     textStyle: TextStyle(
@@ -170,7 +170,7 @@ class FeaturesPage extends StatelessWidget {
                       fontWeight: FontWeight.normal,
                     ),
                     onPressed: () {
-                      // Show popup message for Cards
+                      
                       showDialog(
                         context: context,
                         builder: (BuildContext context) {
@@ -213,10 +213,10 @@ class FeaturesPage extends StatelessWidget {
               ),
 
               SizedBox(
-                  height: 25), // Add space between buttons and the new button
+                  height: 25),  
               ElevatedButton(
                 onPressed: () {
-                  // Navigate to the new page
+                   
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => BackgroundPage()),
@@ -260,13 +260,13 @@ class FeatureButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      //width: double.infinity,
+       
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: Color(0xFF7D5AAD),
           padding: EdgeInsets.symmetric(vertical: 10),
-          // Set fixed width for the button
+           
           minimumSize: Size(260, 20),
         ),
         child: Text(
@@ -283,16 +283,3 @@ class FeatureButton extends StatelessWidget {
 }
 
 
-// class NewPage extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('New Page'),
-//       ),
-//       body: Center(
-//         child: Text('This is a new page!'),
-//       ),
-//     );
-//   }
-// }

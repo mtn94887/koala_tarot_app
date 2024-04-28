@@ -13,7 +13,6 @@ class tarot_root extends StatelessWidget {
      ),
      home: tarotfavoritepage(),
      routes: {
-       //'/meditation': (context) => MeditationPage(),
        '/music': (context) => Music(),
      },
    );

@@ -100,8 +100,3 @@ class TermsScreen extends StatelessWidget {
   }
 }
 
-void main() {
-  runApp(MaterialApp(
-    home: TermsScreen(),
-  ));
-}

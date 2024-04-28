@@ -11,13 +11,13 @@ class FavoriteReadings extends ChangeNotifier {
   void addToFavorites(String reading) async {
     _favorites.add(reading);
     notifyListeners();
-    await _addFavoriteToFirestore(reading); // Call the static method
+    await _addFavoriteToFirestore(reading);  
   }
 
   void removeFromFavorites(String reading) async {
     _favorites.remove(reading);
     notifyListeners();
-    await _removeFavoriteFromFirestore(reading); // Call the static method
+    await _removeFavoriteFromFirestore(reading);  
   }
 
   static Future<void> _addFavoriteToFirestore(String text) async {

@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 
 class HealthPage extends StatelessWidget {
   final List<String> cardImages = List.generate(
-      22, (index) => 'assets/DrawCards/card${index + 1}.png'); // List of 20 card images
+      22, (index) => 'assets/DrawCards/card${index + 1}.png'); 
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +21,14 @@ class HealthPage extends StatelessWidget {
        
       ),
       body: ListView.builder(
-        itemCount: 4, // Number of rows
+        itemCount: 4, 
         itemBuilder: (BuildContext context, int rowIndex) {
           return Container(
             margin: EdgeInsets.symmetric(vertical: 10.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: List.generate(
-                5, // Number of cards per row
+                5, 
                 (int columnIndex) {
                   int index = rowIndex * 5 + columnIndex;
                   return GestureDetector(
@@ -45,7 +45,7 @@ class HealthPage extends StatelessWidget {
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width * 0.15,
                       child: Image.asset('assets/pinkcover.png'),
-                      //child: Image.asset(cardImages[index]),
+                      
                     ),
                   );
                 },
@@ -59,7 +59,7 @@ class HealthPage extends StatelessWidget {
 }
 
   class DrawCard extends StatefulWidget {
-  final int selectedIndex; // Index of the selected card
+  final int selectedIndex; 
 
   DrawCard({required this.selectedIndex});
 
@@ -92,7 +92,7 @@ final List<String> cardImages = [
     'assets/DrawCards/card20.png',
     'assets/DrawCards/card21.png',
     'assets/DrawCards/card22.png'
-  ]; // List of 22 card images
+  ]; 
 
   final List<String> cardTexts = [
     'In terms of health, The Fool encourages you to take a fresh approach to your well-being. This card suggests that it is time to break free from old habits or patterns that may be holding you back and embrace a more adventurous and spontaneous approach to your health and wellness. Try new forms of exercise, explore alternative healing modalities, and do not be afraid to take risks in pursuit of your health goals. Remember to listen to your body and trust your intuition as you navigate this journey towards greater vitality and well-being.',
@@ -119,17 +119,17 @@ final List<String> cardImages = [
     'In terms of health, The World card represents vitality, wholeness, and well-being. This card suggests that you are experiencing a period of physical, emotional, and spiritual balance and harmony. It could indicate a sense of completeness and fulfillment in your overall health and well-being. Embrace this time as an opportunity to prioritize self-care, nourishment, and holistic wellness practices that support your vitality and vitality. Trust in the power of balance and harmony to bring about greater health and vitality in your life. Remember to listen to your body needs and honor its wisdom with love and compassion.'
   ];
 
- int selectedIndex = 0; // Index of the selected card
+ int selectedIndex = 0; 
   bool isFavorite = false;
   _DrawCardState({required this.selectedIndex});
 
   @override
   Widget build(BuildContext context) {
-    // Shuffle the indices to get random images and texts
+    
     List<int> indices = List.generate(22, (index) => index);
     indices.shuffle();
 
-    // Get the random image and its corresponding text
+    
     String selectedImage = cardImages[indices[selectedIndex % 22]];
     String selectedText = cardTexts[indices[selectedIndex % 22]];
     
@@ -150,12 +150,12 @@ final List<String> cardImages = [
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                width: 350, // specify width
-                height: 350, // specify height
+                width: 350,  
+                height: 350,  
                 child: Image.asset(selectedImage),
               ),
               Padding(
-                padding: EdgeInsets.all(30.0), // adjust the padding as needed
+                padding: EdgeInsets.all(30.0),  
                 child: Text(
                   selectedText,
                   textAlign: TextAlign.center,

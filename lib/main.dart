@@ -27,16 +27,13 @@ class MyApp extends StatelessWidget {
  @override
  Widget build(BuildContext context) {
    return MaterialApp(
-    title: 'Your App Title', // Set your app title
+    title: 'Your App Title',  
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      //please change to MainPage() in the place of BottomNavigationBarExampleApp()
       home: MainPage(),
-      //home: BottomNavigationBarExampleApp(),
       routes: {
-        //'/meditation': (context) => MeditationPage(),
-        '/music': (context) => Music(), 
+         '/music': (context) => Music(), 
         
       },
    );

@@ -16,7 +16,7 @@ class tarotfavoritepage extends StatefulWidget {
 
 class _tarotfavoritepageState extends State<tarotfavoritepage> {
   
-  //displaying ids 
+    
   List<String> docIDs = []; 
 
   Future getDocId() async{
@@ -33,7 +33,7 @@ class _tarotfavoritepageState extends State<tarotfavoritepage> {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      //app bar 
+        
       appBar: AppBar(
         backgroundColor: Color(0xFF7D5AAD),
         automaticallyImplyLeading: false,
@@ -60,7 +60,7 @@ class _tarotfavoritepageState extends State<tarotfavoritepage> {
         ],
       ),
 
-      //body
+       
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -80,14 +80,13 @@ class _tarotfavoritepageState extends State<tarotfavoritepage> {
                     itemCount: docIDs.length, 
                     itemBuilder: (context, index){
                       return Container(
-                        margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0), // Adjust margin as needed
-                        padding: EdgeInsets.all(5.0), // Adjust padding as needed
+                        margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),  
+                        padding: EdgeInsets.all(5.0),  
                         decoration: BoxDecoration(
-                          color: Colors.white, // White background color
-                          borderRadius: BorderRadius.circular(20.0), // Rounded corners
+                          color: Colors.white,  
+                          borderRadius: BorderRadius.circular(20.0), 
                         ),
                         child: ListTile(
-                          //title: Text(favoriteReadings.favorites[index]),
                           title: GetFavoriteReading(documentId: docIDs[index])
                         ),
                       ); 
@@ -97,12 +96,7 @@ class _tarotfavoritepageState extends State<tarotfavoritepage> {
                 )
               )
             ),
-            // ElevatedButton(
-            //   onPressed: () {
-                
-            //   }, 
-            //   child: Text('Delete all favorite readings')
-            // )
+             
             ElevatedButton(
               onPressed: () async {
                 String documentId = FirebaseAuth.instance.currentUser?.uid ?? '';
@@ -113,16 +107,15 @@ class _tarotfavoritepageState extends State<tarotfavoritepage> {
                   batch.delete(doc.reference);
                 });
 
-                // Commit the batch
+                 
                 await batch.commit();
 
-                // After deletion, update the UI or perform any necessary actions
+                 
                 setState(() {
-                  docIDs.clear(); // Clear the list of document IDs
+                  docIDs.clear(); 
                 });
 
-                // Show a snackbar or toast to indicate successful deletion
-                ScaffoldMessenger.of(context).showSnackBar(
+                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text('All favorite readings deleted'),
                   ),

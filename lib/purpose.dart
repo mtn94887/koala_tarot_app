@@ -7,10 +7,10 @@ class PurposePage extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(50.0), // Adjust the height as needed
+        preferredSize: Size.fromHeight(50.0),  
         child: Container(
           decoration: BoxDecoration(
-            color: Color(0xFF7D5AAD), // Adjust opacity as needed
+            color: Color(0xFF7D5AAD),  
           ),
           child: AppBar(
             backgroundColor: Colors.transparent,
@@ -18,7 +18,7 @@ class PurposePage extends StatelessWidget {
             leading: IconButton(
               icon: Icon(Icons.arrow_back),
               onPressed: () {
-                // Implement navigation to previous screen
+                 
                 Navigator.pop(context);
               },
             ),
@@ -48,14 +48,14 @@ class PurposePage extends StatelessWidget {
           children: [
             Container(
               width: double.infinity,
-              height: 400, // Adjust the width as needed
+              height: 400,  
               child: Image.asset(
                 'assets/_ Photo.jpg',
                 fit: BoxFit.fill,
               ),
             ),
             SizedBox(height: 20),
-            // Text widgets for the purpose of the app
+             
             Text(
               'The Purpose of Our App',
               style: TextStyle(
@@ -97,7 +97,7 @@ class PurposePage extends StatelessWidget {
               width: 250,
               child: ElevatedButton(
                 onPressed: () {
-                  // Navigate to the next page
+                   
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => FeaturesPage()),

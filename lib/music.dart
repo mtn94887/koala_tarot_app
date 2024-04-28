@@ -224,8 +224,3 @@ class Music extends StatelessWidget {
 }
 
 
-void main() {
- runApp(MaterialApp(
-   home: MeditationPage("intro.mp3"),
- ));
-}

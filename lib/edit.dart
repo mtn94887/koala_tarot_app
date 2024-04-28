@@ -8,7 +8,7 @@ class EditScreen extends StatefulWidget {
 class _EditScreenState extends State<EditScreen> {
   TextEditingController _birthdayController = TextEditingController();
   FocusNode _birthdayFocusNode = FocusNode();
-  String selectedZodiacSign = 'Aries'; // Default value
+  String selectedZodiacSign = 'Aries'; 
 
   @override
   void initState() {
@@ -169,7 +169,7 @@ DropdownButtonFormField<String>(
     );
   }
 
-  // Function to open date picker dialog
+  
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
@@ -195,11 +195,6 @@ DropdownButtonFormField<String>(
   }
 }
 
-void main() {
-  runApp(MaterialApp(
-    home: EditScreen(),
-  ));
-}
 
 final List<String> zodiacSigns = [
   'Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio',

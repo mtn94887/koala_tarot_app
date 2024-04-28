@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 
 class WeeklyReadingPage extends StatelessWidget {
   final List<String> cardImages = List.generate(
-      22, (index) => 'assets/DrawCards/card${index + 1}.png'); // List of 20 card images
+      22, (index) => 'assets/DrawCards/card${index + 1}.png');  
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +21,14 @@ class WeeklyReadingPage extends StatelessWidget {
        
       ),
       body: ListView.builder(
-        itemCount: 4, // Number of rows
+        itemCount: 4,  
         itemBuilder: (BuildContext context, int rowIndex) {
           return Container(
             margin: EdgeInsets.symmetric(vertical: 10.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: List.generate(
-                5, // Number of cards per row
+                5,  
                 (int columnIndex) {
                   int index = rowIndex * 5 + columnIndex;
                   return GestureDetector(
@@ -45,7 +45,7 @@ class WeeklyReadingPage extends StatelessWidget {
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width * 0.15,
                       child: Image.asset('assets/pinkcover.png'),
-                      //child: Image.asset(cardImages[index]),
+                      
                     ),
                   );
                 },
@@ -59,7 +59,7 @@ class WeeklyReadingPage extends StatelessWidget {
 }
 
   class DrawCard extends StatefulWidget {
-  final int selectedIndex; // Index of the selected card
+  final int selectedIndex;  
 
   DrawCard({required this.selectedIndex});
 
@@ -92,7 +92,7 @@ final List<String> cardImages = [
     'assets/DrawCards/card20.png',
     'assets/DrawCards/card21.png',
     'assets/DrawCards/card22.png'
-  ]; // List of 22 card images
+  ];  
 
   final List<String> cardTexts = [
     'Embrace a fresh start and a sense of adventure this week. Trust in the journey ahead and be open to new experiences.',
@@ -119,17 +119,17 @@ final List<String> cardImages = [
     'Celebrate your achievements and completion of a significant phase. Embrace fulfillment and wholeness as you step into new beginnings.'
   ]; 
 
-  int selectedIndex = 0; // Index of the selected card
+  int selectedIndex = 0;  
   bool isFavorite = false;
   _DrawCardState({required this.selectedIndex});
 
   @override
   Widget build(BuildContext context) {
-    // Shuffle the indices to get random images and texts
+     
     List<int> indices = List.generate(22, (index) => index);
     indices.shuffle();
 
-    // Get the random image and its corresponding text
+     
     String selectedImage = cardImages[indices[selectedIndex % 22]];
     String selectedText = cardTexts[indices[selectedIndex % 22]];
     
@@ -150,12 +150,12 @@ final List<String> cardImages = [
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                width: 350, // specify width
-                height: 350, // specify height
+                width: 350,  
+                height: 350,  
                 child: Image.asset(selectedImage),
               ),
               Padding(
-                padding: EdgeInsets.all(30.0), // adjust the padding as needed
+                padding: EdgeInsets.all(30.0),  
                 child: Text(
                   selectedText,
                   textAlign: TextAlign.center,
