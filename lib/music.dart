@@ -157,7 +157,7 @@ class _MeditationPageState extends State<MeditationPage> {
 }
 
 class Music extends StatelessWidget {
- final List<String> song = ['intro.mp3', 'Download.mp3', 'deep_relaxation.mp3'];
+ final List<String> song = ['meditation1.mp3', 'meditation2.mp3', 'meditation3.mp3'];
 
 
  @override

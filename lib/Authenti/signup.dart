@@ -36,7 +36,7 @@ class _SignupPageState extends State<SignupPage> {
   //for firebase set up 
   Future signUp() async{
     try { 
-      if (passwordConfirmed()){
+      if (passwordConfirmed() && _passwordController.text.trim().length >= 6){
       //create user 
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: _emailController.text.trim(), 
@@ -51,8 +51,25 @@ class _SignupPageState extends State<SignupPage> {
         context, 
         MaterialPageRoute(builder: (context)=> BottomNavigationBarExampleApp()),
       );
-
-    }
+      }
+      else {
+        showDialog(
+          context: context, 
+          builder: (context){
+            return AlertDialog(
+              title: Text('Password Error'),
+              content: Text('Passwaord must be at least 6 characters long'),
+              actions: [
+                TextButton(
+                  onPressed: () { 
+                    Navigator.pop(context);
+                  }, 
+                  child: Text('Ok')),
+              ],
+            );
+          },
+        );
+      }
     } catch (e) { 
       print ("Error signing up in: "); 
     }
@@ -70,7 +87,7 @@ class _SignupPageState extends State<SignupPage> {
     await FirebaseFirestore.instance.collection('users').doc(documentId).collection('favorites').doc().set({
     // You can initialize any default values for the favorites collection here
     // For example:
-      'text': '      Thanks for using our app. You can add your favorite readings here.         ',
+      'text': 'Thanks for using our app. \tYou can add your favorite readings here.',
     });
   }
 
@@ -188,18 +205,21 @@ class _SignupPageState extends State<SignupPage> {
                       SizedBox(height: 30),
                       TextField(
                         controller: _passwordController,
+                        obscureText: true,
                         decoration: InputDecoration(
                           hintText: 'Password',
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
                         ),
+                         
                       ),
 
                       //confirm password text field 
                       SizedBox(height: 30),
                       TextField(
                         controller: _confirmPasswordController,
+                        obscureText: true,
                         decoration: InputDecoration(
                           hintText: 'Confirm password',
                           border: OutlineInputBorder(

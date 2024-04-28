@@ -14,7 +14,7 @@ class _MeditationPageState extends State<MeditationPage> {
   AudioPlayer _audioPlayer = AudioPlayer();
   double _volume = 0.5;
 
-  List<String> song = ['Download.mp3'];
+  List<String> song = ['meditation1.mp3'];
   int music_index = 0;
 
   @override

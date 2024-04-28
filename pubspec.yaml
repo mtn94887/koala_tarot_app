@@ -83,9 +83,6 @@ flutter:
     - assets/Tarot card/image_6 copy.png
     - assets/DrawCards/
     - assets/Navibar/
-    - assets/intro.mp3
-    - assets/Download.mp3
-    - assets/deep_relaxation.mp3 
     - assets/crystal-ball.png
     - assets/history-book.png
     - assets/magic.png
@@ -124,8 +121,10 @@ flutter:
     - assets/image_4.png
     - assets/image_5.png
     - assets/image_6.png
-    - assets/intro.mp3
     - assets/pinkcover.png
+    - assets/meditation1.mp3
+    - assets/meditation2.mp3
+    - assets/meditation3.mp3
     
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
