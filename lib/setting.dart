@@ -92,6 +92,8 @@ class _SettingScreenState extends State<SettingScreen> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+
+      //app bar 
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text(
@@ -113,6 +115,13 @@ class _SettingScreenState extends State<SettingScreen> {
             child: ListView(
               padding: EdgeInsets.all(20.0),
               children: [
+                SizedBox(height: 20,),
+                Container(
+                  width: 100, 
+                  height: 100,
+                  child: Image.asset('assets/Navibar/tarot.png'),
+                ),
+                SizedBox(height: 20,),
                 Container(
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 189, 152, 241),
