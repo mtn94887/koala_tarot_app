@@ -120,7 +120,7 @@ final List<String> cardImages = [
   ];
 
 
-  int selectedIndex = 0; // Index of the selected card
+ int selectedIndex = 0; // Index of the selected card
   bool isFavorite = false;
   _DrawCardState({required this.selectedIndex});
 
@@ -146,7 +146,7 @@ final List<String> cardImages = [
         
       ),
       body: Center(
-         child: SingleChildScrollView(
+        child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -195,11 +195,16 @@ class _FavoriteIconWidgetState extends State<FavoriteIconWidget> {
         setState(() {
           _isFavorite = !_isFavorite;
         });
+        if (_isFavorite){
         Provider.of<FavoriteReadings>(context , listen: false).addToFavorites(_selectedText);
+      }else{
+        Provider.of<FavoriteReadings>(context, listen: false).removeFromFavorites(_selectedText);
+      }
       },
       icon: Icon(
         _isFavorite ? Icons.favorite : Icons.favorite_border,
         color: _isFavorite ? Colors.red : Colors.black,
+        
       ),
     );
   }

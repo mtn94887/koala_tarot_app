@@ -119,7 +119,7 @@ final List<String> cardImages = [
     'In the realm of finances, The World card signifies success, abundance, and prosperity. This card suggests that you are experiencing a period of financial fulfillment and achievement. It could indicate the successful completion of a financial goal or the attainment of a level of financial security and stability. Embrace this time as an opportunity to celebrate your achievements and acknowledge your abundance and prosperity. Trust in the power of abundance and prosperity to flow into your life effortlessly. Remember to continue making wise financial decisions and to trust in your ability to attract wealth and success in the future.'
   ];
 
-  int selectedIndex = 0; // Index of the selected card
+ int selectedIndex = 0; // Index of the selected card
   bool isFavorite = false;
   _DrawCardState({required this.selectedIndex});
 
@@ -145,7 +145,7 @@ final List<String> cardImages = [
         
       ),
       body: Center(
-         child: SingleChildScrollView(
+        child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -194,11 +194,16 @@ class _FavoriteIconWidgetState extends State<FavoriteIconWidget> {
         setState(() {
           _isFavorite = !_isFavorite;
         });
+        if (_isFavorite){
         Provider.of<FavoriteReadings>(context , listen: false).addToFavorites(_selectedText);
+      }else{
+        Provider.of<FavoriteReadings>(context, listen: false).removeFromFavorites(_selectedText);
+      }
       },
       icon: Icon(
         _isFavorite ? Icons.favorite : Icons.favorite_border,
         color: _isFavorite ? Colors.red : Colors.black,
+        
       ),
     );
   }

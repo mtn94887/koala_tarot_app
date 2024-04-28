@@ -119,7 +119,7 @@ final List<String> cardImages = [
     'In terms of health, The World card represents vitality, wholeness, and well-being. This card suggests that you are experiencing a period of physical, emotional, and spiritual balance and harmony. It could indicate a sense of completeness and fulfillment in your overall health and well-being. Embrace this time as an opportunity to prioritize self-care, nourishment, and holistic wellness practices that support your vitality and vitality. Trust in the power of balance and harmony to bring about greater health and vitality in your life. Remember to listen to your body needs and honor its wisdom with love and compassion.'
   ];
 
-  int selectedIndex = 0; // Index of the selected card
+ int selectedIndex = 0; // Index of the selected card
   bool isFavorite = false;
   _DrawCardState({required this.selectedIndex});
 
@@ -145,7 +145,7 @@ final List<String> cardImages = [
         
       ),
       body: Center(
-         child: SingleChildScrollView(
+        child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -194,11 +194,16 @@ class _FavoriteIconWidgetState extends State<FavoriteIconWidget> {
         setState(() {
           _isFavorite = !_isFavorite;
         });
+        if (_isFavorite){
         Provider.of<FavoriteReadings>(context , listen: false).addToFavorites(_selectedText);
+      }else{
+        Provider.of<FavoriteReadings>(context, listen: false).removeFromFavorites(_selectedText);
+      }
       },
       icon: Icon(
         _isFavorite ? Icons.favorite : Icons.favorite_border,
         color: _isFavorite ? Colors.red : Colors.black,
+        
       ),
     );
   }
