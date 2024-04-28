@@ -29,47 +29,58 @@ class TermsScreen extends StatelessWidget {
             Text(
               'Welcome to the Tarot app! By using this app, you agree to abide by the following terms and conditions:',
               style: TextStyle(fontSize: 16),
+              textAlign: TextAlign.justify,
             ),
             SizedBox(height: 10),
             Text(
-              '1. This app is for entertainment purposes only and should not be considered as professional advice.',
+              '1.This app is for entertainment purposes only and should not be considered as professional advice.',
               style: TextStyle(fontSize: 16),
+              textAlign: TextAlign.justify,
             ),
             Text(
-              '2. We do not guarantee the accuracy or reliability of any information provided by this app.',
+              '2.We do not guarantee the accuracy or reliability of any information provided by this app.',
               style: TextStyle(fontSize: 16),
+              textAlign: TextAlign.justify,
             ),
             Text(
-              '3. You agree to use this app responsibly and ethically.',
+              '3.You agree to use this app responsibly and ethically.',
               style: TextStyle(fontSize: 16),
+              textAlign: TextAlign.justify,
             ),
             Text(
-              '4. The Tarot readings provided by this app are based on algorithms and should not be taken as absolute truth.',
+              '4.The Tarot readings provided by this app are based on algorithms and should not be taken as absolute truth.',
               style: TextStyle(fontSize: 16),
+              textAlign: TextAlign.justify,
             ),
             Text(
-              '5. We do not take responsibility for any decisions made based on the Tarot readings.',
+              '5.We do not take responsibility for any decisions made based on the Tarot readings.',
               style: TextStyle(fontSize: 16),
+              textAlign: TextAlign.justify,
             ),
             Text(
-              '6. You must be of legal age in your jurisdiction to use this app.',
+              '6.You must be of legal age in your jurisdiction to use this app.',
               style: TextStyle(fontSize: 16),
+              textAlign: TextAlign.justify,
             ),
             Text(
-              '7. We reserve the right to modify or discontinue the app or any part of it at any time.',
+              '7.We reserve the right to modify or discontinue the app or any part of it at any time.',
               style: TextStyle(fontSize: 16),
+              textAlign: TextAlign.justify,
             ),
             Text(
-              '8. By using this app, you agree to receive occasional promotional messages from us.',
+              '8.By using this app, you agree to receive occasional promotional messages from us.',
               style: TextStyle(fontSize: 16),
+              textAlign: TextAlign.justify,
             ),
             Text(
-              '9. Any user-generated content shared on this app must adhere to community guidelines.',
+              '9.Any user-generated content shared on this app must adhere to community guidelines.',
               style: TextStyle(fontSize: 16),
+              textAlign: TextAlign.justify,
             ),
             Text(
-              '10. Violation of these terms may result in termination of your account.',
+              '10.Violation of these terms may result in termination of your account.',
               style: TextStyle(fontSize: 16),
+              textAlign: TextAlign.justify,
             ),
             // Move the copyright statement to the bottom
             Padding(

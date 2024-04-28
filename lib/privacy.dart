@@ -38,6 +38,7 @@ class PrivacyScreen extends StatelessWidget {
               SizedBox(height: 10.0),
               Text(
                 'We may collect certain personal information, such as your name, email address, date of birth, and location, to provide personalized tarot readings and improve our services. Your data may also be used for analytics purposes to enhance user experience.',
+                textAlign: TextAlign.justify,
               ),
               SizedBox(height: 10.0),
               Text(
@@ -50,6 +51,7 @@ class PrivacyScreen extends StatelessWidget {
               SizedBox(height: 10.0),
               Text(
                 'Your personal information may be used to generate accurate tarot readings and deliver them to you. We do not share your data with third parties without your consent. However, anonymized and aggregated data may be shared for research or marketing purposes.',
+                textAlign: TextAlign.justify,
               ),
               SizedBox(height: 10.0),
               Text(
@@ -62,6 +64,7 @@ class PrivacyScreen extends StatelessWidget {
               SizedBox(height: 10.0),
               Text(
                 'We take appropriate security measures to protect your data against unauthorized access, alteration, disclosure, or destruction. Your privacy is important to us, and we strive to keep your information secure. However, please note that no method of transmission over the internet or electronic storage is 100% secure.',
+                textAlign: TextAlign.justify,
               ),
               SizedBox(height: 10.0),
               Text(
@@ -73,7 +76,8 @@ class PrivacyScreen extends StatelessWidget {
               ),
               SizedBox(height: 10.0),
               Text(
-                'If you have any questions or concerns about our Privacy Policy, please contact us at "teamkoala78@gmail.com". We value your feedback and are committed to addressing any issues promptly and transparently.',
+                'If you have any questions or concerns about our Privacy Policy, please feel free to contact us at "tarot@koala.com". We value your feedback and are committed to addressing any issues promptly and transparently.',
+                textAlign: TextAlign.justify,
               ),
             ],
           ),
