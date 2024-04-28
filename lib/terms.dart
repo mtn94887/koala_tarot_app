@@ -13,6 +13,7 @@ class TermsScreen extends StatelessWidget {
           },
         ),
         title: Text('Terms of Service'),
+        backgroundColor: Color.fromARGB(255, 189, 152, 241),
       ),
       body: SingleChildScrollView(
         child: Padding(

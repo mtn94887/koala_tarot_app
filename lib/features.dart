@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'background.dart';
 
 class FeaturesPage extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +42,7 @@ class FeaturesPage extends StatelessWidget {
             colors: [Color.fromRGBO(131, 93, 184, 1), Color(0xFF303E87)],
           ),
         ),
-        child: Center(
+        child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -234,8 +235,10 @@ class FeaturesPage extends StatelessWidget {
                   ),
                 ),
               ),
+              SizedBox(height: 30)
             ],
           ),
+          
         ),
       ),
     );

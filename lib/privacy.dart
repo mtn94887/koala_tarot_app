@@ -12,6 +12,7 @@ class PrivacyScreen extends StatelessWidget {
           },
         ),
         title: Text('Privacy & Policy'),
+        backgroundColor:Color.fromARGB(255, 189, 152, 241),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
