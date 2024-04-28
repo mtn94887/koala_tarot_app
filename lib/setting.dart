@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:koala_tarot_app/Authenti/authpage.dart';
@@ -51,7 +52,7 @@ class _SettingScreenState extends State<SettingScreen> {
     );
   }
 
-  void _deleteAccount() {
+  void _deleteAccount() async {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -67,11 +68,17 @@ class _SettingScreenState extends State<SettingScreen> {
             ),
             TextButton(
               child: Text("Yes"),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => AuthPage()),
-                );
+              onPressed: () async{
+                await FirebaseFirestore.instance.collection('users').doc(user.uid).delete();
+                try {
+                  await FirebaseAuth.instance.currentUser!.delete(); 
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => AuthPage()),
+                  );
+                } catch (e){
+                  print('Error deleting user: $e');
+                }
               },
             ),
           ],
