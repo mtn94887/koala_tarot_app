@@ -145,22 +145,24 @@ final List<String> cardImages = [
         
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: 350, // specify width
-              height: 350, // specify height
-              child: Image.asset(selectedImage),
-            ),
-            Padding(
-              padding: EdgeInsets.all(30.0), // adjust the padding as needed
-              child: Text(
-                selectedText,
-                textAlign: TextAlign.center,
+         child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 350, // specify width
+                height: 350, // specify height
+                child: Image.asset(selectedImage),
               ),
-            ),
-          ],
+              Padding(
+                padding: EdgeInsets.all(30.0), // adjust the padding as needed
+                child: Text(
+                  selectedText,
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
