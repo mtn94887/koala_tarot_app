@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:267609904574:android:70f8dc63bf472bb50595ef",
+        "mobilesdk_app_id": "1:267609904574:android:0670c9233e03ddfa0595ef",
         "android_client_info": {
-          "package_name": "com.example.koala_tarot_app"
+          "package_name": "com.koalagrouplay.koala_tarot_app"
         }
       },
       "oauth_client": [],
